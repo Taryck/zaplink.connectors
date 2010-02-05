@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="utf-16"?>
+<CONTAINER NAME="ZAPLINK_TRANSACTION" VERSION="1.0" CLASS="ZAPLINK_CONTAINER">
+ <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_TRANSACTION" TYPE="CLAS" VERSION="1.0">
+  <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
+  <RAW>
+   <A0_MAINDATA VERSION="1" LANGU="E" UUID="4767664B7448937BE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100201" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+    <INHERITANCE REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100201"/>
+    <TEXTS>
+     <ITEM LANGU="E" DESCRIPT="Data for Class"/>
+    </TEXTS>
+   </A0_MAINDATA>
+   <ATTRIBUTS>
+    <ITEM CMPNAME="BALLOG_SUBOBJECT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20100203" ATTDECLTYP="2" ATTVALUE="&apos;CNX_TRANSACTION&apos;" TYPTYPE="1" TYPE="BALSUBOBJ" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Application Log: Subobject"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="C_MSG_ID" VERSION="1" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100201" ATTDECLTYP="2" ATTVALUE="&apos;NA&apos;" TYPTYPE="1" TYPE="TD_DOC_ID" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Document class for message"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="R_DOC_ID" VERSION="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100201" ATTDECLTYP="1" TYPTYPE="1" TYPE="TR_DOCID" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Documentation Object"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="ST_TRANSACTION" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100202" ATTDECLTYP="2" ATTVALUE="&apos;TRAN&apos;" TYPTYPE="1" TYPE="TD_COMPTYPE" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Transport category : ABAP Object"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="_UUID" VERSION="1" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" ATTDECLTYP="2" ATTVALUE="&apos;A816684B5215E22AE1000000AC120173&apos;" TYPTYPE="1" TYPE="TD_CONNUUID" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="UUID for connector Message class"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="_VER" VERSION="1" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100201" ATTDECLTYP="2" ATTVALUE="&apos;1.0&apos;" TYPTYPE="1" TYPE="TD_CONNVER" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Connector Version"/>
+     </TEXTS>
+    </ITEM>
+   </ATTRIBUTS>
+   <DEFERRED>
+    <CLASSES>
+     <ITEM TYPEGROUP="ZAPLINK_DOCUMENTATION" VERSION="1" TPUTYPE="1" IMPLICIT="X"/>
+    </CLASSES>
+   </DEFERRED>
+   <LOCAL>
+    <TYPES>
+*&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
+*&quot;* definitions, interfaces or data types) you need for method
+*&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE</TYPES>
+    <IMPLEMENTATIONS>
+*&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
+*&quot;* use this source file for the implementation part of
+*&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
+    <MACROS>
+*&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
+*&quot;* in the implementation part of the class
+
+INCLUDE ZAPLINK_MACROS.</MACROS>
+   </LOCAL>
+   <METHODS>
+    <ITEM CMPNAME="CLASS_CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100201" MTDTYPE="2" MTDDECLTYP="1" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="CLASS_CONSTRUCTOR"/>
+     </TEXTS>
+     <SOURCE>
+*table TDCLT
+*DOKCLASS DOKTITEL
+*NA       Message
+  DATA _id LIKE LINE OF r_doc_id.
+
+  _id-sign = &apos;I&apos;. _id-option = &apos;EQ&apos;.
+  _id-low = C_MSG_ID. APPEND _id TO r_doc_id.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100201" MTDTYPE="2" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="CONSTRUCTOR"/>
+     </TEXTS>
+     <SOURCE>
+  DATA type LIKE LINE OF supported_types.
+
+  CALL METHOD super-&gt;constructor.
+  mac_create_log application_log ballog_subobject space.
+  type-type = st_transaction. INSERT type INTO TABLE supported_types.
+
+  uuid = _uuid.
+  version = _ver.</SOURCE>
+    </ITEM>
+   </METHODS>
+   <REDEFINITIONS>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CNX_EXT_CLEANER~ANONYMIZE">
+     <SOURCE>
+*  DATA o_msag TYPE to_data.
+*  DATA s_msg LIKE LINE OF o_msag-&gt;messages.
+*
+*  TRY.
+*      super-&gt;zaplink_cnx_ext_cleaner~anonymize( object ).
+*    CATCH zaplink_cx_connector INTO o_mycx.
+*      RAISE EXCEPTION o_mycx.
+*  ENDTRY.
+*
+*  o_msag ?= object-&gt;raw.
+*  CLEAR:
+**    o_msag-&gt;A0_MAINDATA-RESPUSER,
+*    o_msag-&gt;a0_maindata-lastuser,
+*    o_msag-&gt;a0_maindata-ldate,
+*    o_msag-&gt;a0_maindata-ltime.
+*
+*  MODIFY o_msag-&gt;messages FROM s_msg TRANSPORTING name datum
+*         WHERE msgnr IS INITIAL OR
+*               msgnr IS NOT INITIAL.
+</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CNX_EXT_CLEANER~UNANONYMIZE">
+     <SOURCE>
+*  DATA o_msag TYPE to_data.
+*  DATA s_msg LIKE LINE OF o_msag-&gt;messages.
+*
+*  TRY.
+*      super-&gt;zaplink_cnx_ext_cleaner~unanonymize( object ).
+*    CATCH zaplink_cx_connector INTO o_mycx.
+*      RAISE EXCEPTION o_mycx.
+*  ENDTRY.
+*
+*  o_msag ?= object-&gt;raw.
+*  if o_msag-&gt;A0_MAINDATA-RESPUSER is INITIAL. o_msag-&gt;A0_MAINDATA-RESPUSER = sy-uname. endif.
+*  s_msg-name = o_msag-&gt;A0_MAINDATA-RESPUSER.
+*  MODIFY o_msag-&gt;messages FROM s_msg TRANSPORTING name
+*         WHERE name IS INITIAL.
+</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~CREATE_NEW_RAW">
+     <SOURCE>
+  DATA o_data TYPE to_data.
+
+  CREATE OBJECT object.
+  CASE type.
+    WHEN st_transaction.
+      CREATE OBJECT o_data.
+      object-&gt;raw = o_data.
+    WHEN OTHERS.
+      CLEAR object.
+* Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
+      RAISE EXCEPTION TYPE zaplink_cx_connector
+        EXPORTING
+          textid = zaplink_cx_connector=&gt;type_not_supported
+          type   = type
+          connclass = &apos;ZAPLINK_MESSAGE&apos;.
+  ENDCASE.
+</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~DELETE_FROM_SAP">
+     <SOURCE>
+  DATA d_name TYPE tstc-tcode.
+  DATA d_type   TYPE td_comptype.
+
+  TRY.
+
+    d_type = component-&gt;get_type( ).
+    CASE d_type.
+      WHEN st_transaction.
+        d_name = component-&gt;get_name( ).
+        CALL FUNCTION &apos;RPY_TRANSACTION_DELETE&apos;
+          EXPORTING
+            transaction                    = d_name
+*             TRANSPORT_NUMBER               =
+*             SUPPRESS_AUTHORITY_CHECK       = &apos; &apos;
+*             SUPPRESS_CORR_INSERT           = &apos; &apos;
+          EXCEPTIONS
+            not_excecuted                  = 1
+            object_not_found               = 2
+            OTHERS                         = 3.
+        IF sy-subrc &lt;&gt; 0. &quot; SAP NameSpace
+          CASE sy-subrc.
+            WHEN 2.
+              RAISE EXCEPTION TYPE zaplink_cx_connector
+                EXPORTING textid = zaplink_cx_connector=&gt;not_found.
+            WHEN OTHERS.
+              RAISE EXCEPTION TYPE zaplink_cx_connector
+                EXPORTING textid = zaplink_cx_connector=&gt;system_error.
+          ENDCASE.
+        ENDIF.
+      WHEN OTHERS.
+        mac_raise_type_not_supported &apos;ZAPLINK_MESSAGE&apos; d_type.
+    ENDCASE.
+
+    mac_def_catch zaplink_cx_connector.
+  ENDTRY.
+  result = abap_true.</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~DO_EXISTS">
+     <SOURCE>
+  DATA d_name TYPE tstc-tcode.
+  DATA type  TYPE td_comptype.
+
+  exists = me-&gt;exists-not_exists.
+
+  TRY.
+      type = component-&gt;get_type( ).
+      CASE type.
+        WHEN st_transaction.
+          d_name = component-&gt;get_name( ).
+          SELECT SINGLE tcode INTO d_name      &quot; From MF RPY_TRANSACTION_READ
+            FROM tstc
+            WHERE tcode = d_name.
+          IF sy-subrc = 0.
+            exists = me-&gt;exists-exists.
+          ENDIF.
+        WHEN OTHERS.
+* Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
+          RAISE EXCEPTION TYPE zaplink_cx_connector
+            EXPORTING
+              textid = zaplink_cx_connector=&gt;type_not_supported
+              type   = type
+              connclass = &apos;ZAPLINK_MESSAGE&apos;.
+      ENDCASE.
+
+    CATCH zaplink_cx_connector INTO o_mycx.
+      RAISE EXCEPTION o_mycx.
+    CATCH zaplink_cx INTO o_cx.
+      mac_cascade_raise o_mycx o_cx.
+  ENDTRY.
+</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~IS_SUPPORTED_VERSION">
+     <SOURCE>
+  result = abap_false.
+  if version = _ver.
+    result = abap_true.
+  endif.</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~READ_FROM_SAP">
+     <SOURCE>
+  DATA o_data  TYPE to_data.
+  DATA d_name  TYPE tstc-tcode.
+  DATA s_fm_data TYPE zaplink_tran_data=&gt;ts_fm_data.
+  DATA t_tstc  TYPE STANDARD TABLE OF tstc WITH DEFAULT KEY.
+  DATA t_tstcc TYPE STANDARD TABLE OF tstcc WITH DEFAULT KEY.
+  DATA d_remotedata TYPE string.
+  DATA t_param TYPE STANDARD TABLE OF rsparam.
+  FIELD-SYMBOLS:
+    &lt;param&gt; TYPE STANDARD TABLE,
+    &lt;scr&gt; TYPE rsstcd,
+    &lt;g&gt; TYPE s_gui_inhe,
+    &lt;t&gt; LIKE LINE OF t_tstc,
+    &lt;a&gt; LIKE LINE OF t_tstcc.
+
+  TRY.
+
+      CREATE OBJECT object.
+      CASE component-&gt;get_type( ).
+        WHEN st_transaction.
+          d_name = component-&gt;get_name( ).
+
+          CALL FUNCTION &apos;RPY_TRANSACTION_READ&apos;
+            EXPORTING
+              transaction            = d_name
+*             PROGRAM                =
+*             DYNPRO                 =
+*             TRANSACTION_TYPE       = &apos; &apos;
+            TABLES
+              tcodes                 = t_tstc
+              gui_attributes         = t_tstcc
+            EXCEPTIONS
+              permission_error       = 1
+              cancelled              = 2
+              not_found              = 3
+              object_not_found       = 4
+              OTHERS                 = 5.
+          IF sy-subrc &lt;&gt; 0.
+            o_mycx ?= zaplink_cx=&gt;create_from_mf_cx( funcname = &apos;RPY_TRANSACTION_READ&apos;
+                                                        subrc = sy-subrc
+                                                    classname = &apos;ZAPLINK_CX_CONNECTOR&apos; ).
+            application_log-&gt;add_symsg( ).
+            RAISE EXCEPTION o_mycx.
+          ENDIF.
+
+          READ TABLE t_tstc ASSIGNING &lt;t&gt;
+               WITH KEY tcode = d_name.
+          CHECK sy-subrc = 0.
+
+          CREATE OBJECT o_data.
+          s_fm_data-tstc = &lt;t&gt;.
+
+          PERFORM select_tstc_tables_new IN PROGRAM saplseuk USING d_name space space.
+
+          d_remotedata = &apos;(SAPLSEUK)G_GUI_INHE&apos;.
+          ASSIGN (d_remotedata) TO &lt;g&gt;.
+          IF sy-subrc = 0. s_fm_data-gui_inh = &lt;g&gt;. ENDIF.
+
+          d_remotedata = &apos;(SAPLSEUK)param[]&apos;.
+          ASSIGN (d_remotedata) TO &lt;param&gt;.
+          IF sy-subrc = 0. s_fm_data-t_params = &lt;param&gt;. ENDIF.
+
+          d_remotedata = &apos;(SAPLSEUK)RSSTCD&apos;.
+          ASSIGN (d_remotedata) TO &lt;scr&gt;.
+          IF sy-subrc = 0. s_fm_data-rsstcd = &lt;scr&gt;. ENDIF.
+
+          SELECT * INTO TABLE s_fm_data-tstct
+            FROM tstct
+            WHERE tcode = d_name.
+
+          SELECT * INTO TABLE s_fm_data-tstca
+            FROM tstca
+            WHERE tcode = d_name.
+
+          READ TABLE t_tstcc ASSIGNING &lt;a&gt;
+               WITH KEY tcode = d_name.
+          IF sy-subrc = 0.
+            s_fm_data-tstcc = &lt;a&gt;.
+** From MF : RPY_TRANSACTION_INSERT
+**      if not easy_web_transaction is initial.
+**        tstcc-s_webgui = &apos;2&apos;.
+**      elseif not html_enabled is initial.
+**        tstcc-s_webgui = &apos;1&apos;.
+**      else.
+**        clear tstcc-s_webgui.
+**      endif.
+*            CASE &lt;a&gt;-s_webgui.
+*              WHEN &apos;2&apos;.
+*                s_fm_data-easy_web_t = abap_true.
+*              WHEN &apos;1&apos;.
+*                s_fm_data-html_en = abap_true.
+*            ENDCASE.
+*            s_fm_data-wingui_en = &lt;a&gt;-s_win32.
+*            s_fm_data-java_en = &lt;a&gt;-s_platin.
+*            s_fm_data-servicefile = &lt;a&gt;-s_service.
+**            s_fm_data-??? = &lt;a&gt;-s_pervas.
+          ENDIF.
+
+          CREATE OBJECT o_data.
+          o_data-&gt;from_data( s_fm_data ).
+          object-&gt;set_component( component ).
+          CLEAR o_data-&gt;a0_maindata-tcode.
+          object-&gt;raw = o_data.
+        WHEN OTHERS.
+          CLEAR object.
+* Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
+          RAISE EXCEPTION TYPE zaplink_cx_connector
+            EXPORTING
+              textid = zaplink_cx_connector=&gt;type_not_supported
+              type   = object-&gt;type
+              connclass = &apos;ZAPLINK_MESSAGE&apos;.
+      ENDCASE.
+
+    CATCH zaplink_cx_connector INTO o_mycx.
+      RAISE EXCEPTION o_mycx.
+    CATCH zaplink_cx INTO o_cx.
+      mac_cascade_raise o_mycx o_cx.
+  ENDTRY.
+</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~WRITE_TO_SAP">
+     <SOURCE>
+  TYPES:              &quot; FROM LSEUKTOP(82)
+    BEGIN OF cobj,
+      field TYPE tstca-field,
+      value TYPE tstca-value,
+      olen  TYPE dfies-outputlen,
+    END OF cobj.
+  CONSTANTS:          &quot; FROM LSEUKTOP(93)
+      hex_tra TYPE x VALUE &apos;00&apos;,               &quot; Transaktion         T
+      hex_men TYPE x VALUE &apos;01&apos;,               &quot; Bereichsmenü        M
+      hex_par TYPE x VALUE &apos;02&apos;,               &quot; Parametertrans.     P
+      hex_rep TYPE x VALUE &apos;80&apos;,               &quot; Report              R
+      hex_rpv TYPE x VALUE &apos;10&apos;,               &quot; Report  with Variant
+      hex_obj TYPE x VALUE &apos;08&apos;,               &quot; Transactional object
+      hex_chk TYPE x VALUE &apos;04&apos;,               &quot; With autjority check
+      hex_enq TYPE x VALUE &apos;20&apos;.               &quot; With SM01
+
+  DATA t_cobj TYPE STANDARD TABLE OF cobj.
+  DATA s_cobj LIKE LINE OF t_cobj.
+  DATA o_data TYPE to_data.
+  DATA o_comp TYPE to_component.
+  DATA d_name TYPE td_compname.
+  DATA s_fm_data TYPE zaplink_tran_data=&gt;ts_fm_data.
+  DATA d_remotedata TYPE string.
+  DATA s_tstca LIKE LINE OF s_fm_data-tstca.
+  DATA s_tstct LIKE LINE OF s_fm_data-tstct.
+  FIELD-SYMBOLS:
+    &lt;t&gt; LIKE LINE OF s_fm_data-tstct,
+    &lt;st&gt; TYPE STANDARD TABLE,
+    &lt;v&gt; LIKE LINE OF s_fm_data-tstca,
+    &lt;a&gt; TYPE ANY.
+
+  DEFINE mac_assign.
+    d_remotedata = &amp;1.
+    assign (d_remotedata) to &lt;a&gt;.
+    if sy-subrc = 0. &lt;a&gt; = &amp;2. endif.
+  END-OF-DEFINITION.
+  DEFINE mac_assign_table.
+    d_remotedata = &amp;1.
+    assign (d_remotedata) to &lt;st&gt;.
+    if sy-subrc = 0. &lt;st&gt; = &amp;2. endif.
+  END-OF-DEFINITION.
+
+  TRY.
+
+      CASE object-&gt;type.
+        WHEN st_transaction.
+          o_data ?= object-&gt;raw.
+* Main data
+          o_data-&gt;a0_maindata-tcode = object-&gt;name.
+          s_fm_data = o_data-&gt;to_data( ).
+
+          PERFORM refresh_global_data IN PROGRAM saplseuk.    &quot; to load program in memory
+* SEUK : LSEUKF01
+*3441      perform save_tcode.
+*   tstca
+*   tstcp &lt;= cobj
+*   cobj
+          LOOP AT s_fm_data-tstca ASSIGNING &lt;v&gt;.
+            IF sy-tabix = 1. mac_assign &apos;(SAPLSEUK)TSTCA&apos; &lt;v&gt;. ENDIF.
+            s_cobj-field = &lt;v&gt;-field.
+            s_cobj-value = &lt;v&gt;-value.
+            APPEND s_cobj TO t_cobj.
+          ENDLOOP.
+          mac_assign &apos;(SAPLSEUK)COBJ[]&apos; t_cobj.
+*   tstcc
+          mac_assign &apos;(SAPLSEUK)TSTCC&apos; s_fm_data-tstcc.
+*   tc_typ, tc_chk
+          IF s_fm_data-tstc-cinfo O hex_chk. mac_assign &apos;(SAPLSEUK)TC_CHK&apos; hex_chk. SUBTRACT hex_chk FROM s_fm_data-tstc-cinfo .  ENDIF.
+          IF s_fm_data-tstc-cinfo O hex_enq. mac_assign &apos;(SAPLSEUK)TC_ENQ&apos; hex_enq. SUBTRACT hex_enq FROM s_fm_data-tstc-cinfo .  ENDIF.
+          mac_assign &apos;(SAPLSEUK)TC_TYP&apos; s_fm_data-tstc-cinfo.
+*   rsstcd
+          mac_assign &apos;(SAPLSEUK)RSSTCD&apos; s_fm_data-rsstcd.
+          IF NOT s_fm_data-rsstcd-call_tcode IS INITIAL. mac_assign &apos;(SAPLSEUK)PARAM_VARI&apos; abap_true. ENDIF.      &quot; For transaction parameter @*
+*   action
+          mac_assign &apos;(SAPLSEUK)ACTION&apos; &apos;ADD&apos;.
+*   tstc
+          mac_assign &apos;(SAPLSEUK)TSTC&apos; s_fm_data-tstc.
+*   tran_langu &amp; tstct
+          IF NOT s_fm_data-tstct IS INITIAL.
+            READ TABLE s_fm_data-tstct INTO s_tstct INDEX 1.
+            mac_assign &apos;(SAPLSEUK)TRAN_LANGU&apos; s_tstct-sprsl.
+            mac_assign &apos;(SAPLSEUK)TSTCT&apos; s_tstct.
+          ENDIF.
+*   params
+          mac_assign_table &apos;(SAPLSEUK)param[]&apos; s_fm_data-t_params.
+
+*3442      perform save_classification.
+*   tstc
+*   g_gui_inhe
+          mac_assign &apos;(SAPLSEUK)G_GUI_INHE&apos; s_fm_data-gui_inh.
+*   g_iac_ewt &lt;= tstcc-s_webgui
+          IF s_fm_data-tstcc-s_webgui = &apos;2&apos;.    &quot; LSEUKF01(426-427)
+            mac_assign &apos;(SAPLSEUK)G_IAC_EWT&apos; &apos;X&apos;.
+          ENDIF.
+          PERFORM save_tcode IN PROGRAM saplseuk.
+          PERFORM save_classification IN PROGRAM saplseuk.
+
+          MODIFY tstct FROM TABLE s_fm_data-tstct.
+
+          CREATE OBJECT o_comp.
+          o_comp-&gt;set_type( st_transaction ).
+          d_name = o_data-&gt;a0_maindata-tcode.
+          o_comp-&gt;set_name( d_name ).
+          CREATE OBJECT components.
+          components-&gt;add( o_comp ).
+        WHEN OTHERS.
+* Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
+          RAISE EXCEPTION TYPE zaplink_cx_connector
+            EXPORTING
+              textid = zaplink_cx_connector=&gt;type_not_supported
+              type   = object-&gt;type
+              connclass = &apos;ZAPLINK_MESSAGE&apos;.
+      ENDCASE.
+
+    CATCH zaplink_cx_connector INTO o_mycx.
+      RAISE EXCEPTION o_mycx.
+    CATCH zaplink_cx INTO o_cx.
+      mac_cascade_raise o_mycx o_cx.
+  ENDTRY.
+</SOURCE>
+    </ITEM>
+   </REDEFINITIONS>
+   <TYPEGROUPS>
+    <ITEM TYPEGROUP="ABAP" VERSION="1" IMPLICIT="X"/>
+   </TYPEGROUPS>
+   <TYPES>
+    <ITEM CMPNAME="TO_DATA" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100201" TYPTYPE="3" TYPE="ZAPLINK_TRAN_DATA" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Commun Data for Class &amp; Interface"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TS_TEXT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100203" TYPTYPE="4" SRCROW1="11 " SRCCOLUMN1="4 " SRCROW2="15 " SRCCOLUMN2="17 " R3RELEASE="700" TYPESRC_LENG="128 ">begin of ts_text,
+      langu   type SPRAS,
+      ENTRY	  type TEXTPOOLTX,
+      LENGTH  type TEXTPOOLLN,
+    end of ts_text</ITEM>
+    <ITEM CMPNAME="TT_TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100201" TYPTYPE="4" SRCROW1="17 " SRCCOLUMN1="4 " SRCROW2="17 " SRCCOLUMN2="62 " R3RELEASE="700" TYPESRC_LENG="59 ">tt_texts type SORTED TABLE OF ts_text WITH UNIQUE KEY langu</ITEM>
+   </TYPES>
+  </RAW>
+ </ZL_OBJECT>
+ <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_TRAN_DATA" TYPE="CLAS" VERSION="1.0">
+  <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
+  <RAW>
+   <A0_MAINDATA VERSION="1" LANGU="E" UUID="1C6D664B7548927BE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100201" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+    <INHERITANCE REFCLSNAME="ZAPLINK_RAW_DATA" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100201"/>
+    <TEXTS>
+     <ITEM LANGU="E" DESCRIPT="Commun Data for Class &amp; Interface"/>
+    </TEXTS>
+   </A0_MAINDATA>
+   <ALIASES>
+    <ITEM CMPNAME="TS_LANG" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TS_LANG"/>
+    <ITEM CMPNAME="TT_TEXTS" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TT_TEXTS"/>
+   </ALIASES>
+   <ATTRIBUTS>
+    <ITEM CMPNAME="A0_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="1" TYPE="TS_MAINDATA">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Program main data"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="AUTHORIZATION" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="1" TYPE="TS_AUTHORITY"/>
+    <ITEM CMPNAME="PARAMETERS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100202" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="1" TYPE="TT_PARAMS">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Transaction params"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="1" TYPE="TT_TEXTS">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Textpool table"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TRAN_KINDS" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" ATTDECLTYP="2" TYPTYPE="4" SRCROW1="6 " SRCCOLUMN1="4 " SRCROW2="17 " SRCCOLUMN2="21 " TYPESRC_LENG="547 " TYPESRC="begin of tran_kinds,
+       Trans_d type TSTC-cinfo value &apos;00&apos;,
+       report  type TSTC-cinfo value &apos;80&apos;,
+       param   type TSTC-cinfo value &apos;02&apos;,
+       variant type TSTC-cinfo value &apos;10&apos;,    &quot; Variant mask with report
+       Object  type TSTC-cinfo value &apos;08&apos;,    &quot; Not supported yet
+* not used yet
+*      hex_men type x value &apos;01&apos;,               &quot; Bereichsmenü        M
+*      hex_chk type x value &apos;04&apos;,               &quot; mit Prüfobjekt
+*      hex_enq type x value &apos;20&apos;.               &quot; Gesperrt über SM01
+*
+     end of tran_kinds
+"/>
+    <ITEM CMPNAME="TRAN_TYPES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" ATTDECLTYP="2" TYPTYPE="4" SRCROW1="135 " SRCCOLUMN1="4 " SRCROW2="144 " SRCCOLUMN2="27 " TYPESRC_LENG="477 " TYPESRC="BEGIN OF tran_types,
+             dialog  TYPE sychar01 VALUE ststc_c_type_dialog,
+             report  TYPE sychar01 VALUE ststc_c_type_report,
+             param   TYPE sychar01 VALUE ststc_c_type_parameters,
+             variant TYPE sychar01 VALUE ststc_c_type_variant,
+             object  TYPE sychar01 VALUE ststc_c_type_object,    &quot; Not supported yet
+* not used yet
+*  ststc_c_xxx     type sychar01 value &apos;A&apos;.           &quot;Objekt
+*
+           END OF tran_types
+"/>
+   </ATTRIBUTS>
+   <DEFERRED>
+    <CLASSES>
+     <ITEM TYPEGROUP="ZAPLINK_DOCUMENTATION" VERSION="1" TPUTYPE="1" IMPLICIT="X"/>
+    </CLASSES>
+   </DEFERRED>
+   <INTERFACES>
+    <ITEM REFCLSNAME="ZAPLINK_DATATYPES" VERSION="1" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100201" RELTYPE="1"/>
+   </INTERFACES>
+   <LOCAL>
+    <TYPES>
+*&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
+*&quot;* definitions, interfaces or data types) you need for method
+*&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE</TYPES>
+    <IMPLEMENTATIONS>
+*&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
+*&quot;* use this source file for the implementation part of
+*&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
+    <MACROS>
+*&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
+*&quot;* IN THE IMPLEMENTATION PART OF THE CLASS</MACROS>
+   </LOCAL>
+   <METHODS>
+    <ITEM CMPNAME="DATA_2_TYPE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202">
+     <PARAMETERS>
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" PARPASSTYP="1" TYPTYPE="1" TYPE="TS_FM_DATA">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Function Modules Class Data"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="RESULT" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" PARDECLTYP="3" TYPTYPE="1" TYPE="RGLIF-DOCUTYPE">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Transaction Type"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+    </ITEM>
+    <ITEM CMPNAME="FROM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Convert FM Data to object attributes"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" PARPASSTYP="1" TYPTYPE="1" TYPE="TS_FM_DATA">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Function Modules Class Data"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>
+  DATA s_text  LIKE LINE OF texts.
+  DATA s_auth  TYPE ts_authority.
+  DATA s_value LIKE LINE OF s_auth-values.
+  FIELD-SYMBOLS:
+    &lt;o&gt; LIKE LINE OF fm_data-tstca,
+    &lt;t&gt; LIKE LINE OF fm_data-tstct.
+
+  MOVE-CORRESPONDING fm_data-tstc TO a0_maindata.
+  MOVE-CORRESPONDING fm_data-tstcc TO a0_maindata.
+  MOVE-CORRESPONDING fm_data-rsstcd TO a0_maindata.
+  a0_maindata-gui_inh = fm_data-gui_inh.
+  clear a0_maindata-tc_type.          &quot; transaction type in text
+
+  parameters = fm_data-t_params.
+
+  LOOP AT fm_data-tstct ASSIGNING &lt;t&gt;.
+    CLEAR s_text.
+    s_text-langu = &lt;t&gt;-sprsl.
+    s_text-short_txt = &lt;t&gt;-ttext.
+    INSERT s_text INTO TABLE texts.
+  ENDLOOP.
+
+  CLEAR authorization.
+  LOOP AT fm_data-tstca ASSIGNING &lt;o&gt;.
+    AT NEW objct.
+      CLEAR s_auth.
+      s_auth-object = &lt;o&gt;-objct.
+    ENDAT.
+
+    CLEAR s_value.
+    s_value-field = &lt;o&gt;-field.
+    s_value-value = &lt;o&gt;-value.
+    INSERT s_value INTO TABLE s_auth-values.
+
+    AT END OF objct.
+      IF NOT authorization IS INITIAL.
+*        raise EXCEPTION
+      ENDIF.
+      authorization = s_auth.
+    ENDAT.
+  ENDLOOP.
+*  DEFINE mac_flags.
+*    &amp;1-webgui  = fm_data-html_en.
+*    &amp;1-java    = fm_data-java_en.
+*    &amp;1-sapgui  = fm_data-wingui_en.
+*    &amp;1-srvfile = fm_data-servicefile.
+*  END-OF-DEFINITION.
+
+*  a0_maindata-tcode = fm_data-tcode.
+*  a0_maindata-type = data_2_type( fm_data ).
+
+*  CASE a0_maindata-type.
+*    WHEN tran_types-dialog.
+*      a0_maindata-dialog-program = fm_data-program.
+*      a0_maindata-dialog-dynnpro = fm_data-dynpro.
+*      mac_flags a0_maindata-dialog.
+*    WHEN tran_types-report.
+*      a0_maindata-report-program = fm_data-program.
+*      a0_maindata-report-variant = fm_data-variant.
+*      mac_flags a0_maindata-report.
+*    WHEN tran_types-param.
+*      a0_maindata-params-program = fm_data-program.
+*      a0_maindata-params-dynnpro = fm_data-dynpro.
+*      a0_maindata-params-called_t = fm_data-called_t.
+*      a0_maindata-params-skip_1st = fm_data-trans_skip.
+*      mac_flags a0_maindata-params.
+*    WHEN tran_types-variant.
+*      a0_maindata-variant-called_t = fm_data-called_t.
+*      a0_maindata-variant-variant = fm_data-variant.
+*      a0_maindata-variant-indep = fm_data-cl_indep.
+*    WHEN tran_types-object.   &quot; not supported yet
+*    WHEN OTHERS.
+** Not expected
+*  ENDCASE.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="TO_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100202" CHANGEDBY="TBENSIAL" CHANGEDON="20100202">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Convert object attributes to FM Data"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100202" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" PARDECLTYP="3" TYPTYPE="1" TYPE="TS_FM_DATA">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Function Modules Class Data"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>
+  DATA s_text  LIKE LINE OF fm_data-tstct.
+  DATA s_value LIKE LINE OF fm_data-tstca.
+  FIELD-SYMBOLS:
+    &lt;o&gt; LIKE LINE OF authorization-values,
+    &lt;t&gt; LIKE LINE OF texts.
+
+  MOVE-CORRESPONDING a0_maindata TO fm_data-tstc.
+  MOVE-CORRESPONDING a0_maindata TO fm_data-tstcc.
+  MOVE-CORRESPONDING a0_maindata TO fm_data-rsstcd.
+  fm_data-gui_inh = a0_maindata-gui_inh.
+*  clear a0_maindata-tc_type.          &quot; transaction type in text
+
+  fm_data-t_params = parameters.
+
+  LOOP AT texts ASSIGNING &lt;t&gt;.
+    CLEAR s_text.
+    s_text-tcode = a0_maindata-tcode.
+    s_text-sprsl = &lt;t&gt;-langu.
+    s_text-ttext = &lt;t&gt;-short_txt.
+    INSERT s_text INTO TABLE fm_data-tstct.
+  ENDLOOP.
+
+  LOOP AT authorization-values ASSIGNING &lt;o&gt;.
+    CLEAR s_value.
+    s_value-tcode = a0_maindata-tcode.
+    s_value-objct = authorization-object.
+    s_value-field = &lt;o&gt;-field.
+    s_value-value = &lt;o&gt;-value.
+    INSERT s_value INTO TABLE fm_data-tstca.
+  ENDLOOP.
+</SOURCE>
+    </ITEM>
+   </METHODS>
+   <TYPEGROUPS>
+    <ITEM TYPEGROUP="ABAP" VERSION="1" IMPLICIT="X"/>
+    <ITEM TYPEGROUP="STSTC" VERSION="1" EXPLICIT="X"/>
+   </TYPEGROUPS>
+   <TYPES>
+    <ITEM CMPNAME="TS_AUTHORITY" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="10 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="4" SRCROW1="129 " SRCCOLUMN1="4 " SRCROW2="132 " SRCCOLUMN2="26 " TYPESRC_LENG="123 ">BEGIN OF ts_authority,
+          object TYPE tstca-objct,
+          values TYPE tt_values,
+        END OF ts_authority
+</ITEM>
+    <ITEM CMPNAME="TS_FM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="4" SRCROW1="29 " SRCCOLUMN1="4 " SRCROW2="66 " SRCCOLUMN2="24 " TYPESRC_LENG="1483 ">BEGIN OF ts_fm_data,
+* Data required
+*        cinfo       TYPE tstc-cinfo,
+          tstc        TYPE tstc,
+          tstct       TYPE tt_tstct,
+          tstcc       TYPE tstcc,
+          tstca       TYPE tt_values,
+          rsstcd      TYPE rsstcd,
+          gui_inh     TYPE s_gui_inhe,  &quot; (SAPLSEUK)G_GUI_INHE
+* FM : RPY_TRANSACTION_INSERT
+*            transaction TYPE tstc-tcode,
+*            program     TYPE trdir-name,
+*            dynpro      TYPE d020s-dnum,
+*            language    TYPE sy-langu,
+*            with_docu   TYPE rglif-with_docu,
+*            docutype    TYPE rglif-docutype,
+**          dev_class   TYPE rglif-devclass,
+**          transport   TYPE rglif-trkorr,
+*            trans_type  TYPE rglif-docutype,
+*            shorttext   TYPE tstct-ttext,
+*            called_t    TYPE tstc-tcode,
+*            trans_skip  TYPE char01,
+*            variant     TYPE tcvariant,
+*            cl_indep    TYPE char01,
+*            easy_web_t  TYPE s_ewt,
+*            pro_user_t  TYPE s_prof,
+*            html_en     TYPE s_webgui,
+*            java_en     TYPE s_platin,
+*            wingui_en   TYPE s_win32,
+*            servicefile TYPE iacservic_,
+*            genflag     TYPE tadir-genflag,
+*          del_auth_ch TYPE char1,
+*          del_corr_i  TYPE char1,
+*&quot;  TABLES
+          t_doc_user  TYPE tt_doc_usr,
+          t_doc_tech  TYPE tt_doc_tech,
+          t_params    TYPE tt_params,
+        END OF ts_fm_data
+</ITEM>
+    <ITEM CMPNAME="TS_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="7 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="4" SRCROW1="68 " SRCCOLUMN1="4 " SRCROW2="127 " SRCCOLUMN2="21 " TYPESRC_LENG="2329 ">
+     BEGIN OF ts_maindata.
+    INCLUDE TYPE tstc.
+    INCLUDE TYPE rsstcd.
+*    TYPES:
+*      BEGIN OF ts_dialog,
+*            program TYPE tstc-pgmna,
+*            dynnpro TYPE tstc-dypno,
+*            webgui  TYPE tstcc-s_webgui,
+*            java    TYPE tstcc-s_platin,
+*            sapgui  TYPE tstcc-s_win32,
+*            srvfile TYPE tstcc-s_service,
+*          END OF ts_dialog .
+*    TYPES:
+*      BEGIN OF ts_report,
+*            program TYPE tstc-pgmna,
+*            variant TYPE rsstcd-repo_vari,
+*            webgui  TYPE tstcc-s_webgui,
+*            java    TYPE tstcc-s_platin,
+*            sapgui  TYPE tstcc-s_win32,
+*            srvfile TYPE tstcc-s_service,
+*          END OF ts_report .
+*    TYPES:
+*      BEGIN OF ts_variant,
+*            called_t TYPE tstc-tcode,
+*            variant  TYPE rsstcd-repo_vari,
+*            indep    TYPE char01,             &quot; CL_INDEPENDEND
+*          END OF ts_variant .
+*    TYPES:
+*      BEGIN OF ts_parameters,
+*            program  TYPE tstc-pgmna,
+*            dynnpro  TYPE tstc-dypno,
+*            called_t TYPE tstc-tcode,
+*            skip_1st TYPE rsstcd-st_skip_1,
+*            webgui   TYPE tstcc-s_webgui,
+*            java     TYPE tstcc-s_platin,
+*            sapgui   TYPE tstcc-s_win32,
+*            srvfile  TYPE tstcc-s_service,
+*            values   TYPE tt_params,
+*          END OF ts_parameters .
+*  ststc_c_type_dialog     type sychar01 value &apos;D&apos;,           &quot;Dialog
+*  ststc_c_type_report     type sychar01 value &apos;R&apos;,           &quot;Report
+*  ststc_c_type_variant    type sychar01 value &apos;V&apos;,           &quot;Varianten
+*  ststc_c_type_parameters type sychar01 value &apos;P&apos;,           &quot;Parameter
+*  ststc_c_type_object     type sychar01 value &apos;O&apos;.           &quot;Objekt
+*          type    TYPE rglif-docutype,
+*          code    TYPE tstc-tcode,
+*          dialog  TYPE ts_dialog,
+*          report  TYPE ts_report,
+*          variant TYPE ts_variant,
+*          params  TYPE ts_parameters,
+*        object  TYPE ts_object,     &quot; not supported yet
+    TYPES:
+      gui_inh   TYPE s_gui_inhe,
+* From TSTCC
+      s_webgui  TYPE tstcc-s_webgui,
+      s_win32   TYPE tstcc-s_win32,
+      s_platin  TYPE tstcc-s_platin,
+      s_service TYPE tstcc-s_service,
+      s_pervas  TYPE tstcc-s_pervas,
+    END OF ts_maindata
+
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="main data"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TT_DOC_TECH" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="4 " SRCROW2="21 " SRCCOLUMN2="60 " TYPESRC_LENG="59 ">tt_doc_tech TYPE STANDARD TABLE OF tline WITH DEFAULT KEY
+</ITEM>
+    <ITEM CMPNAME="TT_DOC_USR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="4" SRCROW1="19 " SRCCOLUMN1="4 " SRCROW2="19 " SRCCOLUMN2="64 " TYPESRC_LENG="63 ">tt_doc_usr TYPE STANDARD TABLE OF rpy_objtab WITH DEFAULT KEY
+</ITEM>
+    <ITEM CMPNAME="TT_PARAMS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100201" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="4 " SRCROW2="23 " SRCCOLUMN2="60 " TYPESRC_LENG="59 ">
+     tt_params TYPE STANDARD TABLE OF rsparam WITH DEFAULT KEY
+
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Transaction params"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TT_TSTCT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100202" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="4" SRCROW1="27 " SRCCOLUMN1="4 " SRCROW2="27 " SRCCOLUMN2="60 " TYPESRC_LENG="59 ">tt_tstct TYPE SORTED TABLE OF tstct WITH UNIQUE KEY sprsl
+</ITEM>
+    <ITEM CMPNAME="TT_VALUES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100202" CHANGEDBY="TBENSIAL" CHANGEDON="20100202" TYPTYPE="4" SRCROW1="25 " SRCCOLUMN1="4 " SRCROW2="25 " SRCCOLUMN2="67 " TYPESRC_LENG="66 ">tt_values TYPE SORTED TABLE OF tstca WITH UNIQUE KEY objct field
+</ITEM>
+   </TYPES>
+  </RAW>
+ </ZL_OBJECT>
+</CONTAINER>
