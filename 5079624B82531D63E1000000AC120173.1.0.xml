@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-16"?>
 <CONTAINER NAME="ZAPLINK_DICTIONARY" VERSION="1.0" CLASS="ZAPLINK_CONTAINER">
- <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_DICTIONARY" TYPE="CLAS" VERSION="1.0">
+ <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_DICTIONARY" TYPE="CLAS" VERSION="1.01">
   <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
   <RAW>
    <A0_MAINDATA VERSION="1" LANGU="E" UUID="A576624B87531F63E1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100129" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
@@ -15,20 +15,57 @@
       <ITEM LANGU="E" DESCRIPT="Application Log: Subobject"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="SUPPORTEDTYPES" VERSION="1" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100129" CHANGEDBY="TBENSIAL" CHANGEDON="20100203" ATTDECLTYP="2" TYPTYPE="4" SRCROW1="8 " SRCCOLUMN1="4 " SRCROW2="10 " SRCCOLUMN2="24 " TYPESRC_LENG="113 " TYPESRC="begin of SUPPORTEDTYPES,
-      TYPEGROUP type TD_COMPTYPE value &apos;TYPE&apos;, &quot;#EC NOTEXT
-    end of SUPPORTEDTYPES
+    <ITEM CMPNAME="DD_EU_TYPE" VERSION="1" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100209" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" ATTDECLTYP="2" TYPTYPE="4" SRCROW1="24 " SRCCOLUMN1="4 " SRCROW2="43 " SRCCOLUMN2="20 " TYPESRC_LENG="1396 " TYPESRC="BEGIN OF dd_eu_type,          &quot; Domain DDEUTYPE
+      table_type        TYPE ddeutype VALUE &apos;A&apos;,     &quot; A  Table Type
+      domain            TYPE ddeutype VALUE &apos;D&apos;,     &quot; D  Domain
+      data_element      TYPE ddeutype VALUE &apos;E&apos;,     &quot; E  Data Element
+      table_field       TYPE ddeutype VALUE &apos;F&apos;,     &quot; F  Table Field
+      type_group        TYPE ddeutype VALUE &apos;G&apos;,     &quot; G  Type Group
+      search_help       TYPE ddeutype VALUE &apos;H&apos;,     &quot; H  Search Help
+      mactchcode_id     TYPE ddeutype VALUE &apos;I&apos;,     &quot; I  Matchcode ID
+      lock_object       TYPE ddeutype VALUE &apos;L&apos;,     &quot; L  Lock Object
+      matchcode_obj     TYPE ddeutype VALUE &apos;M&apos;,     &quot; M  Matchcode Object
+      table_index       TYPE ddeutype VALUE &apos;N&apos;,     &quot; N  Table Index
+      ext_index         TYPE ddeutype VALUE &apos;N&apos;,     &quot; O  Extention Index MF INTERN_TRANSL_EUTYPE
+      internal_struct   TYPE ddeutype VALUE &apos;S&apos;,     &quot; S  Internal Structure
+      transp_table      TYPE ddeutype VALUE &apos;T&apos;,     &quot; T  Transparent Table
+      structure         TYPE ddeutype VALUE &apos;U&apos;,     &quot; U  Table/Structure
+      view              TYPE ddeutype VALUE &apos;V&apos;,     &quot; V  View
+      table_pool        TYPE ddeutype VALUE &apos;X&apos;,     &quot; X  Table Pool
+      table_cluster     TYPE ddeutype VALUE &apos;Y&apos;,     &quot; Y  Table Cluster
+      t_cluster_pool    TYPE ddeutype VALUE &apos;Z&apos;,     &quot; Z  Table cluster/pool
+    END OF dd_eu_type
+">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="DD object type in EU management system (domain : DDEUTYPE)"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="SUPPORTEDTYPES" VERSION="1" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100129" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" ATTDECLTYP="2" TYPTYPE="4" SRCROW1="8 " SRCCOLUMN1="4 " SRCROW2="22 " SRCCOLUMN2="24 " TYPESRC_LENG="896 " TYPESRC="BEGIN OF supportedtypes,                                  &quot;#EC NOTEXT
+      type_group        TYPE td_comptype VALUE &apos;TYPE&apos;,
+      domain            TYPE td_comptype VALUE &apos;DOMA&apos;,
+      data_element      TYPE td_comptype VALUE &apos;DTEL&apos;,
+      table_type        TYPE td_comptype VALUE &apos;TTYP&apos;,
+      search_help       TYPE td_comptype VALUE &apos;SHLP&apos;,
+      mactchcode_id     TYPE td_comptype VALUE &apos;MCID&apos;,
+      lock_object       TYPE td_comptype VALUE &apos;ENQU&apos;,
+      matchcode_obj     TYPE td_comptype VALUE &apos;MCOB&apos;,
+      table_index       TYPE td_comptype VALUE &apos;INDX&apos;,     &quot; N  Table Index
+      ext_index         TYPE td_comptype VALUE &apos;XINX&apos;,     &quot; O  Extention Index MF INTERN_TRANSL_EUTYPE
+      table             TYPE td_comptype VALUE &apos;TABL&apos;,
+      view              TYPE td_comptype VALUE &apos;VIEW&apos;,
+      t_cluster_pool    TYPE td_comptype VALUE &apos;SQLT&apos;,
+    END OF supportedtypes
 ">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Connector supported types"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="_UUID" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100129" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" ATTDECLTYP="2" ATTVALUE="&apos;5079624B82531D63E1000000AC120173&apos;" TYPTYPE="1" TYPE="TD_CONNUUID">
+    <ITEM CMPNAME="_UUID" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100129" CHANGEDBY="TBENSIAL" CHANGEDON="20100209" ATTDECLTYP="2" ATTVALUE="&apos;5079624B82531D63E1000000AC120173&apos;" TYPTYPE="1" TYPE="TD_CONNUUID">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="UUID for connector Message class"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="_VER" VERSION="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100129" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" ATTDECLTYP="2" ATTVALUE="&apos;1.0&apos;" TYPTYPE="1" TYPE="TD_CONNVER">
+    <ITEM CMPNAME="_VER" VERSION="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100129" CHANGEDBY="TBENSIAL" CHANGEDON="20100209" ATTDECLTYP="2" ATTVALUE="&apos;1.0&apos;" TYPTYPE="1" TYPE="TD_CONNVER">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Connector Version"/>
      </TEXTS>
@@ -52,7 +89,14 @@
 *&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
 *&quot;* in the implementation part of the class
 
-INCLUDE ZAPLINK_MACROS.</MACROS>
+INCLUDE zaplink_macros.
+
+define mac_obj_data.
+  DATA o_typegroup TYPE to_typegroup.
+  DATA o_domain    TYPE to_domain.
+  DATA o_data_e    TYPE to_data_element.
+  DATA o_view      TYPE to_view.
+END-OF-DEFINITION.</MACROS>
    </LOCAL>
    <METHODS>
     <ITEM CMPNAME="CLASS_CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100129" MTDTYPE="2" MTDDECLTYP="1" R3RELEASE="700">
@@ -76,34 +120,673 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
 
   CALL METHOD super-&gt;constructor.
   mac_create_log application_log ballog_subobject space.
-  type-type = supportedtypes-typegroup. INSERT type INTO TABLE supported_types.
+  type-type = supportedtypes-type_group.    INSERT type INTO TABLE supported_types.
+  type-type = supportedtypes-domain.        INSERT type INTO TABLE supported_types.
+  type-type = supportedtypes-data_element.  INSERT type INTO TABLE supported_types.
+  type-type = supportedtypes-view.          INSERT type INTO TABLE supported_types.
 
   uuid = _uuid.
   version = _ver.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="EXPORT_DATA_ELEMENT" VERSION="1" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100215" MTDNEWEXC="X" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Export Data Element from SAP System"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="COMPONENT" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100215" PARPASSTYP="1" TYPTYPE="1" TYPE="TO_COMPONENT">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Component key"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="OBJECT" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100215" CHANGEDBY="TBENSIAL" CHANGEDON="20100215" PARDECLTYP="3" TYPTYPE="1" TYPE="TO_DATA_ELEMENT">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Data for data element"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <EXCEPTIONS>
+      <ITEM SCONAME="ZAPLINK_CX_CONNECTOR" VERSION="1" LANGU="E" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100215">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="ZAPlink ROOT Exception for Connectors"/>
+       </TEXTS>
+      </ITEM>
+     </EXCEPTIONS>
+     <SOURCE>
+  DATA d_name     TYPE ddobjname.
+  DATA str        TYPE string.
+  DATA subrc      TYPE sy-subrc.
+  DATA s_fm_data  TYPE zaplink_dtel_data=&gt;ts_fm_data.
+  DATA d_mask     TYPE doku_obj.
+  FIELD-SYMBOLS:
+    &lt;o_s&gt; TYPE REF TO cl_wb_source.
+
+  TRY.
+    d_name = component-&gt;get_name( ).
+    CALL FUNCTION &apos;DDIF_DTEL_GET&apos;
+      EXPORTING
+        name                = d_name
+        state               = &apos;M&apos;
+        langu               = &apos; &apos;
+      IMPORTING
+*        GOTSTATE            =
+        dd04v_wa            = s_fm_data-header
+        tpara_wa            = s_fm_data-param
+      EXCEPTIONS
+        illegal_input       = 1
+        OTHERS              = 2.
+    IF sy-subrc &lt;&gt; 0.
+      mac_add_mf_and_raise &apos;DDIF_DTEL_GET&apos; sy-subrc.
+    ENDIF.
+
+    SELECT *
+      INTO TABLE s_fm_data-texts
+      FROM dd04t
+      WHERE rollname = d_name.
+
+    d_mask = d_name.
+    s_fm_data-docs = zaplink_documentation=&gt;get( ids = zaplink_dtel_data=&gt;r_doc_ids
+                                              object = d_mask ).
+
+    CREATE OBJECT object.
+    object-&gt;from_data( s_fm_data ).
+
+    mac_def_catch zaplink_cx_connector.
+  ENDTRY.
+</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="EXPORT_DOMAIN" VERSION="1" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100210" MTDNEWEXC="X" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Export Domain from SAP System"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="COMPONENT" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100210" PARPASSTYP="1" TYPTYPE="1" TYPE="TO_COMPONENT">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Component key"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="OBJECT" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210" PARDECLTYP="3" TYPTYPE="1" TYPE="TO_DOMAIN">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Data for Domain"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <EXCEPTIONS>
+      <ITEM SCONAME="ZAPLINK_CX_CONNECTOR" VERSION="1" LANGU="E" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100210">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="ZAPlink ROOT Exception for Connectors"/>
+       </TEXTS>
+      </ITEM>
+     </EXCEPTIONS>
+     <SOURCE>
+  DATA d_name     TYPE ddobjname.
+  DATA str        TYPE string.
+  DATA subrc      TYPE sy-subrc.
+  DATA s_fm_data  TYPE zaplink_doma_data=&gt;ts_fm_data.
+  DATA d_mask     TYPE doku_obj.
+  FIELD-SYMBOLS:
+*    &lt;o_e&gt; TYPE REF TO cl_wb_editor,
+    &lt;o_s&gt; TYPE REF TO cl_wb_source.
+
+  TRY.
+    d_name = component-&gt;get_name( ).
+    CALL FUNCTION &apos;DDIF_DOMA_GET&apos;
+      EXPORTING
+        name                = d_name
+        state               = &apos;M&apos;
+*       LANGU               = &apos; &apos;
+      IMPORTING
+*       GOTSTATE            =
+        dd01v_wa            = s_fm_data-header
+      TABLES
+        dd07v_tab           = s_fm_data-values
+      EXCEPTIONS
+        illegal_input       = 1
+        OTHERS              = 2.
+    IF sy-subrc &lt;&gt; 0.
+      mac_add_mf_and_raise &apos;DDIF_DOMA_GET&apos; sy-subrc.
+    ENDIF.
+
+    SELECT *
+      INTO TABLE s_fm_data-texts
+      FROM dd01t
+      WHERE domname = d_name.
+
+    SELECT *
+      INTO TABLE s_fm_data-values_texts
+      FROM dd07t
+      WHERE domname = d_name.
+
+    d_mask = d_name.
+    s_fm_data-docs = zaplink_documentation=&gt;get( ids = zaplink_doma_data=&gt;r_doc_ids
+                                              object = d_mask ).
+
+    CREATE OBJECT object.
+    object-&gt;from_data( s_fm_data ).
+
+    mac_def_catch zaplink_cx_connector.
+  ENDTRY.
+</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="EXPORT_TYPE_GROUP" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100209" CHANGEDBY="TBENSIAL" CHANGEDON="20100209" MTDNEWEXC="X">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Export Type Group from SAP System"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="COMPONENT" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100209" CHANGEDBY="TBENSIAL" CHANGEDON="20100209" PARPASSTYP="1" TYPTYPE="1" TYPE="TO_COMPONENT">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Component key"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="OBJECT" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100209" CHANGEDBY="TBENSIAL" CHANGEDON="20100209" PARDECLTYP="3" TYPTYPE="1" TYPE="TO_TYPEGROUP">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Data for Type group"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <EXCEPTIONS>
+      <ITEM SCONAME="ZAPLINK_CX_CONNECTOR" VERSION="1" LANGU="E" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100209">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="ZAPlink ROOT Exception for Connectors"/>
+       </TEXTS>
+      </ITEM>
+     </EXCEPTIONS>
+     <SOURCE>
+  DATA d_type     TYPE td_typegroup.
+  DATA str        TYPE string.
+  DATA subrc      TYPE sy-subrc.
+  DATA t_source   TYPE TABLE OF string.
+  FIELD-SYMBOLS:
+*    &lt;o_e&gt; TYPE REF TO cl_wb_editor,
+    &lt;o_s&gt; TYPE REF TO cl_wb_source.
+
+  TRY.
+    d_type = component-&gt;get_name( ).
+*  PERFORM tygr_exists IN PROGRAM saplsd31
+*          USING    type
+*          CHANGING subrc.
+*  IF sy-subrc &lt;&gt; 0.
+*    EXIT.
+*  ENDIF.
+    PERFORM xx_first_get IN PROGRAM saplsd31
+            USING    d_type space dd_eu_type-type_group &apos;S&apos; space &apos;X&apos;
+            CHANGING subrc.
+* source_instance  ABAP_EDITOR DF
+* uccheck = source_instance-&gt;l_progdir_entry-uccheck
+*  df-ddxx-as4user = source_instance-&gt;l_progdir_entry-unam.
+*  df-ddxx-as4date = source_instance-&gt;l_progdir_entry-udat.
+** unicode flag
+*  df-ddxx-uccheck = source_instance-&gt;l_progdir_entry-uccheck.
+** Mastersprache in TADIR lesen
+*  SELECT SINGLE masterlang FROM tadir
+*                           INTO rsdxx-malangu
+*       WHERE  pgmid       = &apos;R3TR&apos;
+*       AND    object      = &apos;TYPE&apos;
+*       AND    obj_name    = df-ddxx-typegroup.
+** Kurzbeschreibung lesen
+*  SELECT SINGLE ddtext FROM ddtypet INTO df-ddxx-ddtext
+*         WHERE typegroup  = df-ddxx-typegroup AND
+*               ddlanguage = rsdxx-malangu.
+
+    str = &apos;(SAPLSD31)SOURCE_INSTANCE&apos;.
+    ASSIGN (str) TO &lt;o_s&gt;.
+    IF sy-subrc &lt;&gt; 0.
+      EXIT.
+    ENDIF.
+
+    CREATE OBJECT object.
+    object-&gt;a0_maindata-name = d_type.
+    object-&gt;a0_maindata-uccheck = &lt;o_s&gt;-&gt;l_progdir_entry-uccheck.
+    SELECT SINGLE masterlang FROM tadir
+                             INTO object-&gt;a0_maindata-lang
+         WHERE  pgmid       = &apos;R3TR&apos;
+         AND    object      = &apos;TYPE&apos;
+         AND    obj_name    = object-&gt;a0_maindata-name.
+* Kurzbeschreibung lesen
+    SELECT SINGLE ddtext FROM ddtypet INTO object-&gt;a0_maindata-text
+           WHERE typegroup  = object-&gt;a0_maindata-name
+             AND ddlanguage = object-&gt;a0_maindata-lang.
+
+    CALL METHOD &lt;o_s&gt;-&gt;get_source_old( IMPORTING old_source = t_source ).
+    object-&gt;set_source( t_source ).
+
+    mac_def_catch zaplink_cx_connector.
+  ENDTRY.
+</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="EXPORT_VIEW" VERSION="1" STATE="1" EDITORDER="7 " AUTHOR="TBENSIAL" CREATEDON="20100216" MTDNEWEXC="X" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Export view from SAP System"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="COMPONENT" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100216" PARPASSTYP="1" TYPTYPE="1" TYPE="TO_COMPONENT">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Component key"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="OBJECT" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" PARDECLTYP="3" TYPTYPE="1" TYPE="TO_VIEW">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Views (SE11) Datas"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <EXCEPTIONS>
+      <ITEM SCONAME="ZAPLINK_CX_CONNECTOR" VERSION="1" LANGU="E" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100216">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="ZAPlink ROOT Exception for Connectors"/>
+       </TEXTS>
+      </ITEM>
+     </EXCEPTIONS>
+     <SOURCE>
+  DATA d_name     TYPE ddobjname.
+  DATA str        TYPE string.
+  DATA subrc      TYPE sy-subrc.
+  DATA s_fm_data  TYPE zaplink_view_data=&gt;ts_fm_data.
+  DATA d_mask     TYPE doku_obj.
+  FIELD-SYMBOLS:
+*    &lt;o_e&gt; TYPE REF TO cl_wb_editor,
+    &lt;o_s&gt; TYPE REF TO cl_wb_source.
+
+  TRY.
+    d_name = component-&gt;get_name( ).
+    CALL FUNCTION &apos;DDIF_VIEW_GET&apos;
+      EXPORTING
+        name                = d_name
+        state               = &apos;M&apos;
+        langu               = &apos; &apos;
+      IMPORTING
+*       GOTSTATE            =
+        dd25v_wa            = s_fm_data-header
+        dd09l_wa            = s_fm_data-tech
+      TABLES
+        dd26v_tab           = s_fm_data-tables
+        dd27p_tab           = s_fm_data-fields
+        dd28j_tab           = s_fm_data-joins
+        dd28v_tab           = s_fm_data-wheres
+      EXCEPTIONS
+        illegal_input       = 1
+        OTHERS              = 2.
+    IF sy-subrc &lt;&gt; 0.
+      mac_add_mf_and_raise &apos;DDIF_VIEW_GET&apos; sy-subrc.
+    ENDIF.
+
+    SELECT *
+      INTO TABLE s_fm_data-texts
+      FROM dd25t
+      WHERE viewname = d_name.
+
+    d_mask = d_name.
+    s_fm_data-docs = zaplink_documentation=&gt;get( ids = zaplink_view_data=&gt;r_doc_ids
+                                              object = d_mask ).
+
+    CREATE OBJECT object.
+    object-&gt;from_data( s_fm_data ).
+
+    mac_def_catch zaplink_cx_connector.
+  ENDTRY.
+</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="IMPORT_DATA_ELEMENT" VERSION="1" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20100215" MTDNEWEXC="X" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Import Data Element to SAP System"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="COMPONENTS" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100215" PARDECLTYP="3" TYPTYPE="1" TYPE="TO_LIST">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Component key"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="O_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100215" CHANGEDBY="TBENSIAL" CHANGEDON="20100215" PARPASSTYP="1" TYPTYPE="1" TYPE="TO_DATA_ELEMENT">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Data for Data element"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <EXCEPTIONS>
+      <ITEM SCONAME="ZAPLINK_CX_CONNECTOR" VERSION="1" LANGU="E" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100215">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="ZAPlink ROOT Exception for Connectors"/>
+       </TEXTS>
+      </ITEM>
+     </EXCEPTIONS>
+     <SOURCE>
+  DATA d_name         TYPE rsedd0-ddobjname.
+  DATA d_subrc        TYPE sy-subrc.
+  DATA s_fm_data      TYPE zaplink_dtel_data=&gt;ts_fm_data.
+
+  s_fm_data = o_data-&gt;to_data( ).
+  d_name = s_fm_data-header-rollname.
+  CALL FUNCTION &apos;RS_DD_DELETE_OBJ&apos;
+    EXPORTING
+      NO_ASK                     = abap_true
+      objname                    = d_name
+      objtype                    = dd_eu_type-data_element
+*     CHANGING
+*       CORRNUM                    = &apos; &apos;
+    EXCEPTIONS
+      not_executed               = 1
+      object_not_found           = 0
+      object_not_specified       = 3
+      permission_failure         = 4
+      dialog_needed              = 5
+      OTHERS                     = 6.
+  IF sy-subrc &lt;&gt; 0.
+    mac_add_mf_and_raise &apos;RS_DD_DELETE_OBJ&apos; sy-subrc.
+  ENDIF.
+
+  CALL FUNCTION &apos;DDIF_DTEL_PUT&apos;
+    EXPORTING
+      name                    = d_name
+      DD04V_WA                = s_fm_data-header
+    EXCEPTIONS
+      DTEL_NOT_FOUND          = 1
+      NAME_INCONSISTENT       = 2
+      DTEL_INCONSISTENT       = 3
+      PUT_FAILURE             = 4
+      PUT_REFUSED             = 5
+      OTHERS                  = 6.
+  IF sy-subrc &lt;&gt; 0.
+    mac_add_mf_and_raise &apos;DDIF_DTEL_PUT&apos; sy-subrc.
+  ENDIF.
+
+  DELETE FROM dd04t WHERE rollname = s_fm_data-header-rollname.
+  MODIFY dd04t FROM TABLE s_fm_data-texts.
+
+  zaplink_documentation=&gt;set( s_fm_data-docs ).</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="IMPORT_DOMAIN" VERSION="1" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100210" MTDNEWEXC="X" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Import Domain to SAP System"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="COMPONENTS" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100210" PARDECLTYP="3" TYPTYPE="1" TYPE="TO_LIST">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Component key"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="O_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100215" PARPASSTYP="1" TYPTYPE="1" TYPE="TO_DOMAIN">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Data for Domain"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <EXCEPTIONS>
+      <ITEM SCONAME="ZAPLINK_CX_CONNECTOR" VERSION="1" LANGU="E" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100210">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="ZAPlink ROOT Exception for Connectors"/>
+       </TEXTS>
+      </ITEM>
+     </EXCEPTIONS>
+     <SOURCE>
+  DATA d_name         TYPE rsedd0-ddobjname.
+  DATA d_subrc        TYPE sy-subrc.
+  DATA s_fm_data      TYPE zaplink_doma_data=&gt;ts_fm_data.
+
+  s_fm_data = o_data-&gt;to_data( ).
+  d_name = s_fm_data-header-domname.
+  CALL FUNCTION &apos;RS_DD_DELETE_OBJ&apos;
+    EXPORTING
+      NO_ASK                     = abap_true
+      objname                    = d_name
+      objtype                    = dd_eu_type-domain
+*     CHANGING
+*       CORRNUM                    = &apos; &apos;
+    EXCEPTIONS
+      not_executed               = 1
+      object_not_found           = 0
+      object_not_specified       = 3
+      permission_failure         = 4
+      dialog_needed              = 5
+      OTHERS                     = 6.
+  IF sy-subrc &lt;&gt; 0.
+    mac_add_mf_and_raise &apos;RS_DD_DELETE_OBJ&apos; sy-subrc.
+  ENDIF.
+
+  CALL FUNCTION &apos;DDIF_DOMA_PUT&apos;
+    EXPORTING
+      name              = d_name
+      dd01v_wa          = s_fm_data-header
+    TABLES
+      dd07v_tab         = s_fm_data-values
+    EXCEPTIONS
+      doma_not_found    = 1
+      name_inconsistent = 2
+      doma_inconsistent = 3
+      put_failure       = 4
+      put_refused       = 5
+      OTHERS            = 6.
+  IF sy-subrc &lt;&gt; 0.
+    mac_add_mf_and_raise &apos;DDIF_DOMA_PUT&apos; sy-subrc.
+  ENDIF.
+
+  DELETE FROM dd01t WHERE domname = s_fm_data-header-domname.
+  MODIFY dd01t FROM TABLE s_fm_data-texts.
+
+  DELETE FROM dd07t WHERE domname = s_fm_data-header-domname.
+  MODIFY dd07t FROM TABLE s_fm_data-values_texts.
+
+  zaplink_documentation=&gt;set( s_fm_data-docs ).</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="IMPORT_TYPE_GROUP" VERSION="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100209" CHANGEDBY="TBENSIAL" CHANGEDON="20100209" MTDNEWEXC="X">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Import Type Group to SAP System"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="COMPONENTS" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100209" CHANGEDBY="TBENSIAL" CHANGEDON="20100209" PARDECLTYP="3" TYPTYPE="1" TYPE="TO_LIST">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Component key"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="O_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100209" CHANGEDBY="TBENSIAL" CHANGEDON="20100209" PARPASSTYP="1" TYPTYPE="1" TYPE="TO_TYPEGROUP">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Data for Type group"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <EXCEPTIONS>
+      <ITEM SCONAME="ZAPLINK_CX_CONNECTOR" VERSION="1" LANGU="E" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100209">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="ZAPlink ROOT Exception for Connectors"/>
+       </TEXTS>
+      </ITEM>
+     </EXCEPTIONS>
+     <SOURCE>
+  DATA d_typegroup    TYPE td_typegroup.
+  DATA d_subrc        TYPE sy-subrc.
+  DATA t_source       TYPE zaplink_type_data=&gt;tt_string.
+  DATA d_program      TYPE progdir.
+  DATA str            TYPE string.
+  FIELD-SYMBOLS:
+    &lt;prog&gt; TYPE sy-repid.          &quot;Typgruppeninclude
+
+  d_typegroup = o_data-&gt;a0_maindata-name.
+* Check existence
+  PERFORM tygr_exists IN PROGRAM saplsd31
+        USING    d_typegroup
+        CHANGING d_subrc.
+
+  IF d_subrc = 0.
+    CALL FUNCTION &apos;RS_DD_DELETE_OBJ&apos;
+      EXPORTING
+*       NO_ASK                     = &apos; &apos;
+        objname                    = d_typegroup
+        objtype                    = dd_eu_type-type_group
+*     CHANGING
+*       CORRNUM                    = &apos; &apos;
+      EXCEPTIONS
+        not_executed               = 1
+        object_not_found           = 0
+        object_not_specified       = 3
+        permission_failure         = 4
+        dialog_needed              = 5
+        OTHERS                     = 6.
+    IF sy-subrc &lt;&gt; 0.
+      mac_add_mf_and_raise &apos;RS_DD_DELETE_OBJ&apos; sy-subrc.
+    ENDIF.
+  ENDIF.
+
+  t_source = o_data-&gt;get_source( ).
+  CALL FUNCTION &apos;RS_DD_TYGR_INSERT_SOURCES&apos;
+    EXPORTING
+      typegroupname        = o_data-&gt;a0_maindata-name
+      ddtext               = o_data-&gt;a0_maindata-text
+      corrnum              = space
+      devclass             = space
+    TABLES
+      SOURCE               = t_source
+    EXCEPTIONS
+      already_exists       = 1
+      not_executed         = 2
+      permission_failure   = 3
+      object_not_specified = 4
+      illegal_name         = 5
+      OTHERS               = 6.
+  IF sy-subrc &lt;&gt; 0.
+    mac_add_mf_and_raise &apos;RS_DD_TYGR_INSERT_SOURCES&apos; sy-subrc.
+  ENDIF.
+
+  PERFORM tygr_exists IN PROGRAM saplsd31
+          USING    d_typegroup
+          CHANGING d_subrc.
+  IF d_subrc &lt;&gt; 0.
+    EXIT.
+  ENDIF.
+
+  str = &apos;(SAPLSD31)PROGNAME&apos;.
+  ASSIGN (str) TO &lt;prog&gt;.
+  IF sy-subrc &lt;&gt; 0.
+    EXIT.
+  ENDIF.
+
+  CALL FUNCTION &apos;READ_PROGDIR&apos;
+    EXPORTING
+      i_progname          = &lt;prog&gt;
+*     I_STATE             = &apos; &apos;
+    IMPORTING
+      e_progdir           = d_program
+*     E_PROGDIR_TAB       =
+    EXCEPTIONS
+      not_exists          = 1
+      OTHERS              = 2.
+  IF sy-subrc &lt;&gt; 0.
+    mac_add_mf_and_raise &apos;READ_PROGDIR&apos; sy-subrc.
+  ENDIF.
+
+  IF d_program-uccheck &lt;&gt; o_data-&gt;a0_maindata-uccheck.
+    d_program-uccheck = o_data-&gt;a0_maindata-uccheck.
+    CALL FUNCTION &apos;UPDATE_PROGDIR&apos;
+      EXPORTING
+        i_progdir    = d_program
+        i_progname   = &lt;prog&gt;
+        i_state      = d_program-state
+      EXCEPTIONS
+        not_executed = 1
+        OTHERS       = 2.
+    IF sy-subrc &lt;&gt; 0.
+      mac_add_mf_and_raise &apos;UPDATE_PROGDIR&apos; sy-subrc.
+    ENDIF.
+  ENDIF.
+</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="IMPORT_VIEW" VERSION="1" STATE="1" EDITORDER="8 " AUTHOR="TBENSIAL" CREATEDON="20100216" MTDNEWEXC="X" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Import view to SAP System"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="COMPONENTS" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100216" PARDECLTYP="3" TYPTYPE="1" TYPE="TO_LIST">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Component key"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="O_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" PARPASSTYP="1" TYPTYPE="1" TYPE="TO_VIEW">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Views (SE11) Datas"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <EXCEPTIONS>
+      <ITEM SCONAME="ZAPLINK_CX_CONNECTOR" VERSION="1" LANGU="E" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100216">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="ZAPlink ROOT Exception for Connectors"/>
+       </TEXTS>
+      </ITEM>
+     </EXCEPTIONS>
+     <SOURCE>
+  DATA d_name         TYPE rsedd0-ddobjname.
+  DATA d_subrc        TYPE sy-subrc.
+  DATA s_fm_data      TYPE zaplink_view_data=&gt;ts_fm_data.
+
+  s_fm_data = o_data-&gt;to_data( ).
+  d_name = s_fm_data-header-viewname.
+  CALL FUNCTION &apos;RS_DD_DELETE_OBJ&apos;
+    EXPORTING
+      NO_ASK                     = abap_true
+      objname                    = d_name
+      objtype                    = dd_eu_type-view
+*     CHANGING
+*       CORRNUM                    = &apos; &apos;
+    EXCEPTIONS
+      not_executed               = 1
+      object_not_found           = 0
+      object_not_specified       = 3
+      permission_failure         = 4
+      dialog_needed              = 5
+      OTHERS                     = 6.
+  IF sy-subrc &lt;&gt; 0.
+    mac_add_mf_and_raise &apos;RS_DD_DELETE_OBJ&apos; sy-subrc.
+  ENDIF.
+
+  CALL FUNCTION &apos;DDIF_VIEW_PUT&apos;
+    EXPORTING
+      name                    = d_name
+      DD25V_WA                = s_fm_data-header
+      DD09L_WA                = s_fm_data-tech
+    TABLES
+      DD26V_TAB               = s_fm_data-tables
+      DD27P_TAB               = s_fm_data-fields
+      DD28J_TAB               = s_fm_data-joins
+      DD28V_TAB               = s_fm_data-wheres
+    EXCEPTIONS
+      VIEW_NOT_FOUND          = 1
+      NAME_INCONSISTENT       = 2
+      VIEW_INCONSISTENT       = 3
+      PUT_FAILURE             = 4
+      PUT_REFUSED             = 5
+      OTHERS                  = 6.
+  IF sy-subrc &lt;&gt; 0.
+    mac_add_mf_and_raise &apos;DDIF_VIEW_PUT&apos; sy-subrc.
+  ENDIF.
+
+  DELETE FROM dd25t WHERE viewname = s_fm_data-header-viewname.
+  MODIFY dd25t FROM TABLE s_fm_data-texts.
+
+  zaplink_documentation=&gt;set( s_fm_data-docs ).</SOURCE>
     </ITEM>
    </METHODS>
    <REDEFINITIONS>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CNX_EXT_CLEANER~ANONYMIZE">
      <SOURCE>
-*  DATA o_type TYPE to_data.
-*  DATA s_msg LIKE LINE OF o_type-&gt;messages.
-*
-*  TRY.
-*      super-&gt;zaplink_cnx_ext_cleaner~anonymize( object ).
-*    CATCH zaplink_cx_connector INTO o_mycx.
-*      RAISE EXCEPTION o_mycx.
-*  ENDTRY.
-*
-*  o_type ?= object-&gt;raw.
-*  CLEAR:
-**    o_type-&gt;A0_MAINDATA-RESPUSER,
-*    o_type-&gt;a0_maindata-lastuser,
-*    o_type-&gt;a0_maindata-ldate,
-*    o_type-&gt;a0_maindata-ltime.
-*
-*  MODIFY o_type-&gt;messages FROM s_msg TRANSPORTING name datum
-*         WHERE msgnr IS INITIAL OR
-*               msgnr IS NOT INITIAL.
+  mac_obj_data.
+
+  DEFINE mac_do_obj.
+    &amp;1 ?= object-&gt;raw.
+    &amp;1-&gt;anonymize( ).
+  END-OF-DEFINITION.
+
+  CASE object-&gt;type.
+    WHEN supportedtypes-type_group.
+      o_typegroup ?= object-&gt;raw.
+*      o_typegroup-&gt;anonymize( ).
+    WHEN supportedtypes-domain.         mac_do_obj o_domain.
+    WHEN supportedtypes-data_element.   mac_do_obj o_data_e.
+    WHEN supportedtypes-view.           mac_do_obj o_view.
+    WHEN OTHERS.
+* Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
+      RAISE EXCEPTION TYPE zaplink_cx_connector
+        EXPORTING
+          textid = zaplink_cx_connector=&gt;type_not_supported
+          type   = object-&gt;type
+          connclass = &apos;ZAPLINK_DICTIONARY&apos;.
+  ENDCASE.
 </SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CNX_EXT_CLEANER~UNANONYMIZE">
@@ -126,13 +809,19 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~CREATE_NEW_RAW">
      <SOURCE>
-  DATA o_typegroup TYPE to_typegroup.
+  mac_obj_data.
+
+  DEFINE mac_obj_create.
+    create object &amp;1.
+    object-&gt;raw = &amp;1.
+  END-OF-DEFINITION.
 
   CREATE OBJECT object.
   CASE type.
-    WHEN supportedtypes-typegroup.
-      CREATE OBJECT o_typegroup.
-      object-&gt;raw = o_typegroup.
+    WHEN supportedtypes-type_group.     mac_obj_create o_typegroup.
+    WHEN supportedtypes-domain.         mac_obj_create o_domain.
+    WHEN supportedtypes-data_element.   mac_obj_create o_data_e.
+    WHEN supportedtypes-view.           mac_obj_create o_view.
     WHEN OTHERS.
       CLEAR object.
 * Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
@@ -146,41 +835,76 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~DELETE_FROM_SAP">
      <SOURCE>
-  DATA _name TYPE t100a-arbgb.
-  data type  type td_comptype.
+  DATA d_name TYPE rsedd0-ddobjname.
+  DATA d_type TYPE rsedd0-ddobjtype.
+  DATA type  TYPE td_comptype.
 
   TRY.
 
       type = component-&gt;get_type( ).
       CASE type.
-        WHEN supportedtypes-typegroup.
-          _name = component-&gt;get_name( ).
-*          CALL FUNCTION &apos;RS_DELETE_MESSAGE_ID&apos;
-*            EXPORTING
-*              nachrichtenklasse = _name
-*            EXCEPTIONS
-*              not_executed      = 1
-*              not_found         = 2
-*              no_permission     = 3
-*              OTHERS            = 4.
-          IF sy-subrc &lt;&gt; 0. &quot; SAP NameSpace
-            CASE sy-subrc.
-              WHEN 2.
-                RAISE EXCEPTION TYPE zaplink_cx_connector
-                  EXPORTING textid = zaplink_cx_connector=&gt;not_found.
-              WHEN OTHERS.
-                RAISE EXCEPTION TYPE zaplink_cx_connector
-                  EXPORTING textid = zaplink_cx_connector=&gt;system_error.
-            ENDCASE.
-          ENDIF.
+        WHEN supportedtypes-type_group.
+          d_type = dd_eu_type-type_group.
+        WHEN supportedtypes-domain.
+          d_type = dd_eu_type-domain.
+        WHEN supportedtypes-data_element.
+          d_type = dd_eu_type-data_element.
+        WHEN supportedtypes-table_type.
+          d_type = dd_eu_type-table_type.
+        WHEN supportedtypes-search_help.
+          d_type = dd_eu_type-search_help.
+        WHEN supportedtypes-mactchcode_id.
+          d_type = dd_eu_type-mactchcode_id.
+        WHEN supportedtypes-lock_object.
+          d_type = dd_eu_type-lock_object.
+        WHEN supportedtypes-matchcode_obj.
+          d_type = dd_eu_type-matchcode_obj.
+        WHEN supportedtypes-table_index.
+          d_type = dd_eu_type-table_index.
+        WHEN supportedtypes-ext_index.
+          d_type = dd_eu_type-ext_index.
+*        WHEN supportedtypes-table.
+*          d_type = dd_eu_type-table.
+        WHEN supportedtypes-view.
+          d_type = dd_eu_type-view.
+*        WHEN supportedtypes-t_cluster_pool.
+*          d_type = dd_eu_type-t_cluster_pool.
         WHEN OTHERS.
 * Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
           RAISE EXCEPTION TYPE zaplink_cx_connector
             EXPORTING
               textid = zaplink_cx_connector=&gt;type_not_supported
               type   = type
-              connclass = &apos;ZAPLINK_MESSAGE&apos;.
+              connclass = &apos;ZAPLINK_DICTIONARY&apos;.
       ENDCASE.
+      d_name = component-&gt;get_name( ).
+
+      IF NOT d_type IS INITIAL.
+        CALL FUNCTION &apos;RS_DD_DELETE_OBJ&apos;
+          EXPORTING
+*           NO_ASK                     = &apos; &apos;
+            objname                    = d_name
+            objtype                    = d_type
+*         CHANGING
+*           CORRNUM                    = &apos; &apos;
+          EXCEPTIONS
+            not_executed               = 1
+            object_not_found           = 2
+            object_not_specified       = 3
+            permission_failure         = 4
+            dialog_needed              = 5
+            OTHERS                     = 6.
+        IF sy-subrc &lt;&gt; 0. &quot; SAP NameSpace
+          CASE sy-subrc.
+            WHEN 2.
+              RAISE EXCEPTION TYPE zaplink_cx_connector
+                EXPORTING textid = zaplink_cx_connector=&gt;not_found.
+            WHEN OTHERS.
+              mac_add_mf_and_raise &apos;RS_DD_DELETE_OBJ&apos; sy-subrc.
+          ENDCASE.
+        ENDIF.
+
+      ENDIF.
 
     CATCH zaplink_cx_connector INTO o_mycx.
       RAISE EXCEPTION o_mycx.
@@ -191,22 +915,41 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~DO_EXISTS">
      <SOURCE>
-  DATA _name TYPE t100a-arbgb.
-  DATA type  TYPE td_comptype.
+  DATA d_name TYPE rsedd0-ddobjname.
+  DATA d_type TYPE rsedd0-ddobjtype.
+  DATA type        TYPE td_comptype.
 
   exists = me-&gt;exists-not_exists.
 
   TRY.
       type = component-&gt;get_type( ).
       CASE type.
-        WHEN supportedtypes-typegroup.
-          _name = component-&gt;get_name( ).
-          SELECT SINGLE arbgb INTO _name
-            FROM t100a
-            WHERE arbgb = _name.
-          IF sy-subrc = 0.
-            exists = me-&gt;exists-exists.
-          ENDIF.
+        WHEN supportedtypes-type_group.
+          d_type = dd_eu_type-type_group.
+        WHEN supportedtypes-domain.
+          d_type = dd_eu_type-domain.
+        WHEN supportedtypes-data_element.
+          d_type = dd_eu_type-data_element.
+        WHEN supportedtypes-table_type.
+          d_type = dd_eu_type-table_type.
+        WHEN supportedtypes-search_help.
+          d_type = dd_eu_type-search_help.
+        WHEN supportedtypes-mactchcode_id.
+          d_type = dd_eu_type-mactchcode_id.
+        WHEN supportedtypes-lock_object.
+          d_type = dd_eu_type-lock_object.
+        WHEN supportedtypes-matchcode_obj.
+          d_type = dd_eu_type-matchcode_obj.
+        WHEN supportedtypes-table_index.
+          d_type = dd_eu_type-table_index.
+        WHEN supportedtypes-ext_index.
+          d_type = dd_eu_type-ext_index.
+*        WHEN supportedtypes-table.
+*          d_type = dd_eu_type-table.
+        WHEN supportedtypes-view.
+          d_type = dd_eu_type-view.
+*        WHEN supportedtypes-t_cluster_pool.
+*          d_type = dd_eu_type-t_cluster_pool.
         WHEN OTHERS.
 * Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
           RAISE EXCEPTION TYPE zaplink_cx_connector
@@ -215,6 +958,38 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
               type   = type
               connclass = &apos;ZAPLINK_MESSAGE&apos;.
       ENDCASE.
+      d_name = component-&gt;get_name( ).
+
+      IF NOT d_type IS INITIAL AND NOT d_name IS INITIAL.
+        CALL FUNCTION &apos;INTERN_DD_CHECK_EXIST&apos;
+          EXPORTING
+            objname                     = d_name
+            objtype                     = d_type
+            err_message                 = abap_false
+*           OBJSTATE                    = &apos;M&apos;
+            exists                      = abap_true
+*           SECNAME                     = &apos; &apos;
+*         IMPORTING
+*           MASTERLANGU                 =
+*           OTHER_CLASS                 =
+*           PROXY_TYPE                  =
+          EXCEPTIONS
+            object_not_found            = 1
+            other_object_class          = 2
+            invalid_parameter           = 3
+            object_already_exists       = 4
+            OTHERS                      = 5.
+        IF sy-subrc = 0. &quot; SAP NameSpace
+          exists = me-&gt;exists-exists.
+        ELSE.
+          CASE sy-subrc.
+            WHEN 1.
+            WHEN OTHERS.
+              mac_add_mf_and_raise &apos;INTERN_DD_CHECK_EXIST&apos; sy-subrc.
+          ENDCASE.
+        ENDIF.
+
+      ENDIF.
 
     CATCH zaplink_cx_connector INTO o_mycx.
       RAISE EXCEPTION o_mycx.
@@ -232,107 +1007,115 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~READ_FROM_SAP">
      <SOURCE>
-*  DATA _data  TYPE to_data.
-*  DATA _obj   TYPE doku_obj.
-*  DATA t_t100 TYPE SORTED TABLE OF t100 WITH UNIQUE KEY msgnr sprsl.
-*  DATA _name  TYPE arbgb.
-*  DATA t_docs TYPE zaplink_documentation=&gt;tt_docs.
-*  FIELD-SYMBOLS:
-*    &lt;l&gt; LIKE LINE OF t_docs,
-*    &lt;lt&gt; LIKE LINE OF &lt;l&gt;-texts,
-*    &lt;t&gt; LIKE LINE OF t_t100,
-*    &lt;m&gt; LIKE LINE OF _data-&gt;messages,
-*    &lt;mt&gt; LIKE LINE OF &lt;m&gt;-texts.
-*
-*  DATA _text LIKE LINE OF &lt;m&gt;-texts.
-*  DATA _htxt LIKE LINE OF _data-&gt;texts.
-*  DATA _key  TYPE doku_obj.
+  mac_obj_data.
+  DATA d_type       TYPE td_comptype.
 
-  TRY.
+  DEFINE mac_catch_local_cx.
+    catch zaplink_cx_connector into o_mycx.
+      if not o_mycx-&gt;messages is bound.
+        o_mycx-&gt;messages = application_log.
+        o_mycx-&gt;update( ).
+      endif.
+      raise exception o_mycx.
+    END-OF-DEFINITION.
 
-      CREATE OBJECT object.
-      object-&gt;set_component( component ).
+    TRY.
+        d_type = component-&gt;get_type( ).
+        CREATE OBJECT object.
+        object-&gt;set_component( component ).
 
-      CASE component-&gt;get_type( ).
-        WHEN supportedtypes-typegroup.
-*          TRY.
-*              o_clas = export_from_sap_class( component ).
-*            CATCH zaplink_cx_connector INTO o_mycx.
-*              IF NOT o_mycx-&gt;messages IS BOUND.
-*                o_mycx-&gt;messages = application_log.
-*                o_mycx-&gt;update( ).
-*              ENDIF.
-*              RAISE EXCEPTION o_mycx.
-*          ENDTRY.
-*          CLEAR o_clas-&gt;a0_maindata-clsname.
-*          object-&gt;raw = o_clas.
-*        WHEN st_interface.
-*          TRY.
-*              o_intf = export_from_sap_interface( component ).
-*            CATCH zaplink_cx_connector INTO o_mycx.
-*              IF NOT o_mycx-&gt;messages IS BOUND.
-*                o_mycx-&gt;messages = application_log.
-*                o_mycx-&gt;update( ).
-*              ENDIF.
-*              RAISE EXCEPTION o_mycx.
-*          ENDTRY.
-*          CLEAR o_intf-&gt;a0_maindata-clsname.
-*          object-&gt;raw = o_intf.
-        WHEN OTHERS.
-          CLEAR object.
+        CASE d_type.
+          WHEN supportedtypes-type_group.
+            TRY.
+              o_typegroup = export_type_group( component ).
+              mac_catch_local_cx.
+            ENDTRY.
+            CLEAR o_typegroup-&gt;a0_maindata-name.
+            object-&gt;raw = o_typegroup.
+          WHEN supportedtypes-domain.
+            TRY.
+              o_domain = export_domain( component ).
+              mac_catch_local_cx.
+            ENDTRY.
+            CLEAR o_domain-&gt;a0_maindata-domname.
+            object-&gt;raw = o_domain.
+          WHEN supportedtypes-data_element.
+            TRY.
+              o_data_e = export_data_element( component ).
+              mac_catch_local_cx.
+            ENDTRY.
+            CLEAR o_data_e-&gt;a0_maindata-rollname.
+            object-&gt;raw = o_data_e.
+          WHEN supportedtypes-view.
+            TRY.
+              o_view = export_view( component ).
+              mac_catch_local_cx.
+            ENDTRY.
+            CLEAR o_view-&gt;a0_maindata-viewname.
+            object-&gt;raw = o_view.
+          WHEN OTHERS.
+            CLEAR object.
 * Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
-          RAISE EXCEPTION TYPE zaplink_cx_connector
-            EXPORTING
-              textid = zaplink_cx_connector=&gt;type_not_supported
-              type   = object-&gt;type
-              connclass = &apos;ZAPLINK_MESSAGE&apos;.
-      ENDCASE.
+            RAISE EXCEPTION TYPE zaplink_cx_connector
+              EXPORTING
+                textid = zaplink_cx_connector=&gt;type_not_supported
+                type   = d_type
+                connclass = &apos;ZAPLINK_DICTIONARY&apos;.
+        ENDCASE.
 
-    CATCH zaplink_cx_connector INTO o_mycx.
-      RAISE EXCEPTION o_mycx.
-    CATCH zaplink_cx INTO o_cx.
-      mac_cascade_raise o_mycx o_cx.
-  ENDTRY.
-</SOURCE>
+      CATCH zaplink_cx_connector INTO o_mycx.
+        RAISE EXCEPTION o_mycx.
+      CATCH zaplink_cx INTO o_cx.
+        mac_cascade_raise o_mycx o_cx.
+    ENDTRY.
+
+  ENDMETHOD.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~WRITE_TO_SAP">
      <SOURCE>
-*  DATA _data TYPE to_data.
-*  DATA _comp TYPE to_component.
-*  DATA _name TYPE td_compname.
-*  DATA ls_doc LIKE LINE OF t_docs.
-*  FIELD-SYMBOLS:
-*    &lt;m&gt; LIKE LINE OF _data-&gt;messages,
-*    &lt;l&gt; LIKE LINE OF &lt;m&gt;-texts,
-*    &lt;t&gt; LIKE LINE OF _data-&gt;texts.
+  mac_obj_data.
+  DATA o_comp       TYPE to_component.
+
+  DEFINE mac_catch_local_cx.
+    catch zaplink_cx_connector into o_mycx.
+      if not o_mycx-&gt;messages is bound.
+        o_mycx-&gt;messages = application_log.
+        o_mycx-&gt;update( ).
+      endif.
+    raise exception o_mycx.
+  END-OF-DEFINITION.
 
   TRY.
 
       CASE object-&gt;type.
-        WHEN supportedtypes-typegroup.
-*      _o_class ?= object-&gt;raw.
-*      _o_class-&gt;a0_maindata-clsname = object-&gt;name.
-*      TRY.
-*          components = import_to_sap_class( _o_class ).
-*        CATCH zaplink_cx_connector INTO o_mycx.
-*          IF NOT o_mycx-&gt;messages IS BOUND.
-*            o_mycx-&gt;messages = application_log.
-*            o_mycx-&gt;update( ).
-*          ENDIF.
-*          RAISE EXCEPTION o_mycx.
-*      ENDTRY.
-*    WHEN st_interface.
-*      _o_interface ?= object-&gt;raw.
-*      _o_interface-&gt;a0_maindata-clsname = object-&gt;name.
-*      TRY.
-*          components = import_to_sap_interface( _o_interface ).
-*        CATCH zaplink_cx_connector INTO o_mycx.
-*          IF NOT o_mycx-&gt;messages IS BOUND.
-*            o_mycx-&gt;messages = application_log.
-*            o_mycx-&gt;update( ).
-*          ENDIF.
-*          RAISE EXCEPTION o_mycx.
-*      ENDTRY.
+        WHEN supportedtypes-type_group.
+          o_typegroup ?= object-&gt;raw.
+          o_typegroup-&gt;a0_maindata-name = object-&gt;name.
+          TRY.
+            components = import_type_group( o_typegroup ).
+            mac_catch_local_cx.
+          ENDTRY.
+        WHEN supportedtypes-domain.
+          o_domain ?= object-&gt;raw.
+          o_domain-&gt;a0_maindata-domname = object-&gt;name.
+          TRY.
+            components = import_domain( o_domain ).
+            mac_catch_local_cx.
+          ENDTRY.
+        WHEN supportedtypes-data_element.
+          o_data_e ?= object-&gt;raw.
+          o_data_e-&gt;a0_maindata-rollname = object-&gt;name.
+          TRY.
+            components = import_data_element( o_data_e ).
+            mac_catch_local_cx.
+          ENDTRY.
+        WHEN supportedtypes-view.
+          o_view ?= object-&gt;raw.
+          o_view-&gt;a0_maindata-viewname = object-&gt;name.
+          TRY.
+            components = import_view( o_view ).
+            mac_catch_local_cx.
+          ENDTRY.
         WHEN OTHERS.
 * Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
           RAISE EXCEPTION TYPE zaplink_cx_connector
@@ -341,6 +1124,12 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
               type   = object-&gt;type
               connclass = &apos;ZAPLINK_DICTIONARY&apos;.
       ENDCASE.
+
+      CREATE OBJECT o_comp.
+      o_comp-&gt;set_type( object-&gt;type ).
+      o_comp-&gt;set_name( object-&gt;name ).
+      IF NOT components IS BOUND. CREATE OBJECT components. ENDIF.
+      components-&gt;add( o_comp ).
 
     CATCH zaplink_cx_connector INTO o_mycx.
       RAISE EXCEPTION o_mycx.
@@ -354,25 +1143,538 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
     <ITEM TYPEGROUP="ABAP" VERSION="1" IMPLICIT="X"/>
    </TYPEGROUPS>
    <TYPES>
+    <ITEM CMPNAME="TD_TYPEGROUP" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100209" TYPTYPE="1" TYPE="TYPEGROUP" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Type group name"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TO_DATA_ELEMENT" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100211" TYPTYPE="3" TYPE="ZAPLINK_DTEL_DATA" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Data for Data element"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TO_DOMAIN" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100210" TYPTYPE="3" TYPE="ZAPLINK_DOMA_DATA" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Data for Domain"/>
+     </TEXTS>
+    </ITEM>
     <ITEM CMPNAME="TO_TYPEGROUP" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100129" TYPTYPE="3" TYPE="ZAPLINK_TYPE_DATA" R3RELEASE="700">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Data for Type group"/>
      </TEXTS>
     </ITEM>
+    <ITEM CMPNAME="TO_VIEW" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100216" TYPTYPE="3" TYPE="ZAPLINK_VIEW_DATA" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Views (SE11) Datas"/>
+     </TEXTS>
+    </ITEM>
    </TYPES>
   </RAW>
  </ZL_OBJECT>
- <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_TYPE_DATA" TYPE="CLAS" VERSION="1.0">
+ <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_DOMA_DATA" TYPE="CLAS" VERSION="1.01">
   <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
   <RAW>
-   <A0_MAINDATA VERSION="1" LANGU="E" UUID="8FF9034B756EB95AE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20090924" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+   <A0_MAINDATA VERSION="1" LANGU="E" UUID="C967724B6223AA5BE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+    <INHERITANCE REFCLSNAME="ZAPLINK_RAW_DATA" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100210"/>
+    <TEXTS>
+     <ITEM LANGU="E" DESCRIPT="Domain (SE11) Datas"/>
+    </TEXTS>
+   </A0_MAINDATA>
+   <ALIASES>
+    <ITEM CMPNAME="TD_DOC_ID" VERSION="1" EXPOSURE="1" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TD_DOC_ID"/>
+    <ITEM CMPNAME="TR_DOCID" VERSION="1" EXPOSURE="1" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TR_DOCID"/>
+    <ITEM CMPNAME="TT_TEXTS" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TT_TEXTS"/>
+   </ALIASES>
+   <ATTRIBUTS>
+    <ITEM CMPNAME="A0_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210" TYPTYPE="1" TYPE="TS_MAINDATA">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Line Type for Table with Package Data"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="DOC_IDS" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210" ATTDECLTYP="2" TYPTYPE="4" SRCROW1="12 " SRCCOLUMN1="4 " SRCROW2="14 " SRCCOLUMN2="17 " TYPESRC_LENG="80 " TYPESRC="BEGIN OF doc_ids,
+      header TYPE td_doc_id VALUE &apos;DO&apos;,
+    END OF doc_ids
+">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Documentation IDS"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="R_DOC_IDS" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210" ATTDECLTYP="1" TYPTYPE="1" TYPE="TR_DOCID">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Documentation IDS"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210" TYPTYPE="1" TYPE="TT_TEXTS"/>
+    <ITEM CMPNAME="VALUES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210" TYPTYPE="1" TYPE="TT_VALUES"/>
+   </ATTRIBUTS>
+   <DEFERRED>
+    <CLASSES>
+     <ITEM TYPEGROUP="ZAPLINK_DOCUMENTATION" VERSION="1" TPUTYPE="1" IMPLICIT="X"/>
+    </CLASSES>
+   </DEFERRED>
+   <FRIENDS>
+    <ITEM REFCLSNAME="ZAPLINK_DICTIONARY" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100210"/>
+    <ITEM REFCLSNAME="ZAPLINK_EASYXML" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100210"/>
+   </FRIENDS>
+   <INTERFACES>
+    <ITEM REFCLSNAME="ZAPLINK_DATATYPES" VERSION="1" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100210" RELTYPE="1"/>
+   </INTERFACES>
+   <LOCAL>
+    <TYPES>
+*&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
+*&quot;* definitions, interfaces or data types) you need for method
+*&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE
+ CLASS ZAPLINK_DOCUMENTATION DEFINITION LOAD.</TYPES>
+    <IMPLEMENTATIONS>
+*&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
+*&quot;* use this source file for the implementation part of
+*&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
+    <MACROS>
+*&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
+*&quot;* IN THE IMPLEMENTATION PART OF THE CLASS</MACROS>
+   </LOCAL>
+   <METHODS>
+    <ITEM CMPNAME="ANONYMIZE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100211" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Anonymized component data"/>
+     </TEXTS>
+     <SOURCE>
+  FIELD-SYMBOLS:
+    &lt;t&gt; like LINE OF texts.
+
+  clear: a0_maindata-AS4USER, a0_maindata-AS4DATE, a0_maindata-AS4TIME.
+  loop at texts ASSIGNING &lt;t&gt;.
+    clear: &lt;t&gt;-LONG_TXT-TDFUSER, &lt;t&gt;-LONG_TXT-TDFDATE, &lt;t&gt;-LONG_TXT-TDFTIME.
+  endloop.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="CLASS_CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210" MTDTYPE="2" MTDDECLTYP="1">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="CLASS_CONSTRUCTOR"/>
+     </TEXTS>
+     <SOURCE>
+  DATA _id LIKE LINE OF r_doc_ids.
+
+  _id-sign = &apos;I&apos;. _id-option = &apos;EQ&apos;.
+  _id-low = doc_ids-header. APPEND _id TO r_doc_ids.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="FROM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Convert FM Data to object attributes"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210" PARPASSTYP="1" TYPTYPE="1" TYPE="TS_FM_DATA">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Function Modules object Data"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>
+  DATA s_value LIKE LINE OF values.
+  DATA s_vtext LIKE LINE OF s_value-texts.
+  DATA s_text  LIKE LINE OF texts.
+  FIELD-SYMBOLS:
+    &lt;d&gt; LIKE LINE OF fm_data-docs,
+    &lt;dt&gt; LIKE LINE OF &lt;d&gt;-texts,
+    &lt;vt&gt; LIKE LINE OF fm_data-values_texts,
+    &lt;t&gt; LIKE LINE OF fm_data-texts,
+    &lt;v&gt; LIKE LINE OF fm_data-values.
+
+  a0_maindata-hdr = fm_data-header.
+
+* Values
+  LOOP AT fm_data-values ASSIGNING &lt;v&gt;.
+    CLEAR s_value. s_value-main = &lt;v&gt;. CLEAR s_value-domname.
+    LOOP AT fm_data-values_texts ASSIGNING &lt;vt&gt;
+      WHERE valpos = &lt;v&gt;-valpos.
+      CLEAR s_vtext.
+      s_vtext-langu = &lt;vt&gt;-ddlanguage.
+*      IF &lt;v&gt;-DOMVALUE_H is INITIAL.
+      s_vtext-short_txt = &lt;vt&gt;-ddtext.
+*      else.
+*      endif.
+      INSERT s_vtext INTO TABLE s_value-texts.
+    ENDLOOP.
+    INSERT s_value INTO TABLE values.
+  ENDLOOP.
+
+* Texts
+  LOOP AT fm_data-texts ASSIGNING &lt;t&gt;.
+    CLEAR s_text.
+    s_text-langu = &lt;t&gt;-ddlanguage.
+    s_text-short_txt = &lt;t&gt;-ddtext.
+    READ TABLE fm_data-docs ASSIGNING &lt;d&gt;
+         WITH KEY id = doc_ids-header
+              object = a0_maindata-domname.
+    IF sy-subrc = 0.
+      READ TABLE &lt;d&gt;-texts ASSIGNING &lt;dt&gt;
+          WITH KEY tdspras = s_text-langu.
+      IF sy-subrc = 0.
+        s_text-long_txt = &lt;dt&gt;.
+        CLEAR s_text-long_txt-tdspras.
+      ENDIF.
+    ENDIF.
+    INSERT s_text INTO TABLE texts.
+  ENDLOOP.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="TO_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Convert object attributes to FM Data"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210" PARDECLTYP="3" TYPTYPE="1" TYPE="TS_FM_DATA">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Function Modules object Data"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>
+  DATA s_value LIKE LINE OF fm_data-values.
+  DATA s_vtext LIKE LINE OF fm_data-values_texts.
+  DATA s_text  LIKE LINE OF fm_data-texts.
+  DATA s_doc   LIKE LINE OF fm_data-docs.
+  DATA s_dtxt  LIKE LINE OF s_doc-texts.
+  FIELD-SYMBOLS:
+    &lt;v&gt; LIKE LINE OF values,
+    &lt;t&gt; LIKE LINE OF texts,
+    &lt;d&gt; LIKE LINE OF fm_data-docs,
+    &lt;vt&gt; LIKE LINE OF &lt;v&gt;-texts.
+
+  fm_data-header = a0_maindata-hdr.
+
+* Values
+  LOOP AT values ASSIGNING &lt;v&gt;.
+    CLEAR s_value. s_value = &lt;v&gt;-main. s_value-domname = fm_data-header-domname.
+    INSERT s_value INTO TABLE fm_data-values.
+    LOOP AT &lt;v&gt;-texts ASSIGNING &lt;vt&gt;.
+      CLEAR s_vtext.
+      MOVE-CORRESPONDING &lt;v&gt; TO s_vtext.
+      s_vtext-domname = fm_data-header-domname.
+      s_vtext-ddlanguage = &lt;vt&gt;-langu.
+      s_vtext-as4local = &apos;A&apos;. &quot; Active
+      s_vtext-valpos = &lt;v&gt;-valpos.
+      s_vtext-as4vers = &apos;0000&apos;. &quot; Active
+      s_vtext-ddtext = &lt;vt&gt;-short_txt.
+      INSERT s_vtext INTO TABLE fm_data-values_texts.
+    ENDLOOP.
+  ENDLOOP.
+
+* Texts
+  LOOP AT texts ASSIGNING &lt;t&gt;.
+    CLEAR s_text.
+    s_text-domname = fm_data-header-domname.
+    s_text-ddlanguage = &lt;t&gt;-langu.
+    s_text-as4local = &apos;A&apos;. &quot; Active
+    s_text-as4vers = &apos;0000&apos;. &quot; Active
+    s_text-ddtext = &lt;t&gt;-short_txt.
+    INSERT s_text INTO TABLE fm_data-texts.
+    IF NOT &lt;t&gt;-long_txt IS INITIAL.
+      IF fm_data-docs IS INITIAL.
+        CLEAR s_doc.
+*APPLICATION    DOKU
+*ID	            DO
+*OBJECT	        ____
+*LANGU          E
+*MASTERLANG	    X
+*TYP            T
+*DOKFORM        S_DOCU_SHOW
+*DOKSTYLE	      S_DOCUS1
+*SELFDEF
+        s_doc-application = &apos;DOKU&apos;.
+        s_doc-id = doc_ids-header.
+        s_doc-object = fm_data-header-domname.
+        s_doc-langu = &lt;t&gt;-langu.
+        s_doc-masterlang = abap_true.
+        s_doc-typ = &apos;T&apos;.
+        s_doc-dokform = &apos;S_DOCU_SHOW&apos;.
+        s_doc-dokstyle = &apos;S_DOCUS1&apos;.
+        INSERT s_doc INTO TABLE fm_data-docs.
+      ENDIF.
+      s_dtxt = &lt;t&gt;-long_txt.
+      s_dtxt-tdspras = &lt;t&gt;-langu.
+      INSERT s_dtxt INTO TABLE s_doc-texts.
+    ENDIF.
+  ENDLOOP.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="UNANONYMIZE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100211" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="UnAnonymized component data"/>
+     </TEXTS>
+    </ITEM>
+   </METHODS>
+   <TYPES>
+    <ITEM CMPNAME="TS_FM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="27 " SRCCOLUMN1="4 " SRCROW2="34 " SRCCOLUMN2="30 " TYPESRC_LENG="301 ">
+     BEGIN OF ts_fm_data,
+* DO pour type doc
+                header        TYPE dd01v,
+                texts         TYPE tt_dd01t,
+                docs          TYPE tt_docs,
+                values        TYPE tt_dd07v,
+                values_texts  TYPE tt_dd07t,
+              END OF ts_fm_data
+
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Function Module Data"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TS_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="36 " SRCCOLUMN1="4 " SRCROW2="39 " SRCCOLUMN2="23 " TYPESRC_LENG="93 ">
+     BEGIN OF ts_maindata.
+    INCLUDE TYPE dd01v AS hdr.
+    TYPES:
+      END OF ts_maindata
+
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="General Data"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TS_VALUE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="7 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="41 " SRCCOLUMN1="4 " SRCROW2="45 " SRCCOLUMN2="20 " TYPESRC_LENG="118 ">BEGIN OF ts_value.
+    INCLUDE TYPE dd07v AS main.
+    TYPES:
+        texts TYPE tt_texts,
+      END OF ts_value
+</ITEM>
+    <ITEM CMPNAME="TT_DD01T" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="4 " SRCROW2="23 " SRCCOLUMN2="65 " TYPESRC_LENG="64 ">tt_dd01t TYPE SORTED TABLE OF dd01t WITH UNIQUE KEY ddlanguage
+</ITEM>
+    <ITEM CMPNAME="TT_DD07T" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="4 " SRCROW2="21 " SRCCOLUMN2="72 " TYPESRC_LENG="71 ">tt_dd07t TYPE SORTED TABLE OF dd07t WITH UNIQUE KEY valpos ddlanguage
+</ITEM>
+    <ITEM CMPNAME="TT_DD07V" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="19 " SRCCOLUMN1="4 " SRCROW2="19 " SRCCOLUMN2="57 " TYPESRC_LENG="56 ">tt_dd07v TYPE STANDARD TABLE OF dd07v WITH DEFAULT KEY
+</ITEM>
+    <ITEM CMPNAME="TT_DOCS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100210" TYPTYPE="1" TYPE="ZAPLINK_DOCUMENTATION=&gt;TT_DOCS"/>
+    <ITEM CMPNAME="TT_VALUES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="8 " AUTHOR="TBENSIAL" CREATEDON="20100210" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="47 " SRCCOLUMN1="4 " SRCROW2="47 " SRCCOLUMN2="65 " TYPESRC_LENG="64 ">tt_values TYPE SORTED TABLE OF ts_value WITH UNIQUE KEY valpos
+</ITEM>
+   </TYPES>
+  </RAW>
+ </ZL_OBJECT>
+ <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_DTEL_DATA" TYPE="CLAS" VERSION="1.01">
+  <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
+  <RAW>
+   <A0_MAINDATA VERSION="1" LANGU="E" UUID="0094734BA674E75CE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+    <INHERITANCE REFCLSNAME="ZAPLINK_RAW_DATA" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100211"/>
+    <TEXTS>
+     <ITEM LANGU="E" DESCRIPT="Data element (SE11) Datas"/>
+    </TEXTS>
+   </A0_MAINDATA>
+   <ALIASES>
+    <ITEM CMPNAME="TD_DOC_ID" VERSION="1" EXPOSURE="1" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TD_DOC_ID"/>
+    <ITEM CMPNAME="TR_DOCID" VERSION="1" EXPOSURE="1" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TR_DOCID"/>
+    <ITEM CMPNAME="TT_TEXTS" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TT_TEXTS"/>
+   </ALIASES>
+   <ATTRIBUTS>
+    <ITEM CMPNAME="A0_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100212" TYPTYPE="1" TYPE="TS_MAINDATA">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Line Type for Table with Package Data"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="DOC_IDS" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100215" ATTDECLTYP="2" TYPTYPE="4" SRCROW1="12 " SRCCOLUMN1="4 " SRCROW2="14 " SRCCOLUMN2="17 " TYPESRC_LENG="80 " TYPESRC="BEGIN OF doc_ids,
+      header TYPE td_doc_id VALUE &apos;DE&apos;,
+    END OF doc_ids
+">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Documentation IDS"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="R_DOC_IDS" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100215" ATTDECLTYP="1" TYPTYPE="1" TYPE="TR_DOCID">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Documentation IDS"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100212" TYPTYPE="1" TYPE="TT_TEXTS"/>
+   </ATTRIBUTS>
+   <DEFERRED>
+    <CLASSES>
+     <ITEM TYPEGROUP="ZAPLINK_DOCUMENTATION" VERSION="1" TPUTYPE="1" IMPLICIT="X"/>
+    </CLASSES>
+   </DEFERRED>
+   <FRIENDS>
+    <ITEM REFCLSNAME="ZAPLINK_DICTIONARY" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100211"/>
+    <ITEM REFCLSNAME="ZAPLINK_EASYXML" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100211"/>
+   </FRIENDS>
+   <INTERFACES>
+    <ITEM REFCLSNAME="ZAPLINK_DATATYPES" VERSION="1" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100211" RELTYPE="1"/>
+   </INTERFACES>
+   <LOCAL>
+    <TYPES>
+*&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
+*&quot;* definitions, interfaces or data types) you need for method
+*&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE
+ CLASS ZAPLINK_DOCUMENTATION DEFINITION LOAD.</TYPES>
+    <IMPLEMENTATIONS>
+*&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
+*&quot;* use this source file for the implementation part of
+*&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
+    <MACROS>
+*&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
+*&quot;* IN THE IMPLEMENTATION PART OF THE CLASS</MACROS>
+   </LOCAL>
+   <METHODS>
+    <ITEM CMPNAME="ANONYMIZE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100215" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Anonymized component data"/>
+     </TEXTS>
+     <SOURCE>
+  FIELD-SYMBOLS:
+    &lt;t&gt; like LINE OF texts.
+
+  clear: a0_maindata-AS4USER, a0_maindata-AS4DATE, a0_maindata-AS4TIME.
+  loop at texts ASSIGNING &lt;t&gt;.
+    clear: &lt;t&gt;-LONG_TXT-TDFUSER, &lt;t&gt;-LONG_TXT-TDFDATE, &lt;t&gt;-LONG_TXT-TDFTIME.
+  endloop.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="CLASS_CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100212" MTDTYPE="2" MTDDECLTYP="1">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="CLASS_CONSTRUCTOR"/>
+     </TEXTS>
+     <SOURCE>
+  DATA _id LIKE LINE OF r_doc_ids.
+
+  _id-sign = &apos;I&apos;. _id-option = &apos;EQ&apos;.
+  _id-low = doc_ids-header. APPEND _id TO r_doc_ids.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="FROM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100212">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Convert FM Data to object attributes"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100212" PARPASSTYP="1" TYPTYPE="1" TYPE="TS_FM_DATA">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Function Modules object Data"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>
+  DATA s_text  LIKE LINE OF texts.
+  FIELD-SYMBOLS:
+    &lt;d&gt; LIKE LINE OF fm_data-docs,
+    &lt;dt&gt; LIKE LINE OF &lt;d&gt;-texts,
+    &lt;t&gt; LIKE LINE OF fm_data-texts.
+
+  a0_maindata-hdr = fm_data-header.
+  a0_maindata-param = fm_data-param.
+
+* Texts
+  LOOP AT fm_data-texts ASSIGNING &lt;t&gt;.
+    CLEAR s_text.
+    s_text-langu = &lt;t&gt;-ddlanguage.
+    s_text-short_txt = &lt;t&gt;-ddtext.
+    READ TABLE fm_data-docs ASSIGNING &lt;d&gt;
+         WITH KEY id = doc_ids-header
+              object = a0_maindata-rollname.
+    IF sy-subrc = 0.
+      READ TABLE &lt;d&gt;-texts ASSIGNING &lt;dt&gt;
+          WITH KEY tdspras = s_text-langu.
+      IF sy-subrc = 0.
+        s_text-long_txt = &lt;dt&gt;.
+        CLEAR s_text-long_txt-tdspras.
+      ENDIF.
+    ENDIF.
+    INSERT s_text INTO TABLE texts.
+  ENDLOOP.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="TO_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100212">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Convert object attributes to FM Data"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100212" PARDECLTYP="3" TYPTYPE="1" TYPE="TS_FM_DATA">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Function Modules object Data"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>
+  DATA s_text  LIKE LINE OF fm_data-texts.
+  DATA s_doc   LIKE LINE OF fm_data-docs.
+  DATA s_dtxt  LIKE LINE OF s_doc-texts.
+  FIELD-SYMBOLS:
+    &lt;d&gt; LIKE LINE OF fm_data-docs,
+    &lt;t&gt; LIKE LINE OF texts.
+
+  fm_data-header = a0_maindata-hdr.
+
+* Texts
+  LOOP AT texts ASSIGNING &lt;t&gt;.
+    CLEAR s_text.
+    s_text-rollname = fm_data-header-rollname.
+    s_text-ddlanguage = &lt;t&gt;-langu.
+    s_text-as4local = &apos;A&apos;. &quot; Active
+    s_text-as4vers = &apos;0000&apos;. &quot; Active
+    s_text-ddtext = &lt;t&gt;-short_txt.
+    INSERT s_text INTO TABLE fm_data-texts.
+    IF NOT &lt;t&gt;-long_txt IS INITIAL.
+      IF fm_data-docs IS INITIAL.
+*APPLICATION    DOKU
+*ID	            DO
+*OBJECT	        ____
+*LANGU          E
+*MASTERLANG	    X
+*TYP            T
+*DOKFORM        S_DOCU_SHOW
+*DOKSTYLE	      S_DOCUS1
+*SELFDEF
+        s_doc-application = &apos;DOKU&apos;.
+        s_doc-id = doc_ids-header.
+        s_doc-object = fm_data-header-rollname.
+        s_doc-langu = &lt;t&gt;-langu.
+        s_doc-masterlang = abap_true.
+        s_doc-typ = &apos;T&apos;.
+        s_doc-dokform = &apos;S_DOCU_SHOW&apos;.
+        s_doc-dokstyle = &apos;S_DOCUS1&apos;.
+        INSERT s_doc INTO TABLE fm_data-docs.
+      ENDIF.
+      READ TABLE fm_data-docs ASSIGNING &lt;d&gt; INDEX 1.
+      s_dtxt = &lt;t&gt;-long_txt.
+      s_dtxt-tdspras = &lt;t&gt;-langu.
+      INSERT s_dtxt INTO TABLE &lt;d&gt;-texts.
+    ENDIF.
+  ENDLOOP.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="UNANONYMIZE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100215" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="UnAnonymized component data"/>
+     </TEXTS>
+    </ITEM>
+   </METHODS>
+   <TYPES>
+    <ITEM CMPNAME="TS_FM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="4 " SRCROW2="29 " SRCCOLUMN2="22 " TYPESRC_LENG="212 ">
+     BEGIN OF ts_fm_data,
+* DO pour type doc
+        header        TYPE dd04v,
+        param         TYPE tpara,
+        texts         TYPE tt_dd04t,
+        docs          TYPE tt_docs,
+      END OF ts_fm_data
+
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Function Module Data"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TS_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="31 " SRCCOLUMN1="4 " SRCROW2="35 " SRCCOLUMN2="23 " TYPESRC_LENG="127 ">
+     BEGIN OF ts_maindata.
+    INCLUDE TYPE dd04v AS hdr.
+    INCLUDE TYPE tpara AS param.
+    TYPES:
+      END OF ts_maindata
+
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="General Data"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TT_DD04T" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100212" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="19 " SRCCOLUMN1="4 " SRCROW2="19 " SRCCOLUMN2="65 " TYPESRC_LENG="64 ">tt_dd04t TYPE SORTED TABLE OF dd04t WITH UNIQUE KEY ddlanguage
+</ITEM>
+    <ITEM CMPNAME="TT_DOCS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100211" CHANGEDBY="TBENSIAL" CHANGEDON="20100212" TYPTYPE="1" TYPE="ZAPLINK_DOCUMENTATION=&gt;TT_DOCS"/>
+   </TYPES>
+  </RAW>
+ </ZL_OBJECT>
+ <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_TYPE_DATA" TYPE="CLAS" VERSION="1.01">
+  <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
+  <RAW>
+   <A0_MAINDATA VERSION="1" LANGU="E" UUID="8FF9034B756EB95AE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20090924" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
     <INHERITANCE REFCLSNAME="ZAPLINK_RAW_DATA" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100129"/>
     <TEXTS>
-     <ITEM LANGU="E" DESCRIPT="Type Pool Datas"/>
+     <ITEM LANGU="E" DESCRIPT="Type Pool (SE11) Datas"/>
     </TEXTS>
    </A0_MAINDATA>
    <ATTRIBUTS>
-    <ITEM CMPNAME="AO_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100129" TYPTYPE="1" TYPE="TS_DATA" R3RELEASE="700">
+    <ITEM CMPNAME="A0_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100209" TYPTYPE="1" TYPE="TS_DATA" R3RELEASE="700">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Line Type for Table with Package Data"/>
      </TEXTS>
@@ -384,6 +1686,7 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
     </ITEM>
    </ATTRIBUTS>
    <FRIENDS>
+    <ITEM REFCLSNAME="ZAPLINK_DICTIONARY" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100218"/>
     <ITEM REFCLSNAME="ZAPLINK_EASYXML" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20091118"/>
    </FRIENDS>
    <LOCAL>
@@ -444,7 +1747,7 @@ SPLIT me-&gt;source AT cl_abap_char_utilities=&gt;newline
     </ITEM>
    </METHODS>
    <TYPES>
-    <ITEM CMPNAME="TS_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" TYPTYPE="4" SRCROW1="14 " SRCCOLUMN1="4 " SRCROW2="20 " SRCCOLUMN2="19 " R3RELEASE="700" TYPESRC_LENG="204 ">
+    <ITEM CMPNAME="TS_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="15 " SRCCOLUMN1="4 " SRCROW2="21 " SRCCOLUMN2="19 " R3RELEASE="700" TYPESRC_LENG="204 ">
      BEGIN OF ts_data,
         name      TYPE typegroup,
         lang      TYPE langu,
@@ -456,8 +1759,321 @@ SPLIT me-&gt;source AT cl_abap_char_utilities=&gt;newline
       <ITEM LANGU="E" DESCRIPT="General Data"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TT_ABAPSOURCE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" TYPTYPE="4" SRCROW1="22 " SRCCOLUMN1="4 " SRCROW2="22 " SRCCOLUMN2="67 " R3RELEASE="700" TYPESRC_LENG="64 ">tt_abapsource type standard table of ABAPSOURCE with DEFAULT KEY</ITEM>
-    <ITEM CMPNAME="TT_STRING" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" TYPTYPE="4" SRCROW1="24 " SRCCOLUMN1="4 " SRCROW2="24 " SRCCOLUMN2="63 " R3RELEASE="700" TYPESRC_LENG="60 ">tt_string type standard table of ABAPSOURCE with DEFAULT KEY</ITEM>
+    <ITEM CMPNAME="TT_ABAPSOURCE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="4 " SRCROW2="23 " SRCCOLUMN2="67 " R3RELEASE="700" TYPESRC_LENG="64 ">tt_abapsource type standard table of ABAPSOURCE with DEFAULT KEY</ITEM>
+    <ITEM CMPNAME="TT_STRING" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="25 " SRCCOLUMN1="4 " SRCROW2="25 " SRCCOLUMN2="63 " R3RELEASE="700" TYPESRC_LENG="60 ">tt_string type standard table of ABAPSOURCE with DEFAULT KEY</ITEM>
+   </TYPES>
+  </RAW>
+ </ZL_OBJECT>
+ <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_VIEW_DATA" TYPE="CLAS" VERSION="1.01">
+  <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
+  <RAW>
+   <A0_MAINDATA VERSION="1" LANGU="E" UUID="2A6C7A4B3E0DA01AE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+    <INHERITANCE REFCLSNAME="ZAPLINK_RAW_DATA" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100216"/>
+    <TEXTS>
+     <ITEM LANGU="E" DESCRIPT="Views (SE11) Datas"/>
+    </TEXTS>
+   </A0_MAINDATA>
+   <ALIASES>
+    <ITEM CMPNAME="TD_DOC_ID" VERSION="1" EXPOSURE="1" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TD_DOC_ID"/>
+    <ITEM CMPNAME="TR_DOCID" VERSION="1" EXPOSURE="1" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TR_DOCID"/>
+    <ITEM CMPNAME="TT_TEXTS" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TT_TEXTS"/>
+   </ALIASES>
+   <ATTRIBUTS>
+    <ITEM CMPNAME="A0_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="1" TYPE="TS_MAINDATA">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Line Type for Table with Package Data"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="CONDITIONS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20100216" TYPTYPE="1" TYPE="TT_WHERES"/>
+    <ITEM CMPNAME="DOC_IDS" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" ATTDECLTYP="2" TYPTYPE="4" SRCROW1="12 " SRCCOLUMN1="4 " SRCROW2="14 " SRCCOLUMN2="17 " TYPESRC_LENG="80 " TYPESRC="BEGIN OF doc_ids,
+      header TYPE td_doc_id VALUE &apos;VW&apos;,
+    END OF doc_ids
+">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Documentation IDS"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="FIELDS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="1" TYPE="TT_FIELDS"/>
+    <ITEM CMPNAME="INNER_JOIN" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="1" TYPE="TT_JOINS"/>
+    <ITEM CMPNAME="R_DOC_IDS" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" ATTDECLTYP="1" TYPTYPE="1" TYPE="TR_DOCID">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Documentation IDS"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TABLES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="1" TYPE="TT_TABLES"/>
+    <ITEM CMPNAME="TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="1" TYPE="TT_TEXTS"/>
+   </ATTRIBUTS>
+   <DEFERRED>
+    <CLASSES>
+     <ITEM TYPEGROUP="ZAPLINK_DOCUMENTATION" VERSION="1" TPUTYPE="1" IMPLICIT="X"/>
+    </CLASSES>
+   </DEFERRED>
+   <FRIENDS>
+    <ITEM REFCLSNAME="ZAPLINK_DICTIONARY" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100216"/>
+    <ITEM REFCLSNAME="ZAPLINK_EASYXML" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100216"/>
+   </FRIENDS>
+   <INTERFACES>
+    <ITEM REFCLSNAME="ZAPLINK_DATATYPES" VERSION="1" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100216" RELTYPE="1"/>
+   </INTERFACES>
+   <LOCAL>
+    <TYPES>
+*&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
+*&quot;* definitions, interfaces or data types) you need for method
+*&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE
+ CLASS ZAPLINK_DOCUMENTATION DEFINITION LOAD.</TYPES>
+    <IMPLEMENTATIONS>
+*&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
+*&quot;* use this source file for the implementation part of
+*&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
+    <MACROS>
+*&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
+*&quot;* IN THE IMPLEMENTATION PART OF THE CLASS</MACROS>
+   </LOCAL>
+   <METHODS>
+    <ITEM CMPNAME="ANONYMIZE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Anonymized component data"/>
+     </TEXTS>
+     <SOURCE>
+  FIELD-SYMBOLS:
+    &lt;t&gt; like LINE OF texts.
+
+  clear: a0_maindata-AS4USER, a0_maindata-AS4DATE, a0_maindata-AS4TIME,
+         a0_maindata-technical_settings-AS4USER, a0_maindata-technical_settings-AS4DATE, a0_maindata-technical_settings-AS4TIME.
+  loop at texts ASSIGNING &lt;t&gt;.
+    clear: &lt;t&gt;-LONG_TXT-TDFUSER, &lt;t&gt;-LONG_TXT-TDFDATE, &lt;t&gt;-LONG_TXT-TDFTIME.
+  endloop.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="CLASS_CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" MTDTYPE="2" MTDDECLTYP="1">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="CLASS_CONSTRUCTOR"/>
+     </TEXTS>
+     <SOURCE>
+  DATA _id LIKE LINE OF r_doc_ids.
+
+  _id-sign = &apos;I&apos;. _id-option = &apos;EQ&apos;.
+  _id-low = doc_ids-header. APPEND _id TO r_doc_ids.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="FROM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Convert FM Data to object attributes"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" PARPASSTYP="1" TYPTYPE="1" TYPE="TS_FM_DATA">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Function Modules object Data"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>
+  DATA s_text  LIKE LINE OF texts.
+  DATA s_table LIKE LINE OF tables.
+  DATA s_field LIKE LINE OF fields.
+  DATA s_join  LIKE LINE OF inner_join.
+  DATA s_where LIKE LINE OF conditions.
+  FIELD-SYMBOLS:
+    &lt;d&gt; LIKE LINE OF fm_data-docs,
+    &lt;dt&gt; LIKE LINE OF &lt;d&gt;-texts,
+    &lt;t&gt; LIKE LINE OF fm_data-texts.
+
+  a0_maindata-hdr = fm_data-header.
+  a0_maindata-technical_settings = fm_data-tech.
+  CLEAR: a0_maindata-technical_settings-tabname,
+         a0_maindata-technical_settings-as4local,
+         a0_maindata-technical_settings-as4vers.
+
+* Texts
+  LOOP AT fm_data-texts ASSIGNING &lt;t&gt;.
+    CLEAR s_text.
+    s_text-langu = &lt;t&gt;-ddlanguage.
+    s_text-short_txt = &lt;t&gt;-ddtext.
+    READ TABLE fm_data-docs ASSIGNING &lt;d&gt;
+         WITH KEY id = doc_ids-header
+              object = a0_maindata-viewname.
+    IF sy-subrc = 0.
+      READ TABLE &lt;d&gt;-texts ASSIGNING &lt;dt&gt;
+          WITH KEY tdspras = s_text-langu.
+      IF sy-subrc = 0.
+        s_text-long_txt = &lt;dt&gt;.
+        CLEAR s_text-long_txt-tdspras.
+      ENDIF.
+    ENDIF.
+    INSERT s_text INTO TABLE texts.
+  ENDLOOP.
+
+* Tables
+  tables = fm_data-tables.
+  MODIFY tables FROM s_table TRANSPORTING viewname WHERE NOT viewname IS INITIAL.
+
+* fields
+  fields = fm_data-fields.
+  MODIFY fields FROM s_field TRANSPORTING viewname WHERE NOT viewname IS INITIAL.
+
+* joins
+  inner_join = fm_data-joins.
+  MODIFY inner_join FROM s_join TRANSPORTING viewname WHERE NOT viewname IS INITIAL.
+
+* where
+  conditions = fm_data-wheres.
+  MODIFY conditions FROM s_where TRANSPORTING condname WHERE NOT condname IS INITIAL.
+</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="TO_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Convert object attributes to FM Data"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" PARDECLTYP="3" TYPTYPE="1" TYPE="TS_FM_DATA">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Function Modules object Data"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>
+  DATA s_text  LIKE LINE OF fm_data-texts.
+  DATA s_doc   LIKE LINE OF fm_data-docs.
+  DATA s_dtxt  LIKE LINE OF s_doc-texts.
+  DATA s_table LIKE LINE OF fm_data-tables.
+  DATA s_field LIKE LINE OF fm_data-fields.
+  DATA s_join  LIKE LINE OF fm_data-joins.
+  DATA s_where LIKE LINE OF fm_data-wheres.
+  FIELD-SYMBOLS:
+    &lt;d&gt; LIKE LINE OF fm_data-docs,
+    &lt;t&gt; LIKE LINE OF texts.
+
+  fm_data-header = a0_maindata-hdr.
+  fm_data-tech = a0_maindata-technical_settings.
+  fm_data-tech-tabname = a0_maindata-viewname.
+  fm_data-tech-as4local = a0_maindata-as4local.
+  fm_data-tech-as4vers = a0_maindata-as4vers.
+
+* Texts
+  LOOP AT texts ASSIGNING &lt;t&gt;.
+    CLEAR s_text.
+    s_text-viewname = fm_data-header-viewname.
+    s_text-ddlanguage = &lt;t&gt;-langu.
+    s_text-as4local = &apos;A&apos;. &quot; Active
+    s_text-as4vers = &apos;0000&apos;. &quot; Active
+    s_text-ddtext = &lt;t&gt;-short_txt.
+    INSERT s_text INTO TABLE fm_data-texts.
+    IF NOT &lt;t&gt;-long_txt IS INITIAL.
+      IF fm_data-docs IS INITIAL.
+        s_doc-application = &apos;DOKU&apos;.
+        s_doc-id = doc_ids-header.
+        s_doc-object = fm_data-header-viewname.
+        s_doc-langu = &lt;t&gt;-langu.
+        s_doc-masterlang = abap_true.
+        s_doc-typ = &apos;E&apos;.
+        s_doc-dokform = &apos;S_DOCU_SHOW&apos;.
+        s_doc-dokstyle = &apos;S_DOCUS1&apos;.
+        INSERT s_doc INTO TABLE fm_data-docs.
+      ENDIF.
+      READ TABLE fm_data-docs ASSIGNING &lt;d&gt; INDEX 1.
+      s_dtxt = &lt;t&gt;-long_txt.
+      s_dtxt-tdspras = &lt;t&gt;-langu.
+      INSERT s_dtxt INTO TABLE &lt;d&gt;-texts.
+    ENDIF.
+  ENDLOOP.
+
+* Tables
+  fm_data-tables = tables.        s_table-viewname = a0_maindata-viewname.
+  MODIFY fm_data-tables FROM s_table TRANSPORTING viewname WHERE viewname &lt;&gt; s_table-viewname.
+
+* fields
+  fm_data-fields = fields.        s_field-viewname = a0_maindata-viewname.
+  MODIFY fm_data-fields FROM s_field TRANSPORTING viewname WHERE viewname &lt;&gt; s_field-viewname.
+
+* joins
+  fm_data-joins = inner_join.     s_join-viewname = a0_maindata-viewname.
+  MODIFY fm_data-joins FROM s_join TRANSPORTING viewname WHERE viewname &lt;&gt; s_join-viewname.
+
+* where
+  fm_data-wheres = conditions.    s_where-condname = a0_maindata-viewname.
+  MODIFY fm_data-wheres FROM s_where TRANSPORTING condname WHERE condname &lt;&gt; s_where-condname.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="UNANONYMIZE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="UnAnonymized component data"/>
+     </TEXTS>
+    </ITEM>
+   </METHODS>
+   <TYPES>
+    <ITEM CMPNAME="TS_FM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="7 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="31 " SRCCOLUMN1="4 " SRCROW2="49 " SRCCOLUMN2="26 " TYPESRC_LENG="682 ">
+     BEGIN OF ts_fm_data,
+* DO pour type doc
+            header        TYPE dd25v,
+            tech          TYPE dd09v,
+            texts         TYPE tt_dd25t,
+            docs          TYPE tt_docs,
+            tables        TYPE tt_dd26v,
+*  types:       &quot; If alias is used
+*    BEGIN OF ts_table,
+*      TABNAME     type DD26V-TABNAME,
+*      TABPOS	    type DD26V-TABPOS,
+*      FORTABNAME	type DD26V-FORTABNAME,
+*      FORFIELD	  type DD26V-FORFIELD,
+*      FORDIR	    type DD26V-FORDIR,
+*    END OF ts_table.
+            fields        TYPE tt_dd27p,
+            joins         TYPE tt_dd28j,
+            wheres        TYPE tt_dd28v,
+          END OF ts_fm_data
+
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Function Module Data"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TS_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="12 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="59 " SRCCOLUMN1="4 " SRCROW2="84 " SRCCOLUMN2="23 " TYPESRC_LENG="1354 ">
+     BEGIN OF ts_maindata.
+    INCLUDE TYPE dd25v AS hdr.
+*    INCLUDE TYPE dd09v AS tech.
+*    types:
+*      BEGIN OF ts_dd09v_light,
+** required fields of dd09V
+*        TABKAT TABKAT  CHAR  2 0 Size category
+*        TABART TABART  CHAR  5 0 Data class in technical settings
+*        PUFFERUNG  PUFFERUNG CHAR  1 0 Buffering type indicator
+*        SCHFELDANZ SCHFELDANZ  NUMC  3 0 No. of key fields for generic buffers
+*        PROTOKOLL  DDPROTOCOL  CHAR  1 0 Log data changes
+*        SPEICHPUFF SPEICHPUFF  CHAR  1 0 Flag for the storage type in the buffer
+*        AS4USER  AS4USER CHAR  12  0 Last Changed by
+*        AS4DATE  AS4DATE DATS  8 0 Date of Last Change
+*        AS4TIME  AS4TIME TIMS  6 0 Last changed at
+*        TRANSPFLAG DDTRANSP  CHAR  1 0 Convert to transparent table or maintain transparency
+*        RESERVE  DDRESERVE CHAR  1 0 Reserved field in the ABAP Dictionary
+*        UEBERSETZ  UEBERSETZ CHAR  1 0 Flag whether table is relevant for translation
+*        ACTFLAG  ACTFLAG CHAR  1 0 Activation flag
+*        BUFALLOW BUFALLOW  CHAR  1 0 Indicator for buffering allowed/not allowed
+*        JAVAONLY DDJAVAONLY  CHAR  1 0 Write access only with JAVA
+*      END OF ts_dd09v_light .
+*    INCLUDE TYPE ts_dd09v_light AS tech.
+    TYPES:
+        technical_settings TYPE dd09v,
+      END OF ts_maindata
+
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="General Data"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TT_DD25T" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="27 " SRCCOLUMN1="4 " SRCROW2="27 " SRCCOLUMN2="65 " TYPESRC_LENG="64 ">tt_dd25t TYPE SORTED TABLE OF dd25t WITH UNIQUE KEY ddlanguage
+</ITEM>
+    <ITEM CMPNAME="TT_DD26V" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="19 " SRCCOLUMN1="4 " SRCROW2="19 " SRCCOLUMN2="57 " TYPESRC_LENG="56 ">tt_dd26v TYPE STANDARD TABLE OF dd26v WITH DEFAULT KEY
+</ITEM>
+    <ITEM CMPNAME="TT_DD27P" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="4 " SRCROW2="21 " SRCCOLUMN2="57 " TYPESRC_LENG="56 ">tt_dd27p TYPE STANDARD TABLE OF dd27p WITH DEFAULT KEY
+</ITEM>
+    <ITEM CMPNAME="TT_DD28J" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="4 " SRCROW2="23 " SRCCOLUMN2="57 " TYPESRC_LENG="56 ">tt_dd28j TYPE STANDARD TABLE OF dd28j WITH DEFAULT KEY
+</ITEM>
+    <ITEM CMPNAME="TT_DD28V" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="25 " SRCCOLUMN1="4 " SRCROW2="25 " SRCCOLUMN2="57 " TYPESRC_LENG="56 ">tt_dd28v TYPE STANDARD TABLE OF dd28v WITH DEFAULT KEY
+</ITEM>
+    <ITEM CMPNAME="TT_DOCS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="1" TYPE="ZAPLINK_DOCUMENTATION=&gt;TT_DOCS"/>
+    <ITEM CMPNAME="TT_FIELDS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="9 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="53 " SRCCOLUMN1="4 " SRCROW2="53 " SRCCOLUMN2="62 " TYPESRC_LENG="61 ">tt_fields TYPE SORTED TABLE OF dd27p WITH UNIQUE KEY objpos
+</ITEM>
+    <ITEM CMPNAME="TT_JOINS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="10 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="55 " SRCCOLUMN1="4 " SRCROW2="55 " SRCCOLUMN2="57 " TYPESRC_LENG="56 ">tt_joins TYPE STANDARD TABLE OF dd28j WITH DEFAULT KEY
+</ITEM>
+    <ITEM CMPNAME="TT_TABLES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="8 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="51 " SRCCOLUMN1="4 " SRCROW2="51 " SRCCOLUMN2="62 " TYPESRC_LENG="61 ">tt_tables TYPE SORTED TABLE OF dd26v WITH UNIQUE KEY tabpos
+</ITEM>
+    <ITEM CMPNAME="TT_WHERES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="11 " AUTHOR="TBENSIAL" CREATEDON="20100216" CHANGEDBY="TBENSIAL" CHANGEDON="20100216" TYPTYPE="4" SRCROW1="57 " SRCCOLUMN1="4 " SRCROW2="57 " SRCCOLUMN2="64 " TYPESRC_LENG="63 ">tt_wheres TYPE SORTED TABLE OF dd28v WITH UNIQUE KEY position
+</ITEM>
    </TYPES>
   </RAW>
  </ZL_OBJECT>
