@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-16"?>
 <CONTAINER NAME="ZAPLINK_BADI" VERSION="1.0" CLASS="ZAPLINK_CONTAINER">
- <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_BADI" TYPE="CLAS" VERSION="1.01">
+ <ZL_OBJECT CHECKSUM="D8C241C1A5978ED9AD65A5185FD0EFC3" CODE_SIGNATURE="8F7BF81D057CEDF3FBA0A72F6E58BEA0" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_BADI" TYPE="CLAS" VERSION="1.01">
+  <DEPENDENCIES>
+   <ITEM TYPE="CLAS" NAME="ZAPLINK_CONNECTOR_"/>
+  </DEPENDENCIES>
   <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
   <RAW>
-   <A0_MAINDATA VERSION="1" LANGU="E" UUID="AC08064B8305595DE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20090806" CHANGEDBY="TBENSIAL" CHANGEDON="20100126" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+   <A0_MAINDATA VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20090806" CHANGEDBY="TBENSIAL" CHANGEDON="20100406" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
     <INHERITANCE REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20091120" CHANGEDBY="TBENSIAL" CHANGEDON="20091125"/>
     <TEXTS>
-     <ITEM LANGU="E" DESCRIPT="ZAPLink BADI Installer"/>
+     <ITEM LANGU="E" DESCRIPT="ZAP Link Connector : BADI Definitions &amp; Implementations">
+      <DOCUMENTATION TDFRELES="700" TDLRELES="700" TDLINESIZE="072">U1&amp;FUNCTIONALITY&amp;
+ASIs a connector for :
+AS- SXSD : BADI Definition
+AS- SXCI : BADI Implementation
+U1&amp;RELATIONS&amp;
+ASIs part of ZAP Link Framework as Official Connector.
+ASRequire Official connector for Object types (CLAS &amp; INTF).
+U1&amp;EXAMPLE&amp;
+AS
+U1&amp;HINTS&amp;
+AS
+U1&amp;FURTHER_SOURCES_OF_INF&amp;
+AShttps://code.google.com/p/zaplink/wiki/Connector</DOCUMENTATION>
+     </ITEM>
     </TEXTS>
    </A0_MAINDATA>
    <ATTRIBUTS>
@@ -49,26 +66,26 @@
     </ITEM>
    </ATTRIBUTS>
    <LOCAL>
-    <TYPES>
+    <TYPES>`
 *&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
 *&quot;* definitions, interfaces or data types) you need for method
 *&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE</TYPES>
-    <IMPLEMENTATIONS>
+    <IMPLEMENTATIONS>`
 *&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
 *&quot;* use this source file for the implementation part of
 *&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
-    <MACROS>
+    <MACROS>`
 *&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
 *&quot;* IN THE IMPLEMENTATION PART OF THE CLASS
 
-INCLUDE ZAPLINK_MACROS.</MACROS>
+INCLUDE zaplink_macros.</MACROS>
    </LOCAL>
    <METHODS>
     <ITEM CMPNAME="CLASS_CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091120" MTDTYPE="2" MTDDECLTYP="1" R3RELEASE="700">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="CLASS_CONSTRUCTOR"/>
      </TEXTS>
-     <SOURCE>
+     <SOURCE>`
 *table TDCLT
 *DOKCLASS DOKTITEL
 *BI       Business Add-Ins: Implementations
@@ -84,7 +101,7 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="CONSTRUCTOR"/>
      </TEXTS>
-     <SOURCE>
+     <SOURCE>`
   DATA type LIKE LINE OF supported_types.
 
   CALL METHOD super-&gt;constructor.
@@ -106,7 +123,7 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
        </TEXTS>
       </ITEM>
      </PARAMETERS>
-     <SOURCE>
+     <SOURCE>`
 * SELECT WHERE &quot;ID&quot; = &apos;HY&apos; AND &quot;OBJECT&quot; = &apos;SIMGZAPLINK_ACTION&apos; AND &quot;LANGU&quot; = &apos;E&apos; AND &quot;TYP&quot; = &apos;E&apos; AND &quot;DOKVERSION&quot; = 0001 ORDER BY
   doc_key-simg = &apos;SIMG&apos;.</SOURCE>
     </ITEM>
@@ -126,8 +143,8 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
        </TEXTS>
       </ITEM>
      </PARAMETERS>
-     <SOURCE>
-_exists = ZAPLINK_BADI=&gt;exists-not_exists.
+     <SOURCE>`
+  _exists = zaplink_badi=&gt;exists-not_exists.
   CALL FUNCTION &apos;SXV_IMP_EXISTS&apos;
     EXPORTING
       imp_name           = name
@@ -136,7 +153,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
       data_inconsistency = 2
       OTHERS             = 3.
   IF sy-subrc = 0.
-    _exists =  ZAPLINK_BADI=&gt;exists-exists.
+    _exists =  zaplink_badi=&gt;exists-exists.
   ENDIF.</SOURCE>
     </ITEM>
     <ITEM CMPNAME="EXPORT_FROM_SAP_DEF" VERSION="1" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091120" CHANGEDBY="TBENSIAL" CHANGEDON="20100205" MTDNEWEXC="X" R3RELEASE="700">
@@ -162,7 +179,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
        </TEXTS>
       </ITEM>
      </EXCEPTIONS>
-     <SOURCE>
+     <SOURCE>`
   DATA obj_mask    TYPE doku_obj.
   DATA docu_key    TYPE ts_doc_key.
   DATA _d          TYPE zaplink_sxsd_data=&gt;t_fm_data.
@@ -234,8 +251,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
       RAISE EXCEPTION o_mycx.
     CATCH zaplink_cx INTO o_cx.
       mac_cascade_raise o_mycx o_cx.
-  ENDTRY.
-</SOURCE>
+  ENDTRY.</SOURCE>
     </ITEM>
     <ITEM CMPNAME="EXPORT_FROM_SAP_IMPL" VERSION="1" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091120" CHANGEDBY="TBENSIAL" CHANGEDON="20100204" MTDNEWEXC="X" R3RELEASE="700">
      <TEXTS>
@@ -260,7 +276,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
        </TEXTS>
       </ITEM>
      </EXCEPTIONS>
-     <SOURCE>
+     <SOURCE>`
   DATA obj_mask    TYPE doku_obj.
   DATA _d          TYPE zaplink_badi_data=&gt;t_fm_data.
   DATA imp_name    TYPE rsexscrn-imp_name.
@@ -416,8 +432,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
       RAISE EXCEPTION o_mycx.
     CATCH zaplink_cx INTO o_cx.
       mac_cascade_raise o_mycx o_cx.
-  ENDTRY.
-</SOURCE>
+  ENDTRY.</SOURCE>
     </ITEM>
     <ITEM CMPNAME="IMPORT_TO_SAP_DEF" VERSION="1" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20091120" CHANGEDBY="TBENSIAL" CHANGEDON="20100205" MTDNEWEXC="X" R3RELEASE="700">
      <TEXTS>
@@ -442,7 +457,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
        </TEXTS>
       </ITEM>
      </EXCEPTIONS>
-     <SOURCE>
+     <SOURCE>`
   DATA _d               TYPE zaplink_sxsd_data=&gt;t_fm_data.
   DATA i_korrnr         TYPE trkorr.
   DATA i_devclass       TYPE devclass.
@@ -533,8 +548,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
       RAISE EXCEPTION o_mycx.
     CATCH zaplink_cx INTO o_cx.
       mac_cascade_raise o_mycx o_cx.
-  ENDTRY.
-</SOURCE>
+  ENDTRY.</SOURCE>
     </ITEM>
     <ITEM CMPNAME="IMPORT_TO_SAP_IMPL" VERSION="1" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20091120" CHANGEDBY="TBENSIAL" CHANGEDON="20100205" MTDNEWEXC="X" R3RELEASE="700">
      <TEXTS>
@@ -559,7 +573,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
        </TEXTS>
       </ITEM>
      </EXCEPTIONS>
-     <SOURCE>
+     <SOURCE>`
   DATA _d               TYPE zaplink_badi_data=&gt;t_fm_data.
   DATA i_korrnr         TYPE trkorr.
   DATA i_devclass       TYPE devclass.
@@ -738,13 +752,12 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
       RAISE EXCEPTION o_mycx.
     CATCH zaplink_cx INTO o_cx.
       mac_cascade_raise o_mycx o_cx.
-  ENDTRY.
-</SOURCE>
+  ENDTRY.</SOURCE>
     </ITEM>
    </METHODS>
    <REDEFINITIONS>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~CREATE_NEW_RAW">
-     <SOURCE>
+     <SOURCE>`
   DATA o_conn   TYPE to_connector.
   DATA o_sxsd   TYPE to_badi_def.
   DATA o_sxci   TYPE to_badi_impl.
@@ -754,7 +767,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
   CASE type.
     WHEN st_badi_def.
       CREATE OBJECT o_sxsd.
-* Crete empty interface object
+* Create empty interface object
       o_conn = zaplink_connectors=&gt;create_connector( type = t_badi_itf ).
       IF o_conn IS BOUND.
         _type = t_badi_itf.
@@ -778,7 +791,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
   ENDCASE.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~DELETE_FROM_SAP">
-     <SOURCE>
+     <SOURCE>`
   DATA exit_name  TYPE rsexscrn-exit_name.
   DATA d_type TYPE td_comptype.
 
@@ -843,7 +856,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
   result = abap_true.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~DO_EXISTS">
-     <SOURCE>
+     <SOURCE>`
   DATA exit_name  TYPE rsexscrn-exit_name.
   DATA imp_name   TYPE rsexscrn-imp_name.
 
@@ -876,20 +889,19 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
   ENDTRY.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~IS_SUPPORTED_VERSION">
-     <SOURCE>
+     <SOURCE>`
   result = abap_false.
-  if version = _ver.
-    result = abap_true.
-  endif.</SOURCE>
+  if version = _ver.    result = abap_true.   endif.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~READ_FROM_SAP">
-     <SOURCE>
+     <SOURCE>`
   DATA o_bdef TYPE to_badi_def.
   DATA o_impl TYPE to_badi_impl.
   DATA d_type TYPE td_comptype.
 
   TRY.
     CREATE OBJECT object.
+    object-&gt;set_component( component ).
     d_type = component-&gt;get_type( ).
     CASE d_type.
       WHEN st_badi_def.
@@ -900,19 +912,21 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
         object-&gt;raw = o_impl.
       WHEN OTHERS.
         CLEAR object.
-        mac_raise_type_not_supported &apos;ZAPLINK_BADI&apos; object-&gt;type.
+        mac_raise_type_not_supported &apos;ZAPLINK_BADI&apos; d_type.
     ENDCASE.
-
+    object-&gt;update_connector_data( me ).                    &quot; Issue 66
     mac_def_catch zaplink_cx_connector.
   ENDTRY.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~WRITE_TO_SAP">
-     <SOURCE>
+     <SOURCE>`
   DATA _o_def         TYPE to_badi_def.
   DATA _o_impl        TYPE to_badi_impl.
+  DATA d_type TYPE td_comptype.
 
   TRY.
-    CASE object-&gt;type.
+    d_type = object-&gt;type.
+    CASE d_type.
       WHEN st_badi_def.
         _o_def ?= object-&gt;raw.
         _o_def-&gt;a0_maindata-exit_name = object-&gt;name.
@@ -922,7 +936,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
         _o_impl-&gt;a0_maindata-imp_name = object-&gt;name.
         components = import_to_sap_impl( _o_impl ).
       WHEN OTHERS.
-        mac_raise_type_not_supported &apos;ZAPLINK_BADI&apos; object-&gt;type.
+        mac_raise_type_not_supported &apos;ZAPLINK_BADI&apos; d_type.
     ENDCASE.
 
     mac_def_catch zaplink_cx_connector.
@@ -943,7 +957,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
       <ITEM LANGU="E" DESCRIPT="Badi Implémentation Data"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TS_CLAS_ATTR" VERSION="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091120" CHANGEDBY="TBENSIAL" CHANGEDON="20100205" TYPTYPE="4" SRCROW1="11 " SRCCOLUMN1="4 " SRCROW2="14 " SRCCOLUMN2="22 " R3RELEASE="700" TYPESRC_LENG="100 ">
+    <ITEM CMPNAME="TS_CLAS_ATTR" VERSION="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091120" CHANGEDBY="TBENSIAL" CHANGEDON="20100205" TYPTYPE="4" R3RELEASE="700">
      BEGIN OF ts_clas_attr.
   INCLUDE TYPE ts_base_attributs AS base.
   TYPES:
@@ -952,7 +966,7 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
       <ITEM LANGU="E" DESCRIPT="Root attributs for CLAS"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TS_DOC_KEY" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091120" CHANGEDBY="TBENSIAL" CHANGEDON="20100205" TYPTYPE="4" SRCROW1="6 " SRCCOLUMN1="4 " SRCROW2="9 " SRCCOLUMN2="20 " R3RELEASE="700" TYPESRC_LENG="212 ">
+    <ITEM CMPNAME="TS_DOC_KEY" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091120" CHANGEDBY="TBENSIAL" CHANGEDON="20100205" TYPTYPE="4" R3RELEASE="700">
      BEGIN OF ts_doc_key,                                    &quot; equiv DOKU_OBJ = CHAR 60
       simg(4)    TYPE c,     &quot;SIMG
       name       TYPE rsexscrn-exit_name,                   &quot; CHAR 30
@@ -964,13 +978,27 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
    </TYPES>
   </RAW>
  </ZL_OBJECT>
- <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_BADI_DATA" TYPE="CLAS" VERSION="1.01">
+ <ZL_OBJECT CHECKSUM="4D592B23E7666B479090B77F19EC0AF5" CODE_SIGNATURE="B84AAC5D96B915859F854E79A58A8F4F" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_BADI_DATA" TYPE="CLAS" VERSION="1.01">
+  <DEPENDENCIES>
+   <ITEM TYPE="INTF" NAME="ZAPLINK_CONNECTOR"/>
+  </DEPENDENCIES>
   <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
   <RAW>
-   <A0_MAINDATA VERSION="1" LANGU="E" UUID="2DF8034B756EB95AE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20090915" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+   <A0_MAINDATA VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20090915" CHANGEDBY="TBENSIAL" CHANGEDON="20100406" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
     <INHERITANCE REFCLSNAME="ZAPLINK_RAW_DATA" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100129"/>
     <TEXTS>
-     <ITEM LANGU="E" DESCRIPT="DEVC Datas"/>
+     <ITEM LANGU="E" DESCRIPT="Commun BADI Datas">
+      <DOCUMENTATION TDFRELES="700" TDLINESIZE="072">U1&amp;FUNCTIONALITY&amp;
+ASIs part of connector : ZAPLINK_BADI
+U1&amp;RELATIONS&amp;
+AS
+U1&amp;EXAMPLE&amp;
+AS
+U1&amp;HINTS&amp;
+AS
+U1&amp;FURTHER_SOURCES_OF_INF&amp;
+AS</DOCUMENTATION>
+     </ITEM>
     </TEXTS>
    </A0_MAINDATA>
    <ALIASES>
@@ -990,12 +1018,12 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
     <ITEM CMPNAME="TD_LIGHT" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TD_LIGHT"/>
     <ITEM CMPNAME="TD_OBJ_TYPE" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TD_OBJ_TYPE"/>
     <ITEM CMPNAME="TD_PROGNAME" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TD_PROGNAME"/>
-    <ITEM CMPNAME="TD_SEL_ACTION" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TD_SEL_ACTION"/>
     <ITEM CMPNAME="TD_TXTP_ID" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TD_TXTP_ID"/>
     <ITEM CMPNAME="TD_TXTP_KIND" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TD_TXTP_KIND"/>
     <ITEM CMPNAME="TD_TXTP_LEN" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TD_TXTP_LEN"/>
     <ITEM CMPNAME="TD_TXTP_TEXT" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TD_TXTP_TEXT"/>
     <ITEM CMPNAME="TEXTPOOL_KINDS" VERSION="1" EXPOSURE="2" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TEXTPOOL_KINDS"/>
+    <ITEM CMPNAME="TO_RAW" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_KERNEL_TYPES" REFCMPNAME="TO_RAW"/>
     <ITEM CMPNAME="TO_XML" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TO_XML"/>
     <ITEM CMPNAME="TR_DLVUNIT" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TR_DLVUNIT"/>
     <ITEM CMPNAME="TR_PACKAGES" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TR_PACKAGES"/>
@@ -1010,12 +1038,13 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
     <ITEM CMPNAME="TT_ABAPRAWSOURCE" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TT_ABAPRAWSOURCE"/>
     <ITEM CMPNAME="TT_COMPKEYS" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TT_COMPKEYS"/>
     <ITEM CMPNAME="TT_CONN_CLASSES" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TT_CONN_CLASSES"/>
+    <ITEM CMPNAME="TT_DOCS" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TT_DOCS"/>
     <ITEM CMPNAME="TT_TXTP_TEXTPOOLS" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TT_TXTP_TEXTPOOLS"/>
     <ITEM CMPNAME="TT_TXTP_TEXTS" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TT_TXTP_TEXTS"/>
     <ITEM CMPNAME="TT_TYPES" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TT_TYPES"/>
    </ALIASES>
    <ATTRIBUTS>
-    <ITEM CMPNAME="CONTROLS_COMPOSITES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" TYPTYPE="1" TYPE="TT_CONTROLS">
+    <ITEM CMPNAME="CONTROLS_COMPOSITES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" TYPTYPE="1" TYPE="TT_CONTROLS">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Control Composites, Language Independent"/>
      </TEXTS>
@@ -1025,22 +1054,22 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
       <ITEM LANGU="E" DESCRIPT="Business Add-In Definition"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="DOCUMENTATION" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" TYPTYPE="1" TYPE="ZAPLINK_DOCUMENTATION=&gt;TT_DOCS">
+    <ITEM CMPNAME="DOCUMENTATION" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" TYPTYPE="1" TYPE="TT_DOCS">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Documentation"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="FUNCTIONS_CODES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" TYPTYPE="1" TYPE="TT_FUNCTIONS">
+    <ITEM CMPNAME="FUNCTIONS_CODES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" TYPTYPE="1" TYPE="TT_FUNCTIONS">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Functions Codes"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="SUBSCREENS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" TYPTYPE="1" TYPE="TT_SCREENS">
+    <ITEM CMPNAME="SUBSCREENS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" TYPTYPE="1" TYPE="TT_SCREENS">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Component subscreens"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TABLES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" TYPTYPE="1" TYPE="TT_TABLES">
+    <ITEM CMPNAME="TABLES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" TYPTYPE="1" TYPE="TT_TABLES">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Tables (sxs_tables)"/>
      </TEXTS>
@@ -1057,33 +1086,34 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
    </FRIENDS>
    <INTERFACES>
     <ITEM REFCLSNAME="ZAPLINK_DATATYPES" VERSION="1" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20091118" RELTYPE="1"/>
+    <ITEM REFCLSNAME="ZAPLINK_KERNEL_TYPES" VERSION="1" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100225" RELTYPE="1"/>
    </INTERFACES>
    <LOCAL>
-    <TYPES>
+    <TYPES>`
 *&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
 *&quot;* definitions, interfaces or data types) you need for method
 *&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE</TYPES>
-    <IMPLEMENTATIONS>
+    <IMPLEMENTATIONS>`
 *&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
 *&quot;* use this source file for the implementation part of
 *&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
-    <MACROS>
+    <MACROS>`
 *&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
 *&quot;* IN THE IMPLEMENTATION PART OF THE CLASS</MACROS>
    </LOCAL>
    <METHODS>
-    <ITEM CMPNAME="FROM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129">
+    <ITEM CMPNAME="FROM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Convert FM Data to object attributes"/>
      </TEXTS>
      <PARAMETERS>
-      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" PARPASSTYP="1" TYPTYPE="1" TYPE="T_FM_DATA">
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" PARPASSTYP="1" TYPTYPE="1" TYPE="T_FM_DATA">
        <TEXTS>
         <ITEM LANGU="E" DESCRIPT="Function Modules Class Data"/>
        </TEXTS>
       </ITEM>
      </PARAMETERS>
-     <SOURCE>
+     <SOURCE>`
 * Handle Commun data
   DATA _fc    LIKE LINE OF functions_codes.
   DATA _cc    LIKE LINE OF controls_composites.
@@ -1154,18 +1184,18 @@ _exists = ZAPLINK_BADI=&gt;exists-not_exists.
 *    INSERT _me INTO TABLE methods.
 *  ENDLOOP.</SOURCE>
     </ITEM>
-    <ITEM CMPNAME="TO_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129">
+    <ITEM CMPNAME="TO_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Convert object attributes to FM Data"/>
      </TEXTS>
      <PARAMETERS>
-      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" PARDECLTYP="3" TYPTYPE="1" TYPE="T_FM_DATA">
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" PARDECLTYP="3" TYPTYPE="1" TYPE="T_FM_DATA">
        <TEXTS>
         <ITEM LANGU="E" DESCRIPT="Function Modules Class Data"/>
        </TEXTS>
       </ITEM>
      </PARAMETERS>
-     <SOURCE>
+     <SOURCE>`
 DATA _in  LIKE LINE OF fm_data-intas.
   DATA _cc  LIKE LINE OF fm_data-cocos.
   DATA _fc  LIKE LINE OF fm_data-fcodes.
@@ -1221,36 +1251,36 @@ DATA _in  LIKE LINE OF fm_data-intas.
     <ITEM TYPEGROUP="SEEX" VERSION="1" EXPLICIT="X"/>
    </TYPEGROUPS>
    <TYPES>
-    <ITEM CMPNAME="TO_RAW" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091123" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" TYPTYPE="1" TYPE="ZAPLINK_CONNECTOR=&gt;TO_RAW"/>
-    <ITEM CMPNAME="TT_CONTROLS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="100 " SRCCOLUMN1="4 " SRCROW2="100 " SRCCOLUMN2="87 " TYPESRC_LENG="86 ">
+    <ITEM CMPNAME="TO_RAW2" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100225" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" TYPTYPE="1" TYPE="ZAPLINK_CONNECTOR=&gt;TO_RAW"/>
+    <ITEM CMPNAME="TT_CONTROLS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" TYPTYPE="4">
      tt_controls TYPE SORTED TABLE OF seex_coco_struct WITH UNIQUE KEY coco_outer node_id
-
+`
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Control Composites, Language Independent"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TT_FUNCTIONS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="98 " SRCCOLUMN1="4 " SRCROW2="98 " SRCCOLUMN2="88 " TYPESRC_LENG="87 ">
+    <ITEM CMPNAME="TT_FUNCTIONS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" TYPTYPE="4">
      tt_functions TYPE SORTED TABLE OF seex_fcode_struct WITH UNIQUE KEY gui_prog gui_code
-
+`
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Functions Codes"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TT_SCREENS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="102 " SRCCOLUMN1="4 " SRCROW2="102 " SRCCOLUMN2="101 " TYPESRC_LENG="100 ">
+    <ITEM CMPNAME="TT_SCREENS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" TYPTYPE="4">
      tt_screens TYPE SORTED TABLE OF seex_screen_struct WITH UNIQUE KEY scr_a_prog scr_a_num scr_a_sscr
-
+`
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Component subscreens"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TT_TABLES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="104 " SRCCOLUMN1="4 " SRCROW2="104 " SRCCOLUMN2="75 " TYPESRC_LENG="74 ">
+    <ITEM CMPNAME="TT_TABLES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" TYPTYPE="4">
      tt_tables TYPE SORTED TABLE OF seex_table_struct WITH UNIQUE KEY tabname
-
+`
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Tables (sxs_tables)"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="T_FM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="106 " SRCCOLUMN1="4 " SRCROW2="125 " SRCCOLUMN2="23 " TYPESRC_LENG="910 ">
+    <ITEM CMPNAME="T_FM_DATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100512" TYPTYPE="4">
      BEGIN OF t_fm_data,
 * Commun
           mast_langu      TYPE  sy-langu,
@@ -1271,7 +1301,7 @@ DATA _in  LIKE LINE OF fm_data-intas.
           filter_datatype TYPE rollname,
           filter_values   TYPE SEEX_FILTER_TABLE,    &quot;REF TO cl_badi_flt_values_alv,
         END OF t_fm_data
-
+`
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Function Module Datas (deep_structure)"/>
      </TEXTS>
@@ -1279,13 +1309,927 @@ DATA _in  LIKE LINE OF fm_data-intas.
    </TYPES>
   </RAW>
  </ZL_OBJECT>
- <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_SXCI_DATA" TYPE="CLAS" VERSION="1.01">
+ <ZL_OBJECT CHECKSUM="EAAFD56F392D8A2A45B1D2D335D2CBAA" CODE_SIGNATURE="2146484EAEC49BC5FC0DA22AFF903D36" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_DOCUMENTATION" TYPE="CLAS" VERSION="1.01">
+  <DEPENDENCIES>
+   <ITEM TYPE="CLAS" NAME="ZAPLINK_CONNECTOR_"/>
+  </DEPENDENCIES>
   <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
   <RAW>
-   <A0_MAINDATA VERSION="1" LANGU="E" UUID="7FF9034B756EB95AE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20090914" CHANGEDBY="TBENSIAL" CHANGEDON="20100127" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+   <A0_MAINDATA VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20090617" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+    <INHERITANCE REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100309"/>
+    <TEXTS>
+     <ITEM LANGU="E" DESCRIPT="ZAPLink - Documentation tools">
+      <DOCUMENTATION TDFRELES="700" TDLINESIZE="072">U1&amp;FUNCTIONALITY&amp;
+ASIs a connector for :
+AS- DOCT : General Text
+AS- DOCV : Independent Documentation
+U1&amp;RELATIONS&amp;
+ASIs part of ZAP Link Framework as Official Connector.
+U1&amp;EXAMPLE&amp;
+AS
+U1&amp;HINTS&amp;
+AS
+U1&amp;FURTHER_SOURCES_OF_INF&amp;
+AShttps://code.google.com/p/zaplink/wiki/Connector</DOCUMENTATION>
+     </ITEM>
+    </TEXTS>
+   </A0_MAINDATA>
+   <ATTRIBUTS>
+    <ITEM CMPNAME="BALLOG_SUBOBJECT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100309" ATTDECLTYP="2" ATTVALUE="&apos;CNX_DOCUMENTATION&apos;" TYPTYPE="1" TYPE="BALSUBOBJ" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Application Log: Subobject"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="LOG" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100309" ATTDECLTYP="1" TYPTYPE="1" TYPE="TO_MSG_COLL" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Statit log"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="NODE_NAME" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" ATTDECLTYP="2" ATTVALUE="&apos;DOCS&apos;" TYPTYPE="1" TYPE="STRING">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Node name for documentaiton"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="SUPPORTEDTYPES" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100402" ATTDECLTYP="2" TYPTYPE="4" R3RELEASE="700">BEGIN OF supportedtypes,                                  &quot;#EC NOTEXT
+      general           TYPE td_comptype VALUE &apos;DOCT&apos;,    &quot; General Text
+      Indep             TYPE td_comptype VALUE &apos;DOCV&apos;,    &quot; Documentation (Independent)
+    END OF supportedtypes
+`</ITEM>
+    <ITEM CMPNAME="_UUID" VERSION="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100309" ATTDECLTYP="2" ATTVALUE="&apos;3D34954BEABE5F12E1000000AC120173&apos;" TYPTYPE="1" TYPE="TD_CONNUUID" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="UUID for connector Message class"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="_VER" VERSION="1" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100309" ATTDECLTYP="2" ATTVALUE="&apos;1.0&apos;" TYPTYPE="1" TYPE="TD_CONNVER" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Connector Version"/>
+     </TEXTS>
+    </ITEM>
+   </ATTRIBUTS>
+   <LOCAL>
+    <TYPES>`
+*&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
+*&quot;* definitions, interfaces or data types) you need for method
+*&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE</TYPES>
+    <IMPLEMENTATIONS>`
+*&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
+*&quot;* use this source file for the implementation part of
+*&quot;* local helper classes</IMPLEMENTATIONS>
+    <MACROS>`
+*&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
+*&quot;* IN THE IMPLEMENTATION PART OF THE CLASS
+
+INCLUDE zaplink_macros.
+
+DEFINE lmac_add_mf_and_raise.
+  o_mycx ?= zaplink_cx=&gt;create_from_mf_cx( funcname = &amp;1
+                                              subrc = &amp;2
+                                          classname = &apos;ZAPLINK_CX_CONNECTOR&apos; ).
+  log-&gt;add_symsg( ).
+  log-&gt;add_exception( o_mycx ).
+  raise exception o_mycx.
+END-OF-DEFINITION.</MACROS>
+   </LOCAL>
+   <METHODS>
+    <ITEM CMPNAME="CLASS_CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" MTDTYPE="2" MTDDECLTYP="1">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="CLASS_CONSTRUCTOR"/>
+     </TEXTS>
+     <SOURCE>`
+  mac_create_log log ballog_subobject space.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" MTDTYPE="2" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="CONSTRUCTOR"/>
+     </TEXTS>
+     <SOURCE>`
+  DATA type LIKE LINE OF supported_types.
+
+  super-&gt;constructor( ).
+  mac_create_log application_log ballog_subobject space.
+  type-type = supportedtypes-general. INSERT type INTO TABLE supported_types.
+  type-type = supportedtypes-indep.   INSERT type INTO TABLE supported_types.
+
+  uuid = _uuid.
+  version = _ver.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="DOCU_GET" VERSION="1" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" MTDDECLTYP="1" MTDNEWEXC="X">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Get documentation"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="DOCU" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="DOKIL">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Index for Documentation Table DOKH"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="HEAD" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="TS_HEAD"/>
+      <ITEM SCONAME="LANG" VERSION="1" CMPTYPE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARDECLTYP="1" PARPASSTYP="1" TYPTYPE="1" TYPE="TS_LANG"/>
+     </PARAMETERS>
+     <EXCEPTIONS>
+      <ITEM SCONAME="ZAPLINK_CX_CONNECTOR" VERSION="1" LANGU="E" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100309">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="ZAPlink ROOT Exception for Connectors"/>
+       </TEXTS>
+      </ITEM>
+     </EXCEPTIONS>
+     <SOURCE>`
+  DATA _text  TYPE tt_rawtext.
+
+  TRY.
+    head-id = docu-id.
+    head-object = docu-object.
+    head-masterlang = docu-masterlang.
+    head-langu = docu-langu.
+    head-typ = docu-typ.
+    head-selfdef = docu-selfdef.
+    IF docu-selfdef = space.
+      CALL FUNCTION &apos;DOCU_GET&apos;
+        EXPORTING
+*       EXTEND_EXCEPT                = &apos; &apos;
+          id                           = docu-id
+          langu                        = docu-langu
+          object                       = docu-object
+          typ                          = docu-typ
+          version                      = docu-version
+          version_active_or_last       = &apos;A&apos;
+*         PRINT_PARAM_GET              = &apos;X&apos;
+        IMPORTING
+          dokstate                     = lang-state
+*         DOKTITLE                     =
+          head                         = lang-head
+*        doktyp                       = head-typ
+        TABLES
+          line                         = _text
+        EXCEPTIONS
+          no_docu_on_screen            = 1
+          no_docu_self_def             = 2
+          no_docu_temp                 = 3
+          ret_code                     = 4
+          OTHERS                       = 5.
+      IF sy-subrc &lt;&gt; 0.
+        lmac_add_mf_and_raise &apos;DOCU_GET&apos; sy-subrc.
+      ENDIF.
+      lang-_ = raw2string( _text ).
+      head-application = lang-tdobject.
+      head-dokform = lang-tdform.
+      head-dokstyle = lang-tdstyle.
+      CLEAR:
+        lang-tdobject,
+        lang-tdname,
+        lang-tdid,
+        lang-tdform,
+        lang-tdstyle.
+    ENDIF.
+
+    mac_def_catch zaplink_cx_connector.
+  ENDTRY.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="GET" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" MTDDECLTYP="1">
+     <PARAMETERS>
+      <ITEM SCONAME="IDS" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="TR_DOCID">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Range of ID"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="OBJECT" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="DOKU_OBJ">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Documentation Object"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="T_DOCS" VERSION="1" CMPTYPE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARDECLTYP="3" TYPTYPE="1" TYPE="TT_DOCS">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Documents"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>`
+  DATA _obj   TYPE RANGE OF doku_obj.
+  DATA my_obj LIKE LINE OF _obj.
+  DATA docs   TYPE STANDARD TABLE OF dokil WITH DEFAULT KEY.
+  DATA doc    LIKE LINE OF t_docs.
+  DATA _lang  LIKE LINE OF doc-texts.
+  FIELD-SYMBOLS:
+    &lt;d&gt; LIKE LINE OF docs.
+
+  IF ids IS INITIAL.
+    EXIT.
+  ENDIF.
+
+  my_obj-sign = &apos;I&apos;. my_obj-option = &apos;CP&apos;.
+  my_obj-low = object. APPEND my_obj TO _obj.
+
+  SELECT * INTO TABLE docs
+    FROM dokil
+    WHERE id IN ids
+      AND object IN _obj.
+
+  IF docs IS INITIAL.
+    EXIT.
+  ENDIF.
+
+  reset( ).
+
+  SORT docs BY id object masterlang DESCENDING langu.
+
+  LOOP AT docs ASSIGNING &lt;d&gt;.
+    AT NEW object. &quot; ID + OBJECT
+      CLEAR doc.
+      CALL METHOD docu_get
+        EXPORTING
+          docu = &lt;d&gt;
+        IMPORTING
+          head = doc-hdr
+          lang = _lang.
+    ENDAT.
+
+    IF _lang IS INITIAL.
+      CALL METHOD docu_get
+        EXPORTING
+          docu   = &lt;d&gt;
+        IMPORTING
+*          head   = _head
+          lang   = _lang.
+    ENDIF.
+    IF NOT _lang IS INITIAL.
+      CLEAR: _lang-tdversion, _lang-tdfuser, _lang-tdfdate, _lang-tdftime, _lang-tdluser, _lang-tdldate, _lang-tdltime.   &quot; Issue 68 : Remove useless data
+      INSERT _lang INTO TABLE doc-texts.
+      CLEAR _lang.
+    ENDIF.
+
+    AT END OF object. &quot; ID + OBJECT
+      APPEND doc TO t_docs.
+    ENDAT.
+  ENDLOOP.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="GET_AS_XML_OFF" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" MTDDECLTYP="1" MTDNEWEXC="X">
+     <PARAMETERS>
+      <ITEM SCONAME="IDS" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="TR_DOCID">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Range of ID"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="OBJECT" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="DOKU_OBJ">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Documentation Object"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="XMLDOC" VERSION="1" CMPTYPE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100309" PARDECLTYP="3" TYPTYPE="3" TYPE="IF_IXML_DOCUMENT">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="XML Code"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <EXCEPTIONS>
+      <ITEM SCONAME="ZAPLINK_CX_CONNECTOR" VERSION="1" LANGU="E" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="ZAPlink ROOT Exception for Connectors"/>
+       </TEXTS>
+      </ITEM>
+     </EXCEPTIONS>
+     <SOURCE>`
+*  DATA ezxml  TYPE REF TO zaplink_easyxml.
+*  DATA t_docs TYPE tt_docs.
+*
+*  t_docs = get( ids = ids
+*             object = object ).
+*
+*  IF NOT t_docs IS INITIAL.
+*    CREATE OBJECT ezxml.
+*    TRY.
+*        CALL METHOD ezxml-&gt;any2xml
+*          EXPORTING
+*            any        = t_docs
+*            type       = node_name
+**        attributes = &apos;&apos;
+*          RECEIVING
+*            xmldoc     = xmldoc.
+*      CATCH zaplink_cx INTO o_cx.
+*        mac_cascade_raise o_mycx o_cx.
+*    ENDTRY.
+*    CALL METHOD log-&gt;add_from_instance
+*      EXPORTING
+*        io_msglist        = ezxml-&gt;application_log
+*        if_add_as_subnode = abap_true.
+*  ENDIF.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="GET_SINGLE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" MTDDECLTYP="1" R3RELEASE="700">
+     <PARAMETERS>
+      <ITEM SCONAME="IDS" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="TD_DOC_ID"/>
+      <ITEM SCONAME="OBJECT" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="DOKU_OBJ">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Documentation Object"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="RESULT" VERSION="1" CMPTYPE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARDECLTYP="3" TYPTYPE="1" TYPE="TS_DOC">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Document"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>`
+  DATA r_ids  TYPE tr_docid.
+  DATA my_id  LIKE LINE OF r_ids.
+  DATA t_docs TYPE tt_docs.
+
+  my_id-sign = &apos;I&apos;. my_id-option = &apos;EQ&apos;.    my_id-low = ids. APPEND my_id TO r_ids.
+  t_docs = get( ids = r_ids
+             object = object ).
+  IF NOT t_docs IS INITIAL.   READ TABLE t_docs INTO result INDEX 1.    ENDIF.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="NAME_2_MASK" VERSION="1" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100402" MTDDECLTYP="1" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Convert Component name to mask depending of component type"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="NAME" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100402" PARPASSTYP="1" TYPTYPE="1" TYPE="TD_COMPNAME"/>
+      <ITEM SCONAME="RESULT" VERSION="1" CMPTYPE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100402" PARDECLTYP="3" TYPTYPE="1" TYPE="TS_NAME_MASK"/>
+      <ITEM SCONAME="TYPE" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100402" PARPASSTYP="1" TYPTYPE="1" TYPE="TD_COMPTYPE"/>
+     </PARAMETERS>
+     <SOURCE>`
+  CASE type.
+    WHEN supportedtypes-general. result-id = &apos;TX&apos;.    result-object = name.
+    WHEN supportedtypes-indep.   result = name.
+  ENDCASE.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="RAW2STRING" VERSION="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" MTDDECLTYP="1">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="RawTexts to String"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="RAW" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_RAWTEXT"/>
+      <ITEM SCONAME="STRING" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARDECLTYP="3" TYPTYPE="1" TYPE="STRING"/>
+     </PARAMETERS>
+     <SOURCE>`
+FIELD-SYMBOLS &lt;l&gt; LIKE LINE OF raw.
+  DATA str TYPE string.
+
+  LOOP AT raw ASSIGNING &lt;l&gt;.
+    str = &lt;l&gt;.
+    IF string IS INITIAL.
+      string = str.
+    ELSE.
+      CONCATENATE string line_separator str INTO string.
+    ENDIF.
+  ENDLOOP.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="RESET" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" MTDDECLTYP="1">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Reset Bal Log"/>
+     </TEXTS>
+     <SOURCE>`
+  DATA object	TYPE balobj_d.
+  DATA subobject  TYPE balsubobj.
+  DATA ext_id	TYPE balnrext.
+
+  IF NOT log IS BOUND.    EXIT.   ENDIF.
+
+  object = zaplink_connector=&gt;ballog_object.
+  subobject	= &apos;DOCT&apos;.
+*  CONCATENATE sy-uname sy-datum sy-uzeit INTO ext_id SEPARATED BY space.
+*01    Create
+*02    Change
+*03    Display
+*04    Modify (Direct Input: Create/Change)
+*06    Delete
+*11    Create defaults
+*12    Change defaults
+*13    Display defaults
+  CALL METHOD log-&gt;init
+    EXPORTING
+      id_object      = object
+      id_subobject   = subobject
+      id_extnumber   = ext_id
+      auto_upd_custo = abap_true
+      id_activity    = zaplink_message_collector=&gt;actions-create
+    EXCEPTIONS
+      error          = 1
+      OTHERS         = 2.
+  IF sy-subrc &lt;&gt; 0.
+* ignore
+  ENDIF.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="SET" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" MTDDECLTYP="1">
+     <PARAMETERS>
+      <ITEM SCONAME="T_DOCS" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_DOCS">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Documents"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>`
+  DATA _text  TYPE tt_rawtext.
+  DATA _dokil TYPE dokil.
+  DATA _head  TYPE thead.
+  FIELD-SYMBOLS:
+    &lt;o&gt; LIKE LINE OF t_docs,
+    &lt;t&gt; LIKE LINE OF &lt;o&gt;-texts.
+
+  IF t_docs IS INITIAL.
+    EXIT. &quot;nothing to do
+  ENDIF.
+
+  LOOP AT t_docs ASSIGNING &lt;o&gt;.
+    _dokil-id = &lt;o&gt;-id.
+    _dokil-object = &lt;o&gt;-object.
+    _dokil-selfdef = &lt;o&gt;-selfdef.
+
+    CALL FUNCTION &apos;DOCU_SELFDEF_WRITE&apos;
+      EXPORTING
+        object_id   = _dokil-id
+        object_name = _dokil-object
+        selfdef     = _dokil-selfdef
+      EXCEPTIONS
+        not_deleted = 1
+        OTHERS      = 2.
+    IF sy-subrc &lt;&gt; 0.
+      lmac_add_mf_and_raise &apos;DOCU_SELFDEF_WRITE&apos; sy-subrc.
+    ENDIF.
+    LOOP AT &lt;o&gt;-texts ASSIGNING &lt;t&gt;.
+      _text = string2raw( &lt;t&gt;-_  ).
+      _head = &lt;t&gt;-head.
+*    head-application = lang-tdobject.
+*    head-dokform = lang-tdform.
+*    head-dokstyle = lang-tdstyle.
+      _head-tdobject = &lt;o&gt;-application.
+      _head-tdname = &lt;o&gt;-object.
+      _head-tdid = &lt;o&gt;-id.
+      _head-tdform = &lt;o&gt;-dokform.
+      _head-tdstyle = &lt;o&gt;-dokstyle.
+
+      IF &lt;o&gt;-selfdef IS INITIAL.
+        CALL FUNCTION &apos;DOCU_UPDATE&apos;
+          EXPORTING
+*       ACTCLASS            = &apos; &apos;
+            head                = _head
+*       NO_MASTERLANG       = &apos; &apos;
+            state               = &lt;t&gt;-state
+            typ                 = &lt;o&gt;-typ
+            version             = 0
+          TABLES
+            line                = _text.
+      ENDIF.
+    ENDLOOP.
+  ENDLOOP.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="SET_AS_XML_OFF" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="7 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" MTDDECLTYP="1">
+     <PARAMETERS>
+      <ITEM SCONAME="XML" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" PARPASSTYP="1" TYPTYPE="3" TYPE="IF_IXML_ELEMENT">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="IF_IXML_ELEMENT"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>`
+*  DATA t_docs TYPE tt_docs.
+*  DATA ezxml  TYPE REF TO zaplink_easyxml.
+*
+*  CREATE OBJECT ezxml.
+*
+**  TRY.
+*  CALL METHOD ezxml-&gt;_xml2any
+*    EXPORTING
+*      xml = xml
+*    CHANGING
+*      any = t_docs.
+**  ENDTRY.
+*
+*  IF t_docs IS INITIAL AND ezxml-&gt;application_log-&gt;has_messages_of_msgt( id_msgty = &apos;W&apos; ) IS INITIAL.
+*    EXIT. &quot;nothing to do
+*  ENDIF.
+*
+*  reset( ).
+*
+*  CALL METHOD application_log-&gt;add_from_instance
+*    EXPORTING
+*      io_msglist        = ezxml-&gt;application_log
+*      if_add_as_subnode = abap_true
+**      if_cumulate       =
+*      .
+*
+*  set( t_docs ).</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="SET_SINGLE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="8 " AUTHOR="TBENSIAL" CREATEDON="20100309" MTDDECLTYP="1" R3RELEASE="700">
+     <PARAMETERS>
+      <ITEM SCONAME="DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="TS_DOC">
+       <TEXTS>
+        <ITEM LANGU="E" DESCRIPT="Document"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <SOURCE>`
+  DATA t_docs TYPE tt_docs.
+
+  append data to t_docs.
+  set( t_docs ).</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="STRING2RAW" VERSION="1" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" MTDDECLTYP="1">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="String to RawTexts"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="RAW" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARDECLTYP="3" TYPTYPE="1" TYPE="TT_RAWTEXT"/>
+      <ITEM SCONAME="STRING" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="STRING"/>
+     </PARAMETERS>
+     <SOURCE>`
+SPLIT string AT LINE_SEPARATOR
+        INTO TABLE raw.</SOURCE>
+    </ITEM>
+   </METHODS>
+   <REDEFINITIONS>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~CREATE_NEW_RAW">
+     <SOURCE>`
+  DATA o_doc TYPE to_doc.
+
+  CREATE OBJECT object.
+  CASE type.
+    WHEN supportedtypes-general or supportedtypes-indep.
+      CREATE OBJECT o_doc.
+      object-&gt;raw = o_doc.
+    WHEN OTHERS.
+      CLEAR object.
+* Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
+      RAISE EXCEPTION TYPE zaplink_cx_connector
+        EXPORTING
+          textid = zaplink_cx_connector=&gt;type_not_supported
+          type   = type
+          connclass = &apos;ZAPLINK_PROGRAM&apos;.
+  ENDCASE.</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~DELETE_FROM_SAP">
+     <SOURCE>`
+  DATA pool     TYPE rs38l-area.
+  DATA type     TYPE td_comptype.
+  DATA s_mask   TYPE ts_name_mask.
+  DATA d_ori_modified TYPE c.
+  DATA d_doc_type TYPE doku_typ.
+  DATA s_dokil  TYPE dokil.
+  DATA s_head   TYPE thead.
+
+  TRY.
+      type = component-&gt;get_type( ).
+      CASE type.
+        WHEN supportedtypes-general OR supportedtypes-indep.
+          CASE type.
+            WHEN supportedtypes-general. s_mask-id = &apos;TX&apos;.    s_mask-object = component-&gt;get_name( ).     &quot; Issue 60
+            WHEN supportedtypes-indep.   s_mask = component-&gt;get_name( ).
+          ENDCASE.
+* FROM MSDCUI01 : MODULE d0100_get_docuobject (583)
+          CALL FUNCTION &apos;EXT_MODIFY_ORIGINAL_CHECK&apos;
+            EXPORTING
+              p_id                = s_mask-id
+              p_object            = s_mask-object
+            IMPORTING
+              p_original_modified = d_ori_modified
+            EXCEPTIONS
+              OTHERS              = 1.
+          IF d_ori_modified = abap_true.&quot;Modi. vorh.
+            d_doc_type = &apos;M&apos;.
+          ELSEIF s_mask-id = &apos;FU&apos; OR s_mask-id = &apos;FX&apos;.
+            d_doc_type = &apos;T&apos;.
+          ELSE.
+            d_doc_type = &apos;E&apos;.
+          ENDIF.
+
+          SELECT SINGLE * INTO s_dokil
+            FROM dokil
+            WHERE id = s_mask-id
+              AND object = s_mask-object
+              AND typ = d_doc_type
+              AND masterlang = abap_true.
+          IF sy-subrc &lt;&gt; 0.
+            SELECT SINGLE * INTO s_dokil
+              FROM dokil
+              WHERE id = s_mask-id
+                AND object = s_mask-object
+                AND typ = d_doc_type.
+          ENDIF.
+
+          s_head-tdid     = s_mask-id.
+          s_head-tdname   = s_mask-object.
+          s_head-tdspras  = s_dokil-langu.
+
+          CALL FUNCTION &apos;ENQUEUE_ESDOC&apos;
+            EXPORTING
+*             MODE_DOKHL           = &apos;E&apos;
+              id     = s_dokil-id
+              object = s_dokil-object
+              langu  = s_dokil-langu
+              typ    = s_dokil-typ
+*             _SCOPE               = &apos;2&apos;
+*             _WAIT                = &apos; &apos;
+            EXCEPTIONS
+              foreign_lock         = 1
+              system_failure       = 2
+              OTHERS               = 3.
+          IF sy-subrc &lt;&gt; 0.
+            mac_add_mf_and_raise &apos;ENQUEUE_ESDOC&apos; sy-subrc.
+          ENDIF.
+
+          CALL FUNCTION &apos;DOCU_DELETE&apos;
+            EXPORTING
+*             ACTCLASS              = &apos; &apos;
+*             DELETE_RAW_ONLY       = &apos; &apos;
+              head                  = s_head
+              typ                   = d_doc_type
+              version               = s_dokil-version.
+          IF sy-subrc &lt;&gt; 0.
+            mac_add_mf_and_raise &apos;DOCU_DELETE&apos; sy-subrc.
+          ENDIF.
+          CALL FUNCTION &apos;DEQUEUE_ESDOC&apos;
+           EXPORTING
+*             MODE_DOKHL         = &apos;E&apos;
+*             _SCOPE             = &apos;3&apos;
+              id     = s_dokil-id
+              object = s_dokil-object
+              langu  = s_dokil-langu
+              typ    = s_dokil-typ.
+
+          SELECT SINGLE * INTO s_dokil
+            FROM dokil
+            WHERE id = s_mask-id
+              AND object = s_mask-object
+              AND typ = d_doc_type.
+          IF sy-subrc &lt;&gt; 0.   result = abap_true.   ENDIF.
+
+        WHEN OTHERS.
+* Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
+          RAISE EXCEPTION TYPE zaplink_cx_connector
+            EXPORTING
+              textid = zaplink_cx_connector=&gt;type_not_supported
+              type   = type
+              connclass = &apos;ZAPLINK_PROGRAM&apos;.
+      ENDCASE.
+
+    CATCH zaplink_cx_connector INTO o_mycx.
+      RAISE EXCEPTION o_mycx.
+    CATCH zaplink_cx INTO o_cx.
+      mac_cascade_raise o_mycx o_cx.
+  ENDTRY.</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~DO_EXISTS">
+     <SOURCE>`
+  DATA type     TYPE td_comptype.
+  DATA s_mask   TYPE ts_name_mask.
+  DATA d_name   TYPE td_compname.
+
+  exists = me-&gt;exists-not_exists.
+
+  TRY.
+      type = component-&gt;get_type( ).
+      CASE type.
+        WHEN supportedtypes-general OR supportedtypes-indep..
+          d_name = component-&gt;get_name( ).
+          s_mask = name_2_mask( type = type    name = d_name ).
+          SELECT SINGLE id INTO s_mask-id
+            FROM dokil
+            WHERE     id = s_mask-id
+              AND object = s_mask-object.
+          IF sy-subrc = 0.    exists = me-&gt;exists-exists.   ENDIF.
+*          CALL FUNCTION &apos;DOCU_INIT&apos;
+*            EXPORTING
+*              id            = s_mask-id
+*              langu         =
+*              object        = s_mask-object
+*              typ           =
+*            IMPORTING
+**             FOUND         =
+*              XDOKIL        = s_dokil.
+*          IF not s_dokil is INITIAL.    exists = me-&gt;exists-exists.   ENDIF.
+        WHEN OTHERS.
+* Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
+          RAISE EXCEPTION TYPE zaplink_cx_connector
+            EXPORTING
+              textid = zaplink_cx_connector=&gt;type_not_supported
+              type   = type
+              connclass = &apos;ZAPLINK_MESSAGE&apos;.
+      ENDCASE.
+
+    CATCH zaplink_cx_connector INTO o_mycx.
+      RAISE EXCEPTION o_mycx.
+    CATCH zaplink_cx INTO o_cx.
+      mac_cascade_raise o_mycx o_cx.
+  ENDTRY.</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~IS_SUPPORTED_VERSION">
+     <SOURCE>`
+  result = abap_false.
+  if version = _ver.    result = abap_true.   endif.</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~READ_FROM_SAP">
+     <SOURCE>`
+  DATA o_data   TYPE to_doc.
+  DATA d_name   TYPE td_compname.
+  DATA type     TYPE td_comptype.
+  DATA s_mask   TYPE ts_name_mask.
+  DATA s_doc    TYPE ts_doc.
+
+  TRY.
+    type = component-&gt;get_type( ).
+    CREATE OBJECT object.
+    object-&gt;set_component( component ).
+    CASE type.
+      WHEN supportedtypes-general OR supportedtypes-indep.
+        d_name = component-&gt;get_name( ).
+        s_mask = name_2_mask( type = type    name = d_name ).
+        s_doc = get_single( ids = s_mask-id
+                         object = s_mask-object ).
+
+        CREATE OBJECT o_data.
+        o_data-&gt;from_data( s_doc ).
+        CLEAR: o_data-&gt;a0_maindata-id, o_data-&gt;a0_maindata-object.
+        object-&gt;raw = o_data.
+      WHEN OTHERS.
+        CLEAR object.
+        mac_raise_type_not_supported &apos;ZAPLINK_DOCUMENTATION&apos; type.
+    ENDCASE.
+    object-&gt;update_connector_data( me ).                    &quot; Issue 66
+    mac_def_catch zaplink_cx_connector.
+  ENDTRY.</SOURCE>
+    </ITEM>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~WRITE_TO_SAP">
+     <SOURCE>`
+  DATA o_data   TYPE to_doc.
+  DATA o_comp   TYPE to_component.
+  DATA s_mask   TYPE ts_name_mask.
+  DATA s_doc    TYPE ts_doc.
+
+  TRY.
+
+      CASE object-&gt;type.
+        WHEN supportedtypes-general OR supportedtypes-indep.
+          o_data ?= object-&gt;raw.
+          CASE object-&gt;type.
+            WHEN supportedtypes-general. s_mask-id = &apos;TX&apos;.    s_mask-object = object-&gt;name.
+            WHEN supportedtypes-indep.   s_mask = object-&gt;name.
+          ENDCASE.
+          o_data-&gt;a0_maindata-id = s_mask-id.   o_data-&gt;a0_maindata-object = s_mask-object.
+          s_doc = o_data-&gt;to_data( ).
+          set_single( s_doc ).
+          CREATE OBJECT o_comp.
+          o_comp-&gt;set_type( object-&gt;type ).   o_comp-&gt;set_name( object-&gt;name ).
+          CREATE OBJECT components.
+          components-&gt;add( o_comp ).
+        WHEN OTHERS.
+* Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
+          RAISE EXCEPTION TYPE zaplink_cx_connector
+            EXPORTING
+              textid = zaplink_cx_connector=&gt;type_not_supported
+              type   = object-&gt;type
+              connclass = &apos;ZAPLINK_PROGRAM&apos;.
+      ENDCASE.
+
+    CATCH zaplink_cx_connector INTO o_mycx.
+      ROLLBACK WORK.
+      RAISE EXCEPTION o_mycx.
+    CATCH zaplink_cx INTO o_cx.
+      ROLLBACK WORK.
+      mac_cascade_raise o_mycx o_cx.
+  ENDTRY.</SOURCE>
+    </ITEM>
+   </REDEFINITIONS>
+   <TYPEGROUPS>
+    <ITEM TYPEGROUP="ABAP" VERSION="1" IMPLICIT="X"/>
+   </TYPEGROUPS>
+   <TYPES>
+    <ITEM CMPNAME="TO_DOC" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" TYPTYPE="3" TYPE="ZAPLINK_DOCV_DATA">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Data for documentation"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TO_LOG" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100127" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" TYPTYPE="3" TYPE="ZAPLINK_MESSAGE_COLLECTOR">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Message Collector"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TS_NAME_MASK" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100309" TYPTYPE="4" R3RELEASE="700">BEGIN OF ts_name_mask,
+      ID 	    TYPE DOKIL-ID,
+      OBJECT  TYPE DOKIL-OBJECT,
+    END OF ts_name_mask
+`</ITEM>
+   </TYPES>
+  </RAW>
+ </ZL_OBJECT>
+ <ZL_OBJECT CHECKSUM="4FE7C5BD8776B9B7127D95F69FFD9E61" CODE_SIGNATURE="000A2589C84B692CD196774D10EB4A4E" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_DOCV_DATA" TYPE="CLAS" VERSION="1.01">
+  <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
+  <RAW>
+   <A0_MAINDATA VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100309" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+    <INHERITANCE REFCLSNAME="ZAPLINK_RAW_DATA" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100309"/>
+    <TEXTS>
+     <ITEM LANGU="E" DESCRIPT="Documentation Datas">
+      <DOCUMENTATION TDFRELES="700" TDLINESIZE="072">U1&amp;FUNCTIONALITY&amp;
+ASIs part of connector : ZAPLINK_DOCUMENTATION
+ASDefine XML structure of a independent documentation &amp; general text
+U1&amp;RELATIONS&amp;
+AS
+U1&amp;EXAMPLE&amp;
+AS
+U1&amp;HINTS&amp;
+AS
+U1&amp;FURTHER_SOURCES_OF_INF&amp;
+AS</DOCUMENTATION>
+     </ITEM>
+    </TEXTS>
+   </A0_MAINDATA>
+   <ALIASES>
+    <ITEM CMPNAME="TS_DOC" VERSION="1" EXPOSURE="1" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TS_DOC"/>
+    <ITEM CMPNAME="TS_HEAD" VERSION="1" EXPOSURE="2" CMPTYPE="3" REFCLSNAME="ZAPLINK_DATATYPES" REFCMPNAME="TS_HEAD"/>
+   </ALIASES>
+   <ATTRIBUTS>
+    <ITEM CMPNAME="A0_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" TYPTYPE="1" TYPE="TS_HEAD" R3RELEASE="700"/>
+    <ITEM CMPNAME="TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100309" TYPTYPE="1" TYPE="TT_TEXTS" R3RELEASE="700"/>
+   </ATTRIBUTS>
+   <FRIENDS>
+    <ITEM REFCLSNAME="ZAPLINK_DOCUMENTATION" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100309"/>
+   </FRIENDS>
+   <INTERFACES>
+    <ITEM REFCLSNAME="ZAPLINK_DATATYPES" VERSION="1" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100309" RELTYPE="1"/>
+   </INTERFACES>
+   <LOCAL>
+    <TYPES>`
+*&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
+*&quot;* definitions, interfaces or data types) you need for method
+*&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE</TYPES>
+    <IMPLEMENTATIONS>`
+*&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
+*&quot;* use this source file for the implementation part of
+*&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
+    <MACROS>`
+*&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
+*&quot;* IN THE IMPLEMENTATION PART OF THE CLASS</MACROS>
+   </LOCAL>
+   <METHODS>
+    <ITEM CMPNAME="FROM_DATA" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" R3RELEASE="700">
+     <PARAMETERS>
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" PARPASSTYP="1" TYPTYPE="1" TYPE="TS_DOC"/>
+     </PARAMETERS>
+     <SOURCE>`
+  DATA s_text LIKE LINE OF texts.
+  FIELD-SYMBOLS:
+    &lt;t&gt; LIKE LINE OF fm_data-texts.
+
+  a0_maindata = fm_data-hdr.    a0_maindata-masterlang = a0_maindata-langu.   CLEAR a0_maindata-langu.
+  LOOP AT fm_data-texts ASSIGNING &lt;t&gt;.
+    CLEAR s_text.   s_text-langu = &lt;t&gt;-tdspras.   s_text-_ = &lt;t&gt;-_.   INSERT s_text INTO TABLE texts.
+  ENDLOOP.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="TO_DATA" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100309" R3RELEASE="700">
+     <PARAMETERS>
+      <ITEM SCONAME="FM_DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" PARDECLTYP="3" TYPTYPE="1" TYPE="TS_DOC"/>
+     </PARAMETERS>
+     <SOURCE>`
+  DATA s_text LIKE LINE OF fm_data-texts.
+  FIELD-SYMBOLS:
+    &lt;t&gt; LIKE LINE OF texts.
+
+  fm_data-hdr = a0_maindata.    fm_data-hdr-langu = a0_maindata-masterlang. fm_data-hdr-masterlang = abap_true.
+  LOOP AT texts ASSIGNING &lt;t&gt;.
+    CLEAR s_text.   s_text-tdspras = &lt;t&gt;-langu.   s_text-_ = &lt;t&gt;-_.   INSERT s_text INTO TABLE fm_data-texts.
+  ENDLOOP.</SOURCE>
+    </ITEM>
+   </METHODS>
+   <TYPES>
+    <ITEM CMPNAME="TS_TEXT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100507" TYPTYPE="4" R3RELEASE="700">begin of ts_text,
+        Langu type sy-langu,
+        _     type string,      &quot; Text
+      end of ts_text
+`</ITEM>
+    <ITEM CMPNAME="TT_RAWTEXT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100309" TYPTYPE="4" R3RELEASE="700">tt_rawtext TYPE STANDARD TABLE OF tline WITH DEFAULT KEY
+`</ITEM>
+    <ITEM CMPNAME="TT_TEXT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100507" TYPTYPE="4" R3RELEASE="700">
+     tt_text TYPE STANDARD TABLE OF tline WITH DEFAULT KEY
+`
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Table of TLINE"/>
+     </TEXTS>
+    </ITEM>
+    <ITEM CMPNAME="TT_TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100309" CHANGEDBY="TBENSIAL" CHANGEDON="20100507" TYPTYPE="4" R3RELEASE="700">tt_texts type SORTED TABLE OF ts_text with UNIQUE key langu
+`</ITEM>
+   </TYPES>
+  </RAW>
+ </ZL_OBJECT>
+ <ZL_OBJECT CHECKSUM="0D103F2F9F55167DDB1B0FE03590E948" CODE_SIGNATURE="6254C8F6AB6D35B62E3CA00A57AC558F" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_SXCI_DATA" TYPE="CLAS" VERSION="1.01">
+  <DEPENDENCIES>
+   <ITEM TYPE="CLAS" NAME="ZAPLINK_BADI_DATA"/>
+  </DEPENDENCIES>
+  <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
+  <RAW>
+   <A0_MAINDATA VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20090914" CHANGEDBY="TBENSIAL" CHANGEDON="20100127" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
     <INHERITANCE REFCLSNAME="ZAPLINK_BADI_DATA" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20091118"/>
     <TEXTS>
-     <ITEM LANGU="E" DESCRIPT="BADI Implementation data"/>
+     <ITEM LANGU="E" DESCRIPT="BADI Implementation data">
+      <DOCUMENTATION TDFRELES="700" TDLRELES="700" TDLINESIZE="072">U1&amp;FUNCTIONALITY&amp;
+ASIs part of connector : ZAPLINK_BADI
+ASDefine XML structure of a BADI Implementation
+U1&amp;RELATIONS&amp;
+AS
+U1&amp;EXAMPLE&amp;
+AS
+U1&amp;HINTS&amp;
+AS
+U1&amp;FURTHER_SOURCES_OF_INF&amp;
+AS</DOCUMENTATION>
+     </ITEM>
     </TEXTS>
    </A0_MAINDATA>
    <ATTRIBUTS>
@@ -1310,21 +2254,21 @@ DATA _in  LIKE LINE OF fm_data-intas.
     <ITEM REFCLSNAME="ZAPLINK_EASYXML" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100218"/>
    </FRIENDS>
    <LOCAL>
-    <TYPES>
+    <TYPES>`
 *&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
 *&quot;* definitions, interfaces or data types) you need for method
 *&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE</TYPES>
-    <IMPLEMENTATIONS>
+    <IMPLEMENTATIONS>`
 *&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
 *&quot;* use this source file for the implementation part of
 *&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
-    <MACROS>
+    <MACROS>`
 *&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
 *&quot;* IN THE IMPLEMENTATION PART OF THE CLASS</MACROS>
    </LOCAL>
    <REDEFINITIONS>
     <ITEM REFCLSNAME="ZAPLINK_BADI_DATA" VERSION="1" MTDNAME="FROM_DATA">
-     <SOURCE>
+     <SOURCE>`
 def_name = fm_data-implementation-exit_name.
 
   CALL METHOD super-&gt;from_data
@@ -1338,7 +2282,7 @@ def_name = fm_data-implementation-exit_name.
   filter-values = fm_data-filter_values.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_BADI_DATA" VERSION="1" MTDNAME="TO_DATA">
-     <SOURCE>
+     <SOURCE>`
 def_name = a0_maindata-exit_name.
 
 * Warning recieving (will reset FM_DATA)
@@ -1368,7 +2312,7 @@ def_name = a0_maindata-exit_name.
     <ITEM TYPEGROUP="SEEX" VERSION="1" EXPLICIT="X"/>
    </TYPEGROUPS>
    <TYPES>
-    <ITEM CMPNAME="TS_FILTER" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="4 " SRCROW2="27 " SRCCOLUMN2="19 " R3RELEASE="700" TYPESRC_LENG="262 ">
+    <ITEM CMPNAME="TS_FILTER" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" R3RELEASE="700">
      BEGIN OF ts_filter,
       enhanceable TYPE rsexscrn-flt_ext,
       datatype TYPE	rsexscrn-flt_type,
@@ -1380,7 +2324,7 @@ def_name = a0_maindata-exit_name.
       <ITEM LANGU="E" DESCRIPT="Filter informations"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TS_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="15 " SRCCOLUMN1="4 " SRCROW2="19 " SRCCOLUMN2="21 " R3RELEASE="700" TYPESRC_LENG="125 ">
+    <ITEM CMPNAME="TS_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" R3RELEASE="700">
      BEGIN OF ts_maindata.
   INCLUDE TYPE impl_data AS main.
   TYPES:
@@ -1393,13 +2337,28 @@ def_name = a0_maindata-exit_name.
    </TYPES>
   </RAW>
  </ZL_OBJECT>
- <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_SXSD_DATA" TYPE="CLAS" VERSION="1.01">
+ <ZL_OBJECT CHECKSUM="372FF725DB8E390E5DCEB2166A2440FA" CODE_SIGNATURE="D4EF3708B21BEA66FB7EF01E1CEF1775" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_SXSD_DATA" TYPE="CLAS" VERSION="1.01">
+  <DEPENDENCIES>
+   <ITEM TYPE="CLAS" NAME="ZAPLINK_BADI_DATA"/>
+  </DEPENDENCIES>
   <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
   <RAW>
-   <A0_MAINDATA VERSION="1" LANGU="E" UUID="87F9034B756EB95AE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20090908" CHANGEDBY="TBENSIAL" CHANGEDON="20100127" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+   <A0_MAINDATA VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20090908" CHANGEDBY="TBENSIAL" CHANGEDON="20100127" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
     <INHERITANCE REFCLSNAME="ZAPLINK_BADI_DATA" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20091123" CHANGEDBY="TBENSIAL" CHANGEDON="20091123"/>
     <TEXTS>
-     <ITEM LANGU="E" DESCRIPT="BADI Definition Datas"/>
+     <ITEM LANGU="E" DESCRIPT="BADI Definition Datas">
+      <DOCUMENTATION TDFRELES="700" TDLRELES="700" TDLINESIZE="072">U1&amp;FUNCTIONALITY&amp;
+ASIs part of connector : ZAPLINK_BADI
+ASDefine XML structure of a BADI Definition
+U1&amp;RELATIONS&amp;
+AS
+U1&amp;EXAMPLE&amp;
+AS
+U1&amp;HINTS&amp;
+AS
+U1&amp;FURTHER_SOURCES_OF_INF&amp;
+AS</DOCUMENTATION>
+     </ITEM>
     </TEXTS>
    </A0_MAINDATA>
    <ATTRIBUTS>
@@ -1415,21 +2374,47 @@ def_name = a0_maindata-exit_name.
     <ITEM REFCLSNAME="ZAPLINK_EASYXML" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100218"/>
    </FRIENDS>
    <LOCAL>
-    <TYPES>
+    <TYPES>`
 *&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
 *&quot;* definitions, interfaces or data types) you need for method
 *&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE</TYPES>
-    <IMPLEMENTATIONS>
+    <IMPLEMENTATIONS>`
 *&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
 *&quot;* use this source file for the implementation part of
 *&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
-    <MACROS>
+    <MACROS>`
 *&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
 *&quot;* IN THE IMPLEMENTATION PART OF THE CLASS</MACROS>
    </LOCAL>
+   <METHODS>
+    <ITEM CMPNAME="CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100318" MTDTYPE="2" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="CONSTRUCTOR"/>
+     </TEXTS>
+     <SOURCE>`
+  super-&gt;constructor( ).
+*  DATA o_conn   TYPE to_connector.
+*  DATA o_sxsd   TYPE to_badi_def.
+*  DATA o_sxci   TYPE to_badi_impl.
+*  DATA _type    TYPE td_comptype.
+*
+*  CREATE OBJECT object.
+*  CASE type.
+*    WHEN st_badi_def.
+*      CREATE OBJECT o_sxsd.
+** Create empty interface object
+*      o_conn = zaplink_connectors=&gt;create_connector( type = t_badi_itf ).
+*      IF o_conn IS BOUND.
+*        _type = t_badi_itf.
+*        o_sxsd-&gt;interface = o_conn-&gt;create_new_raw( _type ).
+*      ENDIF.
+*      object-&gt;raw = o_sxsd.
+**      create object object type TO_CLASS.</SOURCE>
+    </ITEM>
+   </METHODS>
    <REDEFINITIONS>
     <ITEM REFCLSNAME="ZAPLINK_BADI_DATA" VERSION="1" MTDNAME="FROM_DATA">
-     <SOURCE>
+     <SOURCE>`
   DATA _fc    LIKE LINE OF functions_codes.
   DATA _cc    LIKE LINE OF controls_composites.
   DATA _scr   LIKE LINE OF subscreens.
@@ -1486,7 +2471,7 @@ def_name = a0_maindata-exit_name.
   ENDLOOP.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_BADI_DATA" VERSION="1" MTDNAME="TO_DATA">
-     <SOURCE>
+     <SOURCE>`
   DATA _in  LIKE LINE OF fm_data-intas.
   DATA _cc  LIKE LINE OF fm_data-cocos.
   DATA _fc  LIKE LINE OF fm_data-fcodes.
@@ -1539,7 +2524,7 @@ def_name = a0_maindata-exit_name.
     <ITEM TYPEGROUP="SEEX" VERSION="1" EXPLICIT="X"/>
    </TYPEGROUPS>
    <TYPES>
-    <ITEM CMPNAME="TS_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="15 " SRCCOLUMN1="4 " SRCROW2="20 " SRCCOLUMN2="21 " R3RELEASE="700" TYPESRC_LENG="162 ">
+    <ITEM CMPNAME="TS_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100318" TYPTYPE="4" R3RELEASE="700">
      BEGIN OF ts_maindata.
   INCLUDE TYPE badi_data AS main.
   TYPES:

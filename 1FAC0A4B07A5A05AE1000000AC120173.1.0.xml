@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-16"?>
 <CONTAINER NAME="ZAPLINK_MESSAGE" VERSION="1.0" CLASS="ZAPLINK_CONTAINER">
- <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_MESSAGE" TYPE="CLAS" VERSION="1.01">
+ <ZL_OBJECT CHECKSUM="1FE022019571BD93D26C0AC2B09D06BE" CODE_SIGNATURE="2D415210CA96A4D3662231C018F93890" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_MESSAGE" TYPE="CLAS" VERSION="1.01">
+  <DEPENDENCIES>
+   <ITEM TYPE="CLAS" NAME="ZAPLINK_CONNECTOR_"/>
+   <ITEM TYPE="CLAS" NAME="ZAPLINK_DOCUMENTATION"/>
+  </DEPENDENCIES>
   <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
   <RAW>
-   <A0_MAINDATA VERSION="1" LANGU="E" UUID="9B2B044B702B371EE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20091026" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+   <A0_MAINDATA VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20091026" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
     <INHERITANCE REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100121"/>
     <TEXTS>
-     <ITEM LANGU="E" DESCRIPT="Connector for Message class"/>
+     <ITEM LANGU="E" DESCRIPT="Connector for Message class">
+      <DOCUMENTATION TDFRELES="700" TDLINESIZE="072">U1&amp;FUNCTIONALITY&amp;
+ASIs a connector for :
+AS- MSAG : Message Class
+U1&amp;RELATIONS&amp;
+ASIs part of ZAP Link Framework as Official Connector.
+U1&amp;EXAMPLE&amp;
+AS
+U1&amp;HINTS&amp;
+AS
+U1&amp;FURTHER_SOURCES_OF_INF&amp;
+AShttps://code.google.com/p/zaplink/wiki/Connector</DOCUMENTATION>
+     </ITEM>
     </TEXTS>
    </A0_MAINDATA>
    <ATTRIBUTS>
@@ -47,26 +63,26 @@
     </CLASSES>
    </DEFERRED>
    <LOCAL>
-    <TYPES>
+    <TYPES>`
 *&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
 *&quot;* definitions, interfaces or data types) you need for method
-*&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE</TYPES>
-    <IMPLEMENTATIONS>
+*&quot;* implementation or private method&apos;s signature</TYPES>
+    <IMPLEMENTATIONS>`
 *&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
 *&quot;* use this source file for the implementation part of
-*&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
-    <MACROS>
+*&quot;* local helper classes</IMPLEMENTATIONS>
+    <MACROS>`
 *&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
 *&quot;* in the implementation part of the class
 
-INCLUDE ZAPLINK_MACROS.</MACROS>
+INCLUDE zaplink_macros.</MACROS>
    </LOCAL>
    <METHODS>
     <ITEM CMPNAME="CLASS_CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" MTDTYPE="2" MTDDECLTYP="1" R3RELEASE="700">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="CLASS_CONSTRUCTOR"/>
      </TEXTS>
-     <SOURCE>
+     <SOURCE>`
 *table TDCLT
 *DOKCLASS DOKTITEL
 *NA       Message
@@ -79,7 +95,7 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="CONSTRUCTOR"/>
      </TEXTS>
-     <SOURCE>
+     <SOURCE>`
   DATA type LIKE LINE OF supported_types.
 
   CALL METHOD super-&gt;constructor.
@@ -92,9 +108,8 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
    </METHODS>
    <REDEFINITIONS>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CNX_EXT_CLEANER~ANONYMIZE">
-     <SOURCE>
+     <SOURCE>`
   DATA o_msag TYPE to_data.
-  DATA s_msg LIKE LINE OF o_msag-&gt;messages.
 
   TRY.
       super-&gt;zaplink_cnx_ext_cleaner~anonymize( object ).
@@ -103,21 +118,11 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
   ENDTRY.
 
   o_msag ?= object-&gt;raw.
-  CLEAR:
-*    o_msag-&gt;A0_MAINDATA-RESPUSER,
-    o_msag-&gt;a0_maindata-lastuser,
-    o_msag-&gt;a0_maindata-ldate,
-    o_msag-&gt;a0_maindata-ltime.
-
-  MODIFY o_msag-&gt;messages FROM s_msg TRANSPORTING name datum
-         WHERE msgnr IS INITIAL OR
-               msgnr IS NOT INITIAL.
-</SOURCE>
+  o_msag-&gt;anonymize( ).</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CNX_EXT_CLEANER~UNANONYMIZE">
-     <SOURCE>
+     <SOURCE>`
   DATA o_msag TYPE to_data.
-  DATA s_msg LIKE LINE OF o_msag-&gt;messages.
 
   TRY.
       super-&gt;zaplink_cnx_ext_cleaner~unanonymize( object ).
@@ -126,14 +131,10 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
   ENDTRY.
 
   o_msag ?= object-&gt;raw.
-  if o_msag-&gt;A0_MAINDATA-RESPUSER is INITIAL. o_msag-&gt;A0_MAINDATA-RESPUSER = sy-uname. endif.
-  s_msg-name = o_msag-&gt;A0_MAINDATA-RESPUSER.
-  MODIFY o_msag-&gt;messages FROM s_msg TRANSPORTING name
-         WHERE name IS INITIAL.
-</SOURCE>
+  o_msag-&gt;unanonymize( ).</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~CREATE_NEW_RAW">
-     <SOURCE>
+     <SOURCE>`
   DATA o_data TYPE to_data.
 
   CREATE OBJECT object.
@@ -149,11 +150,10 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
           textid = zaplink_cx_connector=&gt;type_not_supported
           type   = type
           connclass = &apos;ZAPLINK_MESSAGE&apos;.
-  ENDCASE.
-</SOURCE>
+  ENDCASE.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~DELETE_FROM_SAP">
-     <SOURCE>
+     <SOURCE>`
   DATA _name TYPE t100a-arbgb.
   data type  type td_comptype.
 
@@ -198,7 +198,7 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
   result = abap_true.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~DO_EXISTS">
-     <SOURCE>
+     <SOURCE>`
   DATA _name TYPE t100a-arbgb.
   DATA type  TYPE td_comptype.
 
@@ -228,18 +228,17 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
       RAISE EXCEPTION o_mycx.
     CATCH zaplink_cx INTO o_cx.
       mac_cascade_raise o_mycx o_cx.
-  ENDTRY.
-</SOURCE>
+  ENDTRY.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~IS_SUPPORTED_VERSION">
-     <SOURCE>
+     <SOURCE>`
   result = abap_false.
   if version = _ver.
     result = abap_true.
   endif.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~READ_FROM_SAP">
-     <SOURCE>
+     <SOURCE>`
   DATA _data  TYPE to_data.
   DATA _obj   TYPE doku_obj.
   DATA t_t100 TYPE SORTED TABLE OF t100 WITH UNIQUE KEY msgnr sprsl.
@@ -255,129 +254,122 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
   DATA _text LIKE LINE OF &lt;m&gt;-texts.
   DATA _htxt LIKE LINE OF _data-&gt;texts.
   DATA _key  TYPE doku_obj.
+  DATA d_type TYPE td_comptype.
 
   TRY.
 
-      CREATE OBJECT object.
-      CASE component-&gt;get_type( ).
-        WHEN st_msgclass.
-          _name = component-&gt;get_name( ).
+    CREATE OBJECT object.
+    d_type = component-&gt;get_type( ).
+    CASE d_type.
+      WHEN st_msgclass.
+        _name = component-&gt;get_name( ).
 * Documentation
 * example : ZAPLINK_EASYXML000
-          CONCATENATE _name &apos;+++&apos; INTO _obj.  &quot; +++ stand for message number
-          t_docs = zaplink_documentation=&gt;get( ids = r_doc_id
-                                            object = _obj ).
-          DELETE t_docs WHERE texts IS INITIAL.
+        CONCATENATE _name &apos;+++&apos; INTO _obj.  &quot; +++ stand for message number
+        t_docs = zaplink_documentation=&gt;get( ids = r_doc_id
+                                          object = _obj ).
+        DELETE t_docs WHERE texts IS INITIAL.
 
-          CREATE OBJECT _data.
+        CREATE OBJECT _data.
 * Main data
-          SELECT SINGLE *
-            INTO CORRESPONDING FIELDS OF _data-&gt;a0_maindata
-            FROM t100a
-            WHERE arbgb = _name.
+        SELECT SINGLE *
+          INTO CORRESPONDING FIELDS OF _data-&gt;a0_maindata
+          FROM t100a
+          WHERE arbgb = _name.
 
 * Descriptions
-          SELECT sprsl stext
-            INTO TABLE _data-&gt;texts
-            FROM t100t
-            WHERE arbgb = _name.
+        SELECT sprsl stext
+          INTO TABLE _data-&gt;texts
+          FROM t100t
+          WHERE arbgb = _name.
 
-          READ TABLE _data-&gt;texts TRANSPORTING NO FIELDS
-               WITH TABLE KEY langu = _data-&gt;a0_maindata-masterlang.
-          IF sy-subrc &lt;&gt; 0.
-            _htxt-langu = _data-&gt;a0_maindata-masterlang.
-            _htxt-short_txt = _data-&gt;a0_maindata-stext.
-            INSERT _htxt INTO TABLE _data-&gt;texts.
-          ENDIF.
-          CLEAR _data-&gt;a0_maindata-stext.
+        READ TABLE _data-&gt;texts TRANSPORTING NO FIELDS
+             WITH TABLE KEY langu = _data-&gt;a0_maindata-masterlang.
+        IF sy-subrc &lt;&gt; 0.
+          _htxt-langu = _data-&gt;a0_maindata-masterlang.
+          _htxt-short_txt = _data-&gt;a0_maindata-stext.
+          INSERT _htxt INTO TABLE _data-&gt;texts.
+        ENDIF.
+        CLEAR _data-&gt;a0_maindata-stext.
 
 * Messages
-          SELECT *
-            INTO CORRESPONDING FIELDS OF TABLE _data-&gt;messages
-            FROM t100u
-            WHERE arbgb = _name.
+        SELECT *
+          INTO CORRESPONDING FIELDS OF TABLE _data-&gt;messages
+          FROM t100u
+          WHERE arbgb = _name.
 * Messages texts
-          SELECT * INTO TABLE t_t100
-            FROM t100
-            WHERE arbgb = _name.
+        SELECT * INTO TABLE t_t100
+          FROM t100
+          WHERE arbgb = _name.
 
-          LOOP AT _data-&gt;messages ASSIGNING &lt;m&gt;.
-            LOOP AT t_t100 ASSIGNING &lt;t&gt;
-                    WHERE msgnr = &lt;m&gt;-msgnr.
-              CLEAR _text.
-              _text-langu = &lt;t&gt;-sprsl.
-              _text-short_txt = &lt;t&gt;-text.
-              INSERT _text INTO TABLE &lt;m&gt;-texts.
-            ENDLOOP.
-
-            CONCATENATE _name &lt;m&gt;-msgnr INTO _key.
-            LOOP AT t_docs ASSIGNING &lt;l&gt;
-                    WHERE object = _key.
-
-              IF &lt;m&gt;-application IS INITIAL.
-                &lt;m&gt;-application = &lt;l&gt;-application.
-              ELSEIF &lt;m&gt;-application &lt;&gt; &lt;l&gt;-application.
-                RAISE EXCEPTION TYPE zaplink_cx_connector.
-              ENDIF.
-
-              IF &lt;m&gt;-typ IS INITIAL.
-                &lt;m&gt;-typ = &lt;l&gt;-typ.
-              ELSEIF &lt;m&gt;-typ &lt;&gt; &lt;l&gt;-typ.
-                RAISE EXCEPTION TYPE zaplink_cx_connector.
-              ENDIF.
-
-              IF &lt;m&gt;-dokform IS INITIAL.
-                &lt;m&gt;-dokform = &lt;l&gt;-dokform.
-              ELSEIF &lt;m&gt;-dokform &lt;&gt; &lt;l&gt;-dokform.
-                RAISE EXCEPTION TYPE zaplink_cx_connector.
-              ENDIF.
-
-              IF &lt;m&gt;-dokstyle IS INITIAL.
-                &lt;m&gt;-dokstyle = &lt;l&gt;-dokstyle.
-              ELSEIF &lt;m&gt;-dokstyle &lt;&gt; &lt;l&gt;-dokstyle.
-                RAISE EXCEPTION TYPE zaplink_cx_connector.
-              ENDIF.
-
-              LOOP AT &lt;l&gt;-texts ASSIGNING &lt;lt&gt;.
-
-                READ TABLE &lt;m&gt;-texts ASSIGNING &lt;mt&gt;
-                     WITH TABLE KEY langu = &lt;lt&gt;-tdspras.
-                IF sy-subrc = 0.
-                  &lt;mt&gt;-long_txt = &lt;lt&gt;.
-                  CLEAR &lt;mt&gt;-long_txt-tdspras.
-                ELSE.
-                  CLEAR _text.
-                  _text-long_txt = &lt;lt&gt;.
-                  CLEAR _text-long_txt-tdspras.
-                  INSERT _text INTO TABLE &lt;m&gt;-texts.
-                ENDIF.
-              ENDLOOP.
-
-            ENDLOOP.
+        LOOP AT _data-&gt;messages ASSIGNING &lt;m&gt;.
+          LOOP AT t_t100 ASSIGNING &lt;t&gt;
+                  WHERE msgnr = &lt;m&gt;-msgnr.
+            CLEAR _text.
+            _text-langu = &lt;t&gt;-sprsl.
+            _text-short_txt = &lt;t&gt;-text.
+            INSERT _text INTO TABLE &lt;m&gt;-texts.
           ENDLOOP.
 
-          object-&gt;set_component( component ).
-          CLEAR _data-&gt;a0_maindata-arbgb.
-          object-&gt;raw = _data.
-        WHEN OTHERS.
-          CLEAR object.
-* Type &apos;&amp;TYPE&amp;&apos; is not supported by this connector &apos;&amp;CONNCLASS&amp;&apos;
-          RAISE EXCEPTION TYPE zaplink_cx_connector
-            EXPORTING
-              textid = zaplink_cx_connector=&gt;type_not_supported
-              type   = object-&gt;type
-              connclass = &apos;ZAPLINK_MESSAGE&apos;.
-      ENDCASE.
+          CONCATENATE _name &lt;m&gt;-msgnr INTO _key.
+          LOOP AT t_docs ASSIGNING &lt;l&gt;
+                  WHERE object = _key.
 
-    CATCH zaplink_cx_connector INTO o_mycx.
-      RAISE EXCEPTION o_mycx.
-    CATCH zaplink_cx INTO o_cx.
-      mac_cascade_raise o_mycx o_cx.
-  ENDTRY.
-</SOURCE>
+            IF &lt;m&gt;-application IS INITIAL.
+              &lt;m&gt;-application = &lt;l&gt;-application.
+            ELSEIF &lt;m&gt;-application &lt;&gt; &lt;l&gt;-application.
+              RAISE EXCEPTION TYPE zaplink_cx_connector.
+            ENDIF.
+
+            IF &lt;m&gt;-typ IS INITIAL.
+              &lt;m&gt;-typ = &lt;l&gt;-typ.
+            ELSEIF &lt;m&gt;-typ &lt;&gt; &lt;l&gt;-typ.
+              RAISE EXCEPTION TYPE zaplink_cx_connector.
+            ENDIF.
+
+            IF &lt;m&gt;-dokform IS INITIAL.
+              &lt;m&gt;-dokform = &lt;l&gt;-dokform.
+            ELSEIF &lt;m&gt;-dokform &lt;&gt; &lt;l&gt;-dokform.
+              RAISE EXCEPTION TYPE zaplink_cx_connector.
+            ENDIF.
+
+            IF &lt;m&gt;-dokstyle IS INITIAL.
+              &lt;m&gt;-dokstyle = &lt;l&gt;-dokstyle.
+            ELSEIF &lt;m&gt;-dokstyle &lt;&gt; &lt;l&gt;-dokstyle.
+              RAISE EXCEPTION TYPE zaplink_cx_connector.
+            ENDIF.
+
+            LOOP AT &lt;l&gt;-texts ASSIGNING &lt;lt&gt;.
+
+              READ TABLE &lt;m&gt;-texts ASSIGNING &lt;mt&gt;
+                   WITH TABLE KEY langu = &lt;lt&gt;-tdspras.
+              IF sy-subrc = 0.
+                &lt;mt&gt;-long_txt = &lt;lt&gt;.
+                CLEAR &lt;mt&gt;-long_txt-tdspras.
+              ELSE.
+                CLEAR _text.
+                _text-long_txt = &lt;lt&gt;.
+                CLEAR _text-long_txt-tdspras.
+                INSERT _text INTO TABLE &lt;m&gt;-texts.
+              ENDIF.
+            ENDLOOP.
+
+          ENDLOOP.
+        ENDLOOP.
+
+        object-&gt;set_component( component ).
+        CLEAR _data-&gt;a0_maindata-arbgb.
+        object-&gt;raw = _data.
+      WHEN OTHERS.
+        CLEAR object.
+        mac_raise_type_not_supported &apos;ZAPLINK_MESSAGE&apos; d_type.
+    ENDCASE.
+    object-&gt;update_connector_data( me ).                    &quot; Issue 66
+    mac_def_catch zaplink_cx_connector.
+  ENDTRY.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~WRITE_TO_SAP">
-     <SOURCE>
+     <SOURCE>`
   DATA _data TYPE to_data.
   DATA _comp TYPE to_component.
   DATA _name TYPE td_compname.
@@ -568,8 +560,7 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
       RAISE EXCEPTION o_mycx.
     CATCH zaplink_cx INTO o_cx.
       mac_cascade_raise o_mycx o_cx.
-  ENDTRY.
-</SOURCE>
+  ENDTRY.</SOURCE>
     </ITEM>
    </REDEFINITIONS>
    <TYPEGROUPS>
@@ -586,7 +577,7 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
       <ITEM LANGU="E" DESCRIPT="Commun Data for Class &amp; Interface"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TS_PROG_ATTR" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100203" TYPTYPE="4" SRCROW1="6 " SRCCOLUMN1="4 " SRCROW2="9 " SRCCOLUMN2="22 " R3RELEASE="700" TYPESRC_LENG="100 ">
+    <ITEM CMPNAME="TS_PROG_ATTR" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100203" TYPTYPE="4" R3RELEASE="700">
      BEGIN OF ts_prog_attr.
   INCLUDE TYPE ts_base_attributs AS base.
   TYPES:
@@ -600,33 +591,48 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
       <ITEM LANGU="E" DESCRIPT="ABAP Source code"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TS_TEXT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="12 " SRCCOLUMN1="4 " SRCROW2="16 " SRCCOLUMN2="17 " R3RELEASE="700" TYPESRC_LENG="128 ">begin of ts_text,
+    <ITEM CMPNAME="TS_TEXT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" R3RELEASE="700">begin of ts_text,
       langu   type SPRAS,
       ENTRY	  type TEXTPOOLTX,
       LENGTH  type TEXTPOOLLN,
     end of ts_text</ITEM>
-    <ITEM CMPNAME="TS_TEXTPOOL" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="20 " SRCCOLUMN1="4 " SRCROW2="24 " SRCCOLUMN2="21 " R3RELEASE="700" TYPESRC_LENG="136 ">begin of ts_textpool,
+    <ITEM CMPNAME="TS_TEXTPOOL" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" R3RELEASE="700">begin of ts_textpool,
       ID    type  TEXTPOOLID,
       KEY	  type  TEXTPOOLKY,
       texts type  tt_texts,
     end of ts_textpool</ITEM>
-    <ITEM CMPNAME="TT_TEXTPOOLS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="26 " SRCCOLUMN1="4 " SRCROW2="26 " SRCCOLUMN2="71 " R3RELEASE="700" TYPESRC_LENG="68 ">
+    <ITEM CMPNAME="TT_TEXTPOOLS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" R3RELEASE="700">
      TT_TEXTPOOLs type SORTED TABLE OF ts_textpool WITH UNIQUE key ID KEY
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Table of textppool"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TT_TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="18 " SRCCOLUMN1="4 " SRCROW2="18 " SRCCOLUMN2="62 " R3RELEASE="700" TYPESRC_LENG="59 ">tt_texts type SORTED TABLE OF ts_text WITH UNIQUE KEY langu</ITEM>
+    <ITEM CMPNAME="TT_TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091118" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" R3RELEASE="700">tt_texts type SORTED TABLE OF ts_text WITH UNIQUE KEY langu</ITEM>
    </TYPES>
   </RAW>
  </ZL_OBJECT>
- <ZL_OBJECT CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_MSAG_DATA" TYPE="CLAS" VERSION="1.01">
+ <ZL_OBJECT CHECKSUM="D9B19C4DD0A1199E86C15EB31B2F17AE" CODE_SIGNATURE="B54926C97BC34AE771E78892936794E6" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_MSAG_DATA" TYPE="CLAS" VERSION="1.01">
+  <DEPENDENCIES>
+   <ITEM TYPE="CLAS" NAME="ZAPLINK_DOCUMENTATION"/>
+  </DEPENDENCIES>
   <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
   <RAW>
-   <A0_MAINDATA VERSION="1" LANGU="E" UUID="E21B0D4BB803934FE1000000AC120173" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
+   <A0_MAINDATA VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
     <INHERITANCE REFCLSNAME="ZAPLINK_RAW_DATA" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100129"/>
     <TEXTS>
-     <ITEM LANGU="E" DESCRIPT="Commun Data for Class &amp; Interface"/>
+     <ITEM LANGU="E" DESCRIPT="Commun Data for Class &amp; Interface">
+      <DOCUMENTATION TDFRELES="700" TDLINESIZE="072">U1&amp;FUNCTIONALITY&amp;
+ASIs part of connector : ZAPLINK_MESSAGE
+ASDefine XML structure of a message class
+U1&amp;RELATIONS&amp;
+AS
+U1&amp;EXAMPLE&amp;
+AS
+U1&amp;HINTS&amp;
+AS
+U1&amp;FURTHER_SOURCES_OF_INF&amp;
+AS</DOCUMENTATION>
+     </ITEM>
     </TEXTS>
    </A0_MAINDATA>
    <ALIASES>
@@ -638,17 +644,16 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
       <ITEM LANGU="E" DESCRIPT="Program main data"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="MESSAGES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20091127" TYPTYPE="1" TYPE="TT_MSGTEXTS">
+    <ITEM CMPNAME="MESSAGES" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100225" TYPTYPE="1" TYPE="TT_MSGTEXTS">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="ABAP Source code"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20091127" TYPTYPE="1" TYPE="TT_TEXTS">
+    <ITEM CMPNAME="TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100225" TYPTYPE="1" TYPE="TT_TEXTS">
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Textpool table"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="_DOCUMENTATION_OFF" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20091127" TYPTYPE="1" TYPE="ZAPLINK_DOCUMENTATION=&gt;TT_DOCS"/>
    </ATTRIBUTS>
    <DEFERRED>
     <CLASSES>
@@ -663,33 +668,62 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
     <ITEM REFCLSNAME="ZAPLINK_DATATYPES" VERSION="1" EXPOSURE="2" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20091127" RELTYPE="1"/>
    </INTERFACES>
    <LOCAL>
-    <TYPES>
+    <TYPES>`
 *&quot;* USE THIS SOURCE FILE FOR ANY TYPE DECLARATIONS (CLASS
 *&quot;* definitions, interfaces or data types) you need for method
-*&quot;* IMPLEMENTATION OR PRIVATE METHOD&apos;S SIGNATURE</TYPES>
-    <IMPLEMENTATIONS>
+*&quot;* implementation or private method&apos;s signature</TYPES>
+    <IMPLEMENTATIONS>`
 *&quot;* LOCAL CLASS IMPLEMENTATION FOR PUBLIC CLASS
 *&quot;* use this source file for the implementation part of
-*&quot;* LOCAL HELPER CLASSES</IMPLEMENTATIONS>
-    <MACROS>
+*&quot;* local helper classes</IMPLEMENTATIONS>
+    <MACROS>`
 *&quot;* USE THIS SOURCE FILE FOR ANY MACRO DEFINITIONS YOU NEED
-*&quot;* IN THE IMPLEMENTATION PART OF THE CLASS</MACROS>
+*&quot;* in the implementation part of the class</MACROS>
    </LOCAL>
+   <METHODS>
+    <ITEM CMPNAME="ANONYMIZE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100422" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Anonymized component data"/>
+     </TEXTS>
+     <SOURCE>`
+  DATA s_msg LIKE LINE OF messages.
+
+  CLEAR:
+*    a0_maindata-respuser,    &quot; Person respons.
+    a0_maindata-lastuser,
+    a0_maindata-ldate,
+    a0_maindata-ltime.
+
+  MODIFY messages FROM s_msg TRANSPORTING name datum
+         WHERE NOT msgnr IS INITIAL OR msgnr IS INITIAL.</SOURCE>
+    </ITEM>
+    <ITEM CMPNAME="UNANONYMIZE" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100422" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANGU="E" DESCRIPT="Unanonymized component data (set back default values)"/>
+     </TEXTS>
+     <SOURCE>`
+  DATA s_msg LIKE LINE OF messages.
+
+  IF a0_maindata-respuser IS INITIAL. a0_maindata-respuser = sy-uname. ENDIF.
+  s_msg-name = a0_maindata-respuser.
+  MODIFY messages FROM s_msg TRANSPORTING name WHERE name IS INITIAL.</SOURCE>
+    </ITEM>
+   </METHODS>
    <TYPEGROUPS>
     <ITEM TYPEGROUP="ABAP" VERSION="1" IMPLICIT="X"/>
    </TYPEGROUPS>
    <TYPES>
-    <ITEM CMPNAME="TS_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="19 " SRCCOLUMN1="4 " SRCROW2="22 " SRCCOLUMN2="23 " TYPESRC_LENG="86 ">
+    <ITEM CMPNAME="TS_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100422" TYPTYPE="4">
      BEGIN OF ts_maindata.
     INCLUDE TYPE t100a.
     TYPES:
       END OF ts_maindata
-
+`
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Program main data"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TS_MSGTEXT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="33 " SRCCOLUMN1="4 " SRCROW2="46 " SRCCOLUMN2="24 " TYPESRC_LENG="449 ">BEGIN OF ts_msgtext,
+    <ITEM CMPNAME="TS_MSGTEXT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100422" TYPTYPE="4">BEGIN OF ts_msgtext,
           msgnr	      TYPE msgnr,
 * T100U
           name        TYPE syuname,
@@ -703,24 +737,24 @@ INCLUDE ZAPLINK_MACROS.</MACROS>
 * T100 &amp; documentation
           texts       TYPE tt_texts,
         END OF ts_msgtext
-</ITEM>
-    <ITEM CMPNAME="TS_TEXT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="24 " SRCCOLUMN1="4 " SRCROW2="29 " SRCCOLUMN2="21 " TYPESRC_LENG="157 ">
+`</ITEM>
+    <ITEM CMPNAME="TS_TEXT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100422" TYPTYPE="4">
      BEGIN OF ts_text,
 * T100T
           langu      TYPE spras,
           short_txt	 TYPE string,
           long_txt   TYPE ts_lang,
         END OF ts_text
-
+`
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Textpool text"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TT_MSGTEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="48 " SRCCOLUMN1="4 " SRCROW2="48 " SRCCOLUMN2="68 " TYPESRC_LENG="67 ">tt_msgtexts TYPE SORTED TABLE OF ts_msgtext WITH UNIQUE KEY msgnr
-</ITEM>
-    <ITEM CMPNAME="TT_TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4" SRCROW1="31 " SRCCOLUMN1="4 " SRCROW2="31 " SRCCOLUMN2="62 " TYPESRC_LENG="61 ">
+    <ITEM CMPNAME="TT_MSGTEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100218" TYPTYPE="4">tt_msgtexts TYPE SORTED TABLE OF ts_msgtext WITH UNIQUE KEY msgnr
+`</ITEM>
+    <ITEM CMPNAME="TT_TEXTS" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20091125" CHANGEDBY="TBENSIAL" CHANGEDON="20100422" TYPTYPE="4">
      tt_texts TYPE SORTED TABLE OF ts_text WITH UNIQUE KEY langu
-
+`
      <TEXTS>
       <ITEM LANGU="E" DESCRIPT="Textpool text Table"/>
      </TEXTS>
