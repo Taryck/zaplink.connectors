@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-16"?>
 <CONTAINER NAME="ZAPLINK_OS_COMMAND" VERSION="1.0" CLASS="ZAPLINK_CONTAINER">
- <ZL_OBJECT CHECKSUM="6E3229E6800E1B7865AECFD4D16B67EB" CODE_SIGNATURE="9DF9838442E98DEC8B1F3BBD59208955" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_EXCC_DATA" TYPE="CLAS" VERSION="1.01">
+ <ZL_OBJECT CHECKSUM="19FE1B8C280DBEB43C9AD0BB31F9603E" CODE_SIGNATURE="6DBD256CA650AD780F9EBA2CDB80EBEE" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_EXCC_DATA" TYPE="CLAS" VERSION="1.01">
   <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
   <RAW>
    <A0_MAINDATA VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" AUTHOR="TARYCK" CREATEDON="20100123" CHANGEDBY="TBENSIAL" CHANGEDON="20100129" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
     <INHERITANCE REFCLSNAME="ZAPLINK_RAW_DATA" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100129"/>
     <TEXTS>
-     <ITEM LANGU="E" DESCRIPT="Commun Data for Class &amp; Interface">
-      <DOCUMENTATION TDFRELES="700" TDLINESIZE="072">U1&amp;FUNCTIONALITY&amp;
+     <ITEM LANG="E" TEXT="Commun Data for Class &amp; Interface">U1&amp;FUNCTIONALITY&amp;
 ASIs part of connector : ZAPLINK_OS_COMMAND
 ASDefine XML structure of a OS external command
 U1&amp;RELATIONS&amp;
@@ -17,8 +16,13 @@ AS
 U1&amp;HINTS&amp;
 AS
 U1&amp;FURTHER_SOURCES_OF_INF&amp;
-AS</DOCUMENTATION>
-     </ITEM>
+AS
+U1Memories
+ASThis application is dedicated to the memories of :
+B2My father : Lamri BENSIALI (1940-2004) without whom I never started
+  programming
+B2My uncle : Jacky BEDU (1934-2009) who died during the completion of this
+  application</ITEM>
     </TEXTS>
    </A0_MAINDATA>
    <ALIASES>
@@ -27,7 +31,7 @@ AS</DOCUMENTATION>
    <ATTRIBUTS>
     <ITEM CMPNAME="A0_MAINDATA" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100125" TYPTYPE="1" TYPE="TS_MAINDATA" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="Program main data"/>
+      <ITEM LANG="E" TEXT="Program main data"/>
      </TEXTS>
     </ITEM>
    </ATTRIBUTS>
@@ -61,23 +65,22 @@ AS</DOCUMENTATION>
     TYPES:
       END OF ts_maindata
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="Program main data"/>
+      <ITEM LANG="E" TEXT="Program main data"/>
      </TEXTS>
     </ITEM>
    </TYPES>
   </RAW>
  </ZL_OBJECT>
- <ZL_OBJECT CHECKSUM="48113FBB3751ABC3C2BA045146345DA1" CODE_SIGNATURE="4A5D4F59588065E27F6991EB5A235DAA" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_OS_COMMAND" TYPE="CLAS" VERSION="1.01">
+ <ZL_OBJECT CHECKSUM="6044307E1930F8A22269FE059E385350" CODE_SIGNATURE="159120BF6F1A968D5328585A6735D9B2" CONNECTOR="39AC0A4B07A5A05AE1000000AC120173" NAME="ZAPLINK_OS_COMMAND" TYPE="CLAS" VERSION="1.01">
   <DEPENDENCIES>
    <ITEM TYPE="CLAS" NAME="ZAPLINK_CONNECTOR_"/>
   </DEPENDENCIES>
   <DIRECTORY SRCSYSTEM="OD4" AUTHOR="TBENSIAL" DEVCLASS="ZAPLINK-CONNECTORS-MAIN" MASTERLANG="E"/>
   <RAW>
    <A0_MAINDATA VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" AUTHOR="TARYCK" CREATEDON="20100123" CLSCCINCL="X" FIXPT="X" UNICODE="X" R3RELEASE="700">
-    <INHERITANCE REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100125"/>
+    <INHERITANCE REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" STATE="1" AUTHOR="TBENSIAL" CREATEDON="20100125" CHANGEDBY="TBENSIAL" CHANGEDON="20100519"/>
     <TEXTS>
-     <ITEM LANGU="E" DESCRIPT="Data for Class">
-      <DOCUMENTATION TDFRELES="700" TDLRELES="700" TDLINESIZE="072">U1&amp;FUNCTIONALITY&amp;
+     <ITEM LANG="E" TEXT="Data for Class">U1&amp;FUNCTIONALITY&amp;
 ASConnector for :
 AS,,- EXCC : External OS Command
 U1&amp;RELATIONS&amp;
@@ -87,44 +90,49 @@ AS
 U1&amp;HINTS&amp;
 AS
 U1&amp;FURTHER_SOURCES_OF_INF&amp;
-AShttps://code.google.com/p/zaplink/wiki/Connector</DOCUMENTATION>
-     </ITEM>
+AShttps://code.google.com/p/zaplink/wiki/Connector
+U1Memories
+ASThis application is dedicated to the memories of :
+B2My father : Lamri BENSIALI (1940-2004) without whom I never started
+  programming
+B2My uncle : Jacky BEDU (1934-2009) who died during the completion of this
+  application</ITEM>
     </TEXTS>
    </A0_MAINDATA>
    <ATTRIBUTS>
     <ITEM CMPNAME="BALLOG_SUBOBJECT" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="7 " AUTHOR="TBENSIAL" CREATEDON="20100203" ATTDECLTYP="2" ATTVALUE="&apos;CNX_OS_COMMAND&apos;" TYPTYPE="1" TYPE="BALSUBOBJ" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="Application Log: Subobject"/>
+      <ITEM LANG="E" TEXT="Application Log: Subobject"/>
      </TEXTS>
     </ITEM>
     <ITEM CMPNAME="C_MSG_ID" VERSION="1" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100125" ATTDECLTYP="2" ATTVALUE="&apos;NA&apos;" TYPTYPE="1" TYPE="TD_DOC_ID" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="Document class for message"/>
+      <ITEM LANG="E" TEXT="Document class for message"/>
      </TEXTS>
     </ITEM>
     <ITEM CMPNAME="FIELD_SEPARATOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="6 " AUTHOR="TBENSIAL" CREATEDON="20100125" ATTDECLTYP="2" ATTVALUE="&apos;~&apos;" TYPTYPE="1" TYPE="ABAP_CHAR1" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="field Separator in component key"/>
+      <ITEM LANG="E" TEXT="field Separator in component key"/>
      </TEXTS>
     </ITEM>
     <ITEM CMPNAME="R_DOC_ID" VERSION="1" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100125" ATTDECLTYP="1" TYPTYPE="1" TYPE="TR_DOCID" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="Documentation Object"/>
+      <ITEM LANG="E" TEXT="Documentation Object"/>
      </TEXTS>
     </ITEM>
     <ITEM CMPNAME="ST_OS_CMD" VERSION="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100125" ATTDECLTYP="2" ATTVALUE="&apos;EXCC&apos;" TYPTYPE="1" TYPE="TD_COMPTYPE" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="Transport category : ABAP Object"/>
+      <ITEM LANG="E" TEXT="Transport category : ABAP Object"/>
      </TEXTS>
     </ITEM>
     <ITEM CMPNAME="_UUID" VERSION="1" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100125" ATTDECLTYP="2" ATTVALUE="&apos;DF0813D1BA8C0EF1BEAE000C291B645B&apos;" TYPTYPE="1" TYPE="TD_CONNUUID" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="UUID for connector Message class"/>
+      <ITEM LANG="E" TEXT="UUID for connector Message class"/>
      </TEXTS>
     </ITEM>
     <ITEM CMPNAME="_VER" VERSION="1" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100125" ATTDECLTYP="2" ATTVALUE="&apos;1.0&apos;" TYPTYPE="1" TYPE="TD_CONNVER" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="Connector Version"/>
+      <ITEM LANG="E" TEXT="Connector Version"/>
      </TEXTS>
     </ITEM>
    </ATTRIBUTS>
@@ -144,9 +152,41 @@ AShttps://code.google.com/p/zaplink/wiki/Connector</DOCUMENTATION>
 INCLUDE zaplink_macros.</MACROS>
    </LOCAL>
    <METHODS>
+    <ITEM CMPNAME="CALC_SIGNATURE" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100519" CHANGEDBY="TBENSIAL" CHANGEDON="20100519" MTDDECLTYP="1" MTDNEWEXC="X" R3RELEASE="700">
+     <TEXTS>
+      <ITEM LANG="E" TEXT="Calculate code Signature"/>
+     </TEXTS>
+     <PARAMETERS>
+      <ITEM SCONAME="DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100519" TYPTYPE="1" TYPE="SXPGCOLIST">
+       <TEXTS>
+        <ITEM LANG="E" TEXT="Short description of a logical command"/>
+       </TEXTS>
+      </ITEM>
+      <ITEM SCONAME="RESULT" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100519" PARDECLTYP="3" TYPTYPE="1" TYPE="TD_CHECKSUM">
+       <TEXTS>
+        <ITEM LANG="E" TEXT="Source Code Signature (Checksum)"/>
+       </TEXTS>
+      </ITEM>
+     </PARAMETERS>
+     <EXCEPTIONS>
+      <ITEM SCONAME="ZAPLINK_CX_CONNECTOR" VERSION="1" LANGU="E" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100519">
+       <TEXTS>
+        <ITEM LANG="E" TEXT="ZAPlink ROOT Exception for Connectors"/>
+       </TEXTS>
+      </ITEM>
+     </EXCEPTIONS>
+     <SOURCE>`
+  DATA d_string TYPE string.
+
+  CLEAR: data-name, data-opsystem, data-addpar, data-sapcommand, data-permission, data-traceon.
+
+  d_string = data.
+  CONDENSE d_string.
+  result = zaplink_tools=&gt;calculate_md5_hash( d_string ).</SOURCE>
+    </ITEM>
     <ITEM CMPNAME="CLASS_CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100125" MTDTYPE="2" MTDDECLTYP="1" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="CLASS_CONSTRUCTOR"/>
+      <ITEM LANG="E" TEXT="CLASS_CONSTRUCTOR"/>
      </TEXTS>
      <SOURCE>`
 *table TDCLT
@@ -157,19 +197,19 @@ INCLUDE zaplink_macros.</MACROS>
   _id-sign = &apos;I&apos;. _id-option = &apos;EQ&apos;.
   _id-low = C_MSG_ID. APPEND _id TO r_doc_id.</SOURCE>
     </ITEM>
-    <ITEM CMPNAME="COMP_TO_KEY" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="3 " AUTHOR="TBENSIAL" CREATEDON="20100125" MTDDECLTYP="1" R3RELEASE="700">
+    <ITEM CMPNAME="COMP_TO_KEY" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100125" CHANGEDBY="TBENSIAL" CHANGEDON="20100519" MTDDECLTYP="1" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="Component name to OS Command key"/>
+      <ITEM LANG="E" TEXT="Component name to OS Command key"/>
      </TEXTS>
      <PARAMETERS>
       <ITEM SCONAME="DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100125" PARPASSTYP="1" TYPTYPE="1" TYPE="TD_COMPNAME">
        <TEXTS>
-        <ITEM LANGU="E" DESCRIPT="Component name"/>
+        <ITEM LANG="E" TEXT="Component name"/>
        </TEXTS>
       </ITEM>
       <ITEM SCONAME="RESULT" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100125" PARDECLTYP="3" TYPTYPE="1" TYPE="TS_OS_CMD_KEY">
        <TEXTS>
-        <ITEM LANGU="E" DESCRIPT="OS Command Key"/>
+        <ITEM LANG="E" TEXT="OS Command Key"/>
        </TEXTS>
       </ITEM>
      </PARAMETERS>
@@ -178,7 +218,7 @@ SPLIT data AT field_separator INTO result-name result-opsystem.</SOURCE>
     </ITEM>
     <ITEM CMPNAME="CONSTRUCTOR" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100125" MTDTYPE="2" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="CONSTRUCTOR"/>
+      <ITEM LANG="E" TEXT="CONSTRUCTOR"/>
      </TEXTS>
      <SOURCE>`
 DATA type LIKE LINE OF supported_types.
@@ -190,19 +230,19 @@ DATA type LIKE LINE OF supported_types.
   uuid = _uuid.
   version = _ver.</SOURCE>
     </ITEM>
-    <ITEM CMPNAME="KEY_TO_COMP" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="4 " AUTHOR="TBENSIAL" CREATEDON="20100125" MTDDECLTYP="1" R3RELEASE="700">
+    <ITEM CMPNAME="KEY_TO_COMP" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="5 " AUTHOR="TBENSIAL" CREATEDON="20100125" CHANGEDBY="TBENSIAL" CHANGEDON="20100519" MTDDECLTYP="1" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="OS Command key to Component name"/>
+      <ITEM LANG="E" TEXT="OS Command key to Component name"/>
      </TEXTS>
      <PARAMETERS>
       <ITEM SCONAME="DATA" VERSION="1" CMPTYPE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100125" TYPTYPE="1" TYPE="TS_OS_CMD_KEY">
        <TEXTS>
-        <ITEM LANGU="E" DESCRIPT="OS Command Key"/>
+        <ITEM LANG="E" TEXT="OS Command Key"/>
        </TEXTS>
       </ITEM>
       <ITEM SCONAME="RESULT" VERSION="1" CMPTYPE="1" EDITORDER="2 " AUTHOR="TBENSIAL" CREATEDON="20100125" PARDECLTYP="3" TYPTYPE="1" TYPE="TD_COMPNAME">
        <TEXTS>
-        <ITEM LANGU="E" DESCRIPT="Component name"/>
+        <ITEM LANG="E" TEXT="Component name"/>
        </TEXTS>
       </ITEM>
      </PARAMETERS>
@@ -211,6 +251,45 @@ CONCATENATE data-name field_separator data-opsystem INTO result.</SOURCE>
     </ITEM>
    </METHODS>
    <REDEFINITIONS>
+    <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CNX_EXT_CODE_SIGNATURE~GET_SIGNATURE">
+     <SOURCE>`
+  DATA d_name TYPE td_compname.
+  DATA d_type TYPE td_comptype.
+  DATA s_name TYPE ts_os_cmd_key.
+  data s_data type SXPGCOLIST.
+
+  TRY.
+    d_type = component-&gt;get_type( ).
+    CASE d_type.
+      WHEN st_os_cmd.
+        d_name = component-&gt;get_name( ).
+        s_name = comp_to_key( d_name ).
+
+* Main data
+        CALL FUNCTION &apos;SXPG_COMMAND_GET&apos;
+          EXPORTING
+            commandname             = s_name-name
+            operatingsystem         = s_name-opsystem
+*         TARGETSYSTEM            = &apos;*&apos;
+          IMPORTING
+            command                 = s_data
+          EXCEPTIONS
+            command_not_found       = 1
+            OTHERS                  = 2.
+        IF sy-subrc &lt;&gt; 0.
+          RAISE EXCEPTION TYPE zaplink_cx_connector
+             EXPORTING
+               textid = zaplink_cx_connector=&gt;not_found
+               name   = d_name
+               type   = st_os_cmd.
+        ENDIF.
+        result = calc_signature( s_data ).
+      WHEN OTHERS.
+        mac_raise_type_not_supported me-&gt;class_name d_type.
+    ENDCASE.
+    mac_def_catch zaplink_cx_connector.
+  ENDTRY.</SOURCE>
+    </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~CREATE_NEW_RAW">
      <SOURCE>`
   DATA o_data TYPE to_data.
@@ -222,7 +301,7 @@ CONCATENATE data-name field_separator data-opsystem INTO result.</SOURCE>
       object-&gt;raw ?= o_data.
     WHEN OTHERS.
       CLEAR object.
-      mac_raise_type_not_supported &apos;ZAPLINK_OS_COMMAND&apos; type.
+      mac_raise_type_not_supported me-&gt;class_name type.
   ENDCASE.</SOURCE>
     </ITEM>
     <ITEM REFCLSNAME="ZAPLINK_CONNECTOR_" VERSION="1" MTDNAME="ZAPLINK_CONNECTOR~DELETE_FROM_SAP">
@@ -375,7 +454,7 @@ CONCATENATE data-name field_separator data-opsystem INTO result.</SOURCE>
           ENDCASE.
         ENDIF.
       WHEN OTHERS.
-        mac_raise_type_not_supported &apos;ZAPLINK_OS_COMMAND&apos; d_type.
+        mac_raise_type_not_supported me-&gt;class_name d_type.
     ENDCASE.
     mac_def_catch zaplink_cx_connector.
   ENDTRY.
@@ -408,7 +487,7 @@ CONCATENATE data-name field_separator data-opsystem INTO result.</SOURCE>
           exists = me-&gt;exists-exists.
         ENDIF.
       WHEN OTHERS.
-        mac_raise_type_not_supported &apos;ZAPLINK_OS_COMMAND&apos; d_type.
+        mac_raise_type_not_supported me-&gt;class_name d_type.
     ENDCASE.
 
     mac_def_catch zaplink_cx_connector.
@@ -459,9 +538,10 @@ result = abap_false.
         CLEAR: o_data-&gt;a0_maindata-name,
                o_data-&gt;a0_maindata-opsystem.
         object-&gt;raw ?= o_data.
+        object-&gt;code_signature = calc_signature( o_data-&gt;a0_maindata ).
       WHEN OTHERS.
         CLEAR object.
-        mac_raise_type_not_supported &apos;ZAPLINK_OS_COMMAND&apos; d_type.
+        mac_raise_type_not_supported me-&gt;class_name d_type.
     ENDCASE.
     object-&gt;update_connector_data( me ).                    &quot; Issue 66
     mac_def_catch zaplink_cx_connector.
@@ -475,10 +555,12 @@ result = abap_false.
   DATA o_data  TYPE to_data.
   DATA o_comp  TYPE to_component.
 
-  d_type = object-&gt;type.
-  CASE d_type.
-    WHEN st_os_cmd.
-      o_data ?= object-&gt;raw.
+  TRY.
+    CREATE OBJECT components.                         &quot; Issue 92
+    d_type = object-&gt;type.
+    CASE d_type.
+      WHEN st_os_cmd.
+        o_data ?= object-&gt;raw.
 *      CALL FUNCTION &apos;RS_CORR_INSERT&apos;
 *           EXPORTING
 *                author              = sy-uname
@@ -516,61 +598,66 @@ result = abap_false.
 *      ENDIF.
 
 * Main data
-      d_name = object-&gt;get_name( ).
-      s_name = comp_to_key( d_name ).
-      o_data-&gt;a0_maindata-name = s_name-name.
-      o_data-&gt;a0_maindata-opsystem = s_name-opsystem.
-      CALL FUNCTION &apos;SXPG_COMMAND_INSERT&apos;
-        EXPORTING
-          command                      = o_data-&gt;a0_maindata
+        d_name = object-&gt;get_name( ).
+        s_name = comp_to_key( d_name ).
+        o_data-&gt;a0_maindata-name = s_name-name.
+        o_data-&gt;a0_maindata-opsystem = s_name-opsystem.
+        CALL FUNCTION &apos;SXPG_COMMAND_INSERT&apos;
+          EXPORTING
+            command                      = o_data-&gt;a0_maindata
 *         PUBLIC                       =
 *         DIALOG                       =
-        EXCEPTIONS
-          command_already_exists       = 1
-          no_permission                = 2
-          parameters_wrong             = 3
-          foreign_lock                 = 4
-          system_failure               = 5
-          OTHERS                       = 6.
-      IF sy-subrc &lt;&gt; 0.
-        IF sy-subrc &lt;&gt; 1.
-          o_mycx ?= zaplink_cx=&gt;create_from_mf_cx( funcname  = &apos;SXPG_COMMAND_INSERT&apos;
-                                                   subrc     = sy-subrc
-                                                   classname = &apos;ZAPLINK_CX_CONNECTOR&apos;
-*                                                   textid    = SYSTEM_ERROR
-                                                 ).
-          RAISE EXCEPTION o_mycx.
-        ENDIF.
-        CALL FUNCTION &apos;SXPG_COMMAND_MODIFY&apos;
-          EXPORTING
-            command                = o_data-&gt;a0_maindata
-*           DIALOG                 =
           EXCEPTIONS
-            no_permission          = 1
-            parameters_wrong       = 2
-            system_failure         = 3
-            foreign_lock           = 4
-            OTHERS                 = 5.
+            command_already_exists       = 1
+            no_permission                = 2
+            parameters_wrong             = 3
+            foreign_lock                 = 4
+            system_failure               = 5
+            OTHERS                       = 6.
         IF sy-subrc &lt;&gt; 0.
-          o_mycx ?= zaplink_cx=&gt;create_from_mf_cx( funcname  = &apos;SXPG_COMMAND_MODIFY&apos;
-                                                   subrc     = sy-subrc
-                                                   classname = &apos;ZAPLINK_CX_CONNECTOR&apos;
+          IF sy-subrc &lt;&gt; 1.
+            o_mycx ?= zaplink_cx=&gt;create_from_mf_cx( funcname  = &apos;SXPG_COMMAND_INSERT&apos;
+                                                     subrc     = sy-subrc
+                                                     classname = &apos;ZAPLINK_CX_CONNECTOR&apos;
 *                                                   textid    = SYSTEM_ERROR
-                                                 ).
-          RAISE EXCEPTION o_mycx.
+                                                   ).
+            RAISE EXCEPTION o_mycx.
+          ENDIF.
+          CALL FUNCTION &apos;SXPG_COMMAND_MODIFY&apos;
+            EXPORTING
+              command                = o_data-&gt;a0_maindata
+*           DIALOG                 =
+            EXCEPTIONS
+              no_permission          = 1
+              parameters_wrong       = 2
+              system_failure         = 3
+              foreign_lock           = 4
+              OTHERS                 = 5.
+          IF sy-subrc &lt;&gt; 0.
+            o_mycx ?= zaplink_cx=&gt;create_from_mf_cx( funcname  = &apos;SXPG_COMMAND_MODIFY&apos;
+                                                     subrc     = sy-subrc
+                                                     classname = &apos;ZAPLINK_CX_CONNECTOR&apos;
+*                                                   textid    = SYSTEM_ERROR
+                                                   ).
+            RAISE EXCEPTION o_mycx.
+          ENDIF.
         ENDIF.
-      ENDIF.
 
-      CREATE OBJECT o_comp.
-      o_comp-&gt;set_type( st_os_cmd ).
-      MOVE-CORRESPONDING o_data-&gt;a0_maindata TO s_name.
-      d_name = key_to_comp( s_name ).
-      o_comp-&gt;set_name( d_name ).
-      CREATE OBJECT components.
-      components-&gt;add( o_comp ).
-    WHEN OTHERS.
-      mac_raise_type_not_supported &apos;ZAPLINK_OS_COMMAND&apos; d_type.
-  ENDCASE.</SOURCE>
+*        CREATE OBJECT o_comp.
+*        o_comp-&gt;set_type( st_os_cmd ).
+*        MOVE-CORRESPONDING o_data-&gt;a0_maindata TO s_name.
+*        d_name = key_to_comp( s_name ).
+*        o_comp-&gt;set_name( d_name ).
+*        CREATE OBJECT components.
+*        components-&gt;add( o_comp ).
+      WHEN OTHERS.
+        mac_raise_type_not_supported me-&gt;class_name d_type.
+    ENDCASE.
+
+    o_comp = object-&gt;get_component( abap_true ).    &quot; Issue 92
+    TRY.  components-&gt;add( o_comp ).  CATCH zaplink_cx_list.  ENDTRY.    &quot; Issue 92
+    mac_def_catch zaplink_cx_connector.
+  ENDTRY.</SOURCE>
     </ITEM>
    </REDEFINITIONS>
    <TYPEGROUPS>
@@ -579,16 +666,16 @@ result = abap_false.
    <TYPES>
     <ITEM CMPNAME="TO_DATA" VERSION="1" EXPOSURE="1" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100125" TYPTYPE="3" TYPE="ZAPLINK_EXCC_DATA" R3RELEASE="700">
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="OS External Command Definition"/>
+      <ITEM LANG="E" TEXT="OS External Command Definition"/>
      </TEXTS>
     </ITEM>
-    <ITEM CMPNAME="TS_OS_CMD_KEY" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100125" CHANGEDBY="TBENSIAL" CHANGEDON="20100507" TYPTYPE="4" R3RELEASE="700">
+    <ITEM CMPNAME="TS_OS_CMD_KEY" VERSION="1" EXPOSURE="2" STATE="1" EDITORDER="1 " AUTHOR="TBENSIAL" CREATEDON="20100125" CHANGEDBY="TBENSIAL" CHANGEDON="20100519" TYPTYPE="4" R3RELEASE="700">
      begin of TS_OS_CMD_KEY,
       name     type SXPGCOSTAB-name,
       OPSYSTEM type SXPGCOSTAB-OPSYSTEM,
     end of TS_OS_CMD_KEY
      <TEXTS>
-      <ITEM LANGU="E" DESCRIPT="OS Command Key"/>
+      <ITEM LANG="E" TEXT="OS Command Key"/>
      </TEXTS>
     </ITEM>
    </TYPES>
